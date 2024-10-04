@@ -1,28 +1,16 @@
 ﻿using Microsoft.Win32;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using sapr.Models;
-using sapr.Properties;
 using sapr.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Path = System.Windows.Shapes.Path;
 
@@ -166,22 +154,28 @@ namespace sapr
             Window1 window = new Window1();
             if(window.ShowDialog() == true)
             {
-                //RectangleGeometry rectangle = new RectangleGeometry();
-                //rectangle.Rect = new Rect(0, 0, int.Parse(window.Radius), int.Parse(window.Lenght));
-
-                //rectangle.Height = int.Parse(window.Radius);
-                //rectangle.Width = int.Parse(window.Lenght);
-                //rectangle.StrokeThickness = 2;
-                //rectangle.Stroke = Brushes.Black;
                 if (SupportCount == 0)
                     Nodes.Add(new NodeModel(0, SupportCount + 1));
                 SupportCount++;
                 Nodes.Add(new NodeModel(0, SupportCount + 1));
-                shapes.Add(new SupportModelv2(0,0, new Rect(0, 0, int.Parse(window.Lenght), int.Parse(window.Radius)),SupportCount));
-              
+                shapes.Add(new SupportModelv2(0, 0, new Rect(0, 0, int.Parse(window.Lenght), int.Parse(window.Radius)), SupportCount));
+                ResizeCanvas(window);
             }
 
         }
+
+        private void ResizeCanvas(Window1 window)
+        {
+            if (int.Parse(window.Radius) > WorkSpase.ActualHeight)
+            {
+                WorkSpase.Height = int.Parse(window.Radius) + 60;
+            }
+            if (int.Parse(window.Lenght) > WorkSpase.ActualWidth)
+            {
+                WorkSpase.Width = int.Parse(window.Lenght) + 60;
+            }
+        }
+
         private void ReFillNodesTable(int id)
         {
             //МБ РАБОТАТ Не ПРАВИОЬНО """!!!!!
@@ -428,6 +422,12 @@ namespace sapr
 
                 path.Uid = Index.ToString();
                 Index++;
+               
+
+            }
+            foreach (UIElement uIElement in WorkSpase.Children)
+            {
+                Canvas.SetLeft(uIElement, Canvas.GetLeft(uIElement) - PlussesWihth / 2);
             }
         }
 
@@ -436,7 +436,7 @@ namespace sapr
             Path myShape = new Path();
             myShape = GenerateLeftorder(shapes[0].Model);
             Canvas.SetTop(myShape, WorkSpase.ActualHeight / 2 - myShape.MaxHeight / 2);
-            Canvas.SetLeft(myShape, WorkSpase.ActualWidth / 2 - 10);
+            Canvas.SetLeft(myShape, WorkSpase.ActualWidth / 2 - 10 - PlussesWihth / 2);
             myShape.Uid = "Left";
             WorkSpase.Children.Add(myShape);
         }
@@ -445,7 +445,7 @@ namespace sapr
             Path myShape = new Path();
             myShape = GenerateRighttorder(shapes[shapes.Count - 1].Model);
             Canvas.SetTop(myShape, WorkSpase.ActualHeight / 2 - myShape.MaxHeight / 2);
-            Canvas.SetLeft(myShape, WorkSpase.ActualWidth / 2 + PlussesWihth);
+            Canvas.SetLeft(myShape, WorkSpase.ActualWidth / 2 + PlussesWihth / 2);
             myShape.Uid = "Right";
             WorkSpase.Children.Add(myShape);
         }

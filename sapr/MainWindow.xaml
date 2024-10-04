@@ -82,9 +82,8 @@
                 </Grid>
                 </Border>
                 <Border BorderBrush="Black" BorderThickness="1" Margin="5,5">
-                    <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
-                    <Canvas DockPanel.Dock="Left" x:Name="WorkSpase">
-                    </Canvas>
+                    <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Auto">
+                        <Canvas DockPanel.Dock="Left" x:Name="WorkSpase" />
                     </ScrollViewer>
                 </Border>
             </DockPanel>
