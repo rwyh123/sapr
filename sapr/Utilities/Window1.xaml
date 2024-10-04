@@ -1,0 +1,31 @@
+﻿<Window x:Class="sapr.Utilities.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:sapr.Utilities"
+        mc:Ignorable="d"
+        Title="Enter parametr" Height="140" Width="175">
+    <DockPanel LastChildFill="False">
+        <Border BorderBrush="Black" BorderThickness="1" DockPanel.Dock="Top">
+        <Grid DockPanel.Dock="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,5">
+                <Label Content="Enter lenght:" Margin="5,0" Width="80"/>
+                <TextBox x:Name="lenght" Width="50" HorizontalAlignment="Left" Margin="5,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0,5">
+                <Label Content="Enter radius:" Margin="5,0" Width="80"/>
+                <TextBox x:Name="radius" Width="50" HorizontalAlignment="Left" Margin="5,0"/>
+            </StackPanel>
+        </Grid>
+        </Border>
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="Chancel" Content="Chancel" Margin="5,2" Click="Chancel_Click"/>
+            <Button x:Name="ok" Content="Ok!" Margin="5,2" Click="ok_Click"/>
+        </StackPanel>
+    </DockPanel>
+</Window>
