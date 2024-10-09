@@ -159,20 +159,32 @@ namespace sapr
                 SupportCount++;
                 Nodes.Add(new NodeModel(0, SupportCount + 1));
                 shapes.Add(new SupportModelv2(0, 0, new Rect(0, 0, int.Parse(window.Lenght), int.Parse(window.Radius)), SupportCount));
-                ResizeCanvas(window);
+                ResizeCanvas(int.Parse(window.Radius), int.Parse(window.Lenght));
+                scrollbar.UpdateLayout();
+                scrollbar.ScrollToVerticalOffset(scrollbar.ScrollableHeight / 2);
+                scrollbar.ScrollToHorizontalOffset(scrollbar.ScrollableWidth / 2);
+
             }
 
         }
 
-        private void ResizeCanvas(Window1 window)
+        private void ResizeCanvas(int radius, int lenght)
         {
-            if (int.Parse(window.Radius) > WorkSpase.ActualHeight)
-            {
-                WorkSpase.Height = int.Parse(window.Radius) + 60;
+            if (radius > WorkSpase.ActualHeight)
+            { 
+                if(double.IsNaN(WorkSpase.Height))
+                WorkSpase.Height = radius + 120;//вроде норм но проблемы с размерностью искать тут
+                else
+                WorkSpase.Height += radius - WorkSpase.ActualHeight;
+
             }
-            if (int.Parse(window.Lenght) > WorkSpase.ActualWidth)
+            if (lenght + WorkSpase.ActualWidth > WorkSpase.ActualWidth)
             {
-                WorkSpase.Width = int.Parse(window.Lenght) + 60;
+                if (double.IsNaN(WorkSpase.Width))
+                WorkSpase.Width = lenght + 100;
+                else
+                WorkSpase.Width += lenght;
+
             }
         }
 
@@ -499,6 +511,15 @@ namespace sapr
             if (SupportCount == 0)
             {
                 Nodes.Clear();
+            }else if(SupportCount == 1)
+            {
+                WorkSpase.Height -= supportModel.Model.Height - 120;
+                WorkSpase.Width -= supportModel.Model.Width - 100;
+            }
+            else
+            {
+                WorkSpase.Height -= supportModel.Model.Height;
+                WorkSpase.Width -= supportModel.Model.Width;
             }
         }
 
@@ -527,7 +548,10 @@ namespace sapr
                 }
                 else
                 {
-                    shapes.Add(System.Text.Json.JsonSerializer.Deserialize<SupportModelv2>(elm));
+                    SupportModelv2 supportModelv2 = new SupportModelv2();
+                    supportModelv2 = System.Text.Json.JsonSerializer.Deserialize<SupportModelv2>(elm);
+                    shapes.Add(supportModelv2);
+                    ResizeCanvas((int)supportModelv2.Model.Height, (int)supportModelv2.Model.Width);
                     SupportCount++;
                 }
             }
