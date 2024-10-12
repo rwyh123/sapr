@@ -3,11 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:v="clr-namespace:sapr.Views"
         xmlns:local="clr-namespace:sapr"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" >
 
-
+    
 
     <TabControl>
         <TabItem Header="PreProcessor">
@@ -40,9 +41,9 @@
                                     </Button>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                    <CheckBox Content="Smth left" Margin="10,0" Checked="LeftCheckBox_Checked" Unchecked="LeftCheckBox_Unchecked">
+                                        <CheckBox Content="Smth left" Margin="10,0" Checked="LeftCheckBox_Checked" Unchecked="LeftCheckBox_Unchecked" IsChecked="{Binding LeftSmth}">
                                     </CheckBox>
-                                    <CheckBox Content="Smth right" Checked="RightCheckBox_Checked" Unchecked="RightCheckBox_Unchecked">
+                                        <CheckBox Content="Smth right" Checked="RightCheckBox_Checked" Unchecked="RightCheckBox_Unchecked" IsChecked="{Binding RightSmth}">
                                     </CheckBox>
                                 </StackPanel>
                             </StackPanel>
@@ -76,9 +77,20 @@
                                     </DataGrid.Columns>
                                 </DataGrid>
                             </ScrollViewer>
-
-                        </Border>
-                    </Grid>
+                            </Border>
+                            <Border Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="5,5">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Content="E power"/>
+                                    <TextBox Grid.Row="1" Text="{Binding E,Mode=TwoWay}" FontSize="50"/>
+                                    <Button Grid.Row="2" Content="click me" Click="Button_Click_2"/>
+                                </Grid>
+                                </Border>
+                        </Grid>
                 </Grid>
                 </Border>
                 <Border BorderBrush="Black" BorderThickness="1" Margin="5,5">
@@ -89,10 +101,10 @@
             </DockPanel>
         </TabItem>
         <TabItem Header="Processor">
-
+            <v:ProccesorView/>
         </TabItem>
         <TabItem Header="PostProcessor">
-
+    
         </TabItem>
     </TabControl>
 </Window>

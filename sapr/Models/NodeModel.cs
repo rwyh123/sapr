@@ -9,9 +9,9 @@ namespace sapr.Models
 {
     public class NodeModel
     {
-		private int _poPower;
+		private double _poPower;
 
-		public int PoPower
+		public double PoPower
 		{
 			get { return _poPower; }
 			set { _poPower = value; }

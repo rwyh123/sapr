@@ -1,11 +1,13 @@
 ﻿using Microsoft.Win32;
 using sapr.Models;
+using sapr.Stores;
 using sapr.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Windows;
@@ -20,12 +22,29 @@ namespace sapr
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
     /// ПОПРОБОВАТЬ ЦЕНТРИРОВАТЬ ЗА СЧЕТ ТОГО ЧТО Я УВЕЛИЧУ КАНВАЧ В ПОЛОРА РАЗА 
+    /// че то там с опопрами храить в полях мб
     public partial class MainWindow : Window
     {
-        private ObservableCollection<SupportModelv2> shapes = new ObservableCollection<SupportModelv2>();
+        public ObservableCollection<SupportModelv2> shapes = new ObservableCollection<SupportModelv2>();
         private ObservableCollection<NodeModel> Nodes = new ObservableCollection<NodeModel>();
         private int SupportCount = 0;
         private int PlussesWihth = 0;
+        private int e;
+        private SuportStore store = SuportStore.Instance;
+        private SmthStore smthStore = SmthStore.Instance;
+        private NodesStore nodesStore = NodesStore.Instance;
+        private EPowerStore ePowerStore = EPowerStore.Instance;
+        private bool leftSmth;
+        private bool rightSmth;
+
+        public int E
+        {
+            get { return e; }
+            set { e = value; }
+        }
+
+        public bool LeftSmth { get => leftSmth; set => leftSmth = value; }
+        public bool RightSmth { get => rightSmth; set => rightSmth = value; }
 
         public MainWindow()
         {
@@ -37,6 +56,8 @@ namespace sapr
             shapes.CollectionChanged += Draw;
             Nodes.CollectionChanged += Draw;
             this.WorkSpase.SizeChanged += Draw;
+            DataContext = this;
+            E = 1;
 
         }
         private Path GenerateLeftorder(Rect rect)
@@ -464,6 +485,7 @@ namespace sapr
 
         private void RemoveElement(string RemoveUID)
         {
+            //сделать что индексы опор переписываются
             List<UIElement> itemstoremove = new List<UIElement>();
             foreach (UIElement ui in WorkSpase.Children)
             {
@@ -587,6 +609,20 @@ namespace sapr
                 File.WriteAllLines(dialog.FileName, JsonNodes);
                 File.AppendAllLines(dialog.FileName, JsonShapes);
             }
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            store.SetUserData(shapes);
+            nodesStore.SetUserData(Nodes);
+            int x = 0;
+            if (LeftSmth)
+                x = 1;
+            int y = 0;
+            if (RightSmth)
+                y = 1;
+            smthStore.SetUserData(new Point(x, y));
+            ePowerStore.SetUserData(E);
         }
     }
     

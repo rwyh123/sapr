@@ -36,3 +36,11 @@ C:\Users\synok\source\repos\sapr\sapr\bin\Debug\System.ValueTuple.xml
 C:\Users\synok\source\repos\sapr\sapr\obj\Debug\sapr.csproj.Up2Date
 C:\Users\synok\source\repos\sapr\sapr\bin\Debug\Newtonsoft.Json.dll
 C:\Users\synok\source\repos\sapr\sapr\bin\Debug\Newtonsoft.Json.xml
+C:\Users\synok\source\repos\sapr\sapr\obj\Debug\Views\ProccesorView.g.cs
+C:\Users\synok\source\repos\sapr\sapr\obj\Debug\Views\ProccesorView.baml
+C:\Users\synok\source\repos\sapr\sapr\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\synok\source\repos\sapr\sapr\bin\Debug\CommunityToolkit.Mvvm.dll
+C:\Users\synok\source\repos\sapr\sapr\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\synok\source\repos\sapr\sapr\bin\Debug\CommunityToolkit.Mvvm.pdb
+C:\Users\synok\source\repos\sapr\sapr\bin\Debug\CommunityToolkit.Mvvm.xml
+C:\Users\synok\source\repos\sapr\sapr\obj\Debug\sapr.GeneratedMSBuildEditorConfig.editorconfig

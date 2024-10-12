@@ -19,10 +19,10 @@ namespace sapr.Models
             set { uid = value; }
         }
 
-        private int prPower;
+        private double prPower;
         private Rect model;
 
-        public int PrPower { get => prPower; set => prPower = value; }
+        public double PrPower { get => prPower; set => prPower = value; }
         public Rect Model { get => model; set => model = value; }
 
         
