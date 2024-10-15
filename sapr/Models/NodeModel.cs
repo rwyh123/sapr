@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,14 +8,19 @@ using System.Windows.Shapes;
 
 namespace sapr.Models
 {
-    public class NodeModel
+    public class NodeModel : ModelBase
     {
-		private double _poPower;
+        private double _poPower;
 
 		public double PoPower
 		{
 			get { return _poPower; }
-			set { _poPower = value; }
+			set
+			{
+				_poPower = value;
+				OnPropertyChanged(nameof(PoPower));
+
+            }
 		}
 
 		private int _nodeNumber;

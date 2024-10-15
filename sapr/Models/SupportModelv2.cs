@@ -9,7 +9,7 @@ using System.Windows.Shapes;
 
 namespace sapr.Models
 {
-    public class SupportModelv2
+    public class SupportModelv2 : ModelBase
     {
         private int uid;
 
@@ -22,7 +22,15 @@ namespace sapr.Models
         private double prPower;
         private Rect model;
 
-        public double PrPower { get => prPower; set => prPower = value; }
+        public double PrPower
+        { 
+            get => prPower;
+            set
+            {
+                prPower = value;
+                OnPropertyChanged(nameof(PrPower));
+            }
+        }
         public Rect Model { get => model; set => model = value; }
 
         

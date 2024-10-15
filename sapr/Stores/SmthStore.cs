@@ -14,13 +14,13 @@ namespace sapr.Stores
         private static SmthStore instance;
 
         // Приватное поле для хранения пользовательских данных
-        private Point userData;
+        private bool LeftSup;
+        private bool RightSup;
 
         // Приватный конструктор
         private SmthStore()
         {
             // Инициализация по умолчанию
-            userData = new Point();
         }
 
         // Публичный статический метод для доступа к единственному экземпляру
@@ -37,15 +37,21 @@ namespace sapr.Stores
         }
 
         // Метод для установки пользовательских данных
-        public void SetUserData(Point Point)
+        public void SetUserData(bool left,bool right)
         {
-            userData = Point;
+            LeftSup = left;
+            RightSup = right;
         }
 
         // Метод для получения пользовательских данных
         public Point GetUserData()
         {
-            return userData;
+            Point point = new Point(0,0);
+            if (LeftSup)
+                point.X = 1;
+            if (RightSup)
+                point.Y = 1;
+            return point;
         }
     }
 }

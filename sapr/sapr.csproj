@@ -95,13 +95,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Command\CommandBase.cs" />
+    <Compile Include="Command\PreProcessorCommands\AddSupportCommand.cs" />
+    <Compile Include="Command\PreProcessorCommands\CalculateCommand.cs" />
+    <Compile Include="Command\PreProcessorCommands\LoadCommand.cs" />
+    <Compile Include="Command\PreProcessorCommands\PreProcessorComandBase.cs" />
+    <Compile Include="Command\PreProcessorCommands\RemoveSupportCommand.cs" />
+    <Compile Include="Command\PreProcessorCommands\SaveCommand.cs" />
     <Compile Include="Command\SetTextCommand.cs" />
+    <Compile Include="Models\ModelBase.cs" />
     <Compile Include="Models\NodeModel.cs" />
     <Compile Include="Models\SupportModelv2.cs" />
     <Compile Include="Stores\EPowerStore.cs" />
     <Compile Include="Stores\NodesStore.cs" />
     <Compile Include="Stores\SmthStore.cs" />
     <Compile Include="Stores\SuportStore.cs" />
+    <Compile Include="Utilities\MyPoint.cs" />
     <Compile Include="ViewModels\PreProcessorViewModel.cs" />
     <Compile Include="ViewModels\ProcecssorViewModel.cs" />
     <Compile Include="Utilities\TryParseClass.cs" />
@@ -109,6 +118,9 @@
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="Views\PreProcessorView.xaml.cs">
+      <DependentUpon>PreProcessorView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ProccesorView.xaml.cs">
       <DependentUpon>ProccesorView.xaml</DependentUpon>
     </Compile>
@@ -125,6 +137,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Utilities\Window1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PreProcessorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

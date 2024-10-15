@@ -30,6 +30,15 @@
             <Border BorderThickness="1">
                 <TextBlock Text="{Binding MyTextD}" Width="100"/>
             </Border>
+            <Border BorderThickness="1">
+                <TextBlock Text="{Binding MyTextNX}" Width="100"/>
+            </Border>
+            <Border BorderThickness="1">
+                <TextBlock Text="{Binding MyTextDX}" Width="100"/>
+            </Border>
+            <Border BorderThickness="1">
+                <TextBlock Text="{Binding MyTextUX}" Width="100"/>
+            </Border>
         </StackPanel>
         <Button Grid.Row="1" Content="123" Command="{Binding setText}"/>
     </Grid>

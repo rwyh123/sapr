@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\synok\source\repos\sapr\sapr\App.xaml
-3418863873
+4-1407878553
 
-18409350795
+28-1743090719
 28663376058
-MainWindow.xaml;Utilities\Window1.xaml;Views\ProccesorView.xaml;
+MainWindow.xaml;Utilities\Window1.xaml;Views\PreProcessorView.xaml;Views\ProccesorView.xaml;
 
 False
 

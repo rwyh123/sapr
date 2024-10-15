@@ -44,3 +44,5 @@ C:\Users\synok\source\repos\sapr\sapr\bin\Debug\System.ComponentModel.Annotation
 C:\Users\synok\source\repos\sapr\sapr\bin\Debug\CommunityToolkit.Mvvm.pdb
 C:\Users\synok\source\repos\sapr\sapr\bin\Debug\CommunityToolkit.Mvvm.xml
 C:\Users\synok\source\repos\sapr\sapr\obj\Debug\sapr.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\synok\source\repos\sapr\sapr\obj\Debug\Views\PreProcessorView.g.cs
+C:\Users\synok\source\repos\sapr\sapr\obj\Debug\Views\PreProcessorView.baml

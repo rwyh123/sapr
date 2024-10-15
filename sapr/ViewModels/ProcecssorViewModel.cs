@@ -17,15 +17,49 @@ namespace sapr.ViewModels
 {
     public class ProcecssorViewModel : ViewModelBase
     {
-        public List<List<double>> MatrixA;
+        private List<List<double>> matrixA;
         public List<double> MatrixB;
         public List<double> VactorQ;
+        public Dictionary<String,double> NX;
+        public Dictionary<String,double> DX;
+        public Dictionary<String,double> UX;
         private string myTextA;
         private string myTextB;
         private string myTextC;
         private string myTextD;
+        private string myTextNX;
+        private string myTextDX;
+        private string myTextUX;
+       
         private SuportStore myStore = SuportStore.Instance;
 
+        public string MyTextNX
+        {
+            get { return myTextNX; }
+            set 
+            {
+                myTextNX = value;
+                OnPropertyChanged(nameof(MyTextNX));
+            }
+        }
+        public string MyTextDX
+        {
+            get { return myTextDX; }
+            set
+            {
+                myTextDX = value;
+                OnPropertyChanged(nameof(MyTextDX));
+            }
+        }
+        public string MyTextUX
+        {
+            get { return myTextUX; }
+            set
+            {
+                myTextUX = value;
+                OnPropertyChanged(nameof(MyTextUX));
+            }
+        }
         public string MyTextD
         {
             get { return myTextD; }
@@ -64,11 +98,20 @@ namespace sapr.ViewModels
         }
 
         public ICommand setText { get; }
+        public List<List<double>> MatrixA
+        {
+            get => matrixA; 
+            set => matrixA = value; 
+        }
+
         public ProcecssorViewModel()
         {
             MatrixA = new List<List<double>>();
             MatrixB = new List<double>();
             VactorQ = new List<double>();
+            NX = new Dictionary<string, double>();
+            DX = new Dictionary<string, double>();
+            UX = new Dictionary<string, double>();
             setText = new SetTextCommand(this);
         }
 
