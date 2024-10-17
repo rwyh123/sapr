@@ -26,7 +26,7 @@ namespace sapr.Utilities
                 };
 
                 // Попытка десериализации
-                var tempResult = System.Text.Json.JsonSerializer.Deserialize<T>(@this, options);
+                var tempResult = JsonConvert.DeserializeObject<T>(@this);
 
                 // Дополнительная проверка: если тип десериализованного объекта не соответствует ожидаемому
                 if (tempResult == null || !IsJsonMatchingType(@this, typeof(T)))

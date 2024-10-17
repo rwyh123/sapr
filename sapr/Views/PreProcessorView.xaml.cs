@@ -28,13 +28,14 @@ namespace sapr.Views
             viewModel = new PreProcessorViewModel();
             this.DataContext = viewModel;
             InitializeComponent();
-            PreProcessorComandBase.Subscribe(Resize);
             viewModel.RequestScrollBarUpdate += () =>
             {
                 // Предположим, что ScrollViewer находится на вашей странице
                 scrollbar.UpdateLayout();
             };
             viewModel = this.DataContext as PreProcessorViewModel;
+            SupportTable.CurrentCellChanged += viewModel.Draw;
+            WorkSpase.SizeChanged += viewModel.Draw;
         }
         private void Resize(object sender, EventArgs e)
         {

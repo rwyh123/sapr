@@ -14,24 +14,6 @@ namespace sapr.Command.PreProcessorCommands
 {
     public  class PreProcessorComandBase : CommandBase
     {
-        public  event EventHandler resize;
-        private static List<EventHandler> subscribers = new List<EventHandler>();
-        public static void Subscribe(EventHandler eventHandler)
-        {
-            subscribers.Add(eventHandler);
-        }
-        public static void UnSubscribe(EventHandler eventHandler)
-        {
-            subscribers.Remove(eventHandler);
-        }
-        private static void RiseEvent()
-        {
-            for(int i = subscribers.Count()-1; i >= 0;i--)
-            {
-                subscribers[i]?.Invoke(new Object(), EventArgs.Empty);
-            }
-        }
-        
         private static int plussesH = 0;
         private static int plussesW = 0;
         static public PreProcessorViewModel _preProcessorViewModel { get; set; }
@@ -42,15 +24,15 @@ namespace sapr.Command.PreProcessorCommands
         }
         protected static void ResizeCanvas(int radius, int lenght)
         {
-            if (radius + plussesH > _preProcessorViewModel.CanvasActualHenght)
+            if (radius * 100 + plussesH > _preProcessorViewModel.CanvasActualHenght)
             {
                 if (double.IsNaN(_preProcessorViewModel.CanvasHenght))
                 {
                     plussesH = 120;
-                    _preProcessorViewModel.CanvasHenght = radius + plussesH;//вроде норм но проблемы с размерностью искать тут
+                    _preProcessorViewModel.CanvasHenght = radius * 100 + plussesH;//вроде норм но проблемы с размерностью искать тут
                 }
                 else
-                    _preProcessorViewModel.CanvasHenght = radius + plussesH;
+                    _preProcessorViewModel.CanvasHenght = radius * 100 + plussesH;
                 //RiseEvent();
             }
             if (_preProcessorViewModel.PlussesWihth + plussesW > _preProcessorViewModel.CanvasActualLenhgt)
@@ -62,16 +44,15 @@ namespace sapr.Command.PreProcessorCommands
                 
                 }
                 else
-                    _preProcessorViewModel.CanvasLenhgt += lenght;
-                RiseEvent();
+                    _preProcessorViewModel.CanvasLenhgt += lenght * 100;
             }
 
         }
-        protected void ReFillNodesTable(int id)
+        protected void ReFillNodesTable(string id)
         {
             //МБ РАБОТАТ Не ПРАВИОЬНО """!!!!!
             _preProcessorViewModel.Nodes.Remove(_preProcessorViewModel.Nodes[_preProcessorViewModel.Nodes.Count - 1]);
-            for (int i = id; i <= _preProcessorViewModel.SupportCount; i++)
+            for (int i = int.Parse(id); i <= _preProcessorViewModel.SupportCount; i++)
             {
                 _preProcessorViewModel.Nodes[i - 1] = (new NodeModel(0, i));
             }
@@ -82,10 +63,20 @@ namespace sapr.Command.PreProcessorCommands
             //МБ РАБОТАТ Не ПРАВИОЬНО """!!!!!
             foreach (SupportModelv2 supportModelv2 in _preProcessorViewModel.Shapes)
             {
-                supportModelv2.UID = i++;
+                supportModelv2.Model.Uid = i++.ToString();
             }
 
         }
-    
+        protected static void Clear()
+        {
+            _preProcessorViewModel.Shapes.CollectionChanged -= _preProcessorViewModel.Draw;
+            _preProcessorViewModel.Nodes.CollectionChanged -= _preProcessorViewModel.Draw;
+            _preProcessorViewModel.Nodes.Clear();
+            _preProcessorViewModel.Shapes.Clear();
+            _preProcessorViewModel.SupportCount = 0;
+            _preProcessorViewModel.Shapes.CollectionChanged += _preProcessorViewModel.Draw;
+            _preProcessorViewModel.Nodes.CollectionChanged += _preProcessorViewModel.Draw;
+        }
+
     }
 }

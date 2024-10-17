@@ -62,14 +62,14 @@ namespace sapr.Command
         {
             for (int i = 0; i < SuportStore.Instance.GetUserData().Count(); i++)
             {
-                double X = SuportStore.Instance.GetUserData()[i].Model.Width;
+                double X = SuportStore.Instance.GetUserData()[i].Model.Width ;
                 if (SuportStore.Instance.GetUserData()[i].PrPower != 0)
                 {
-                    viewModel.DX.Add($"D{i + 1}(0): ", Math.Round((viewModel.NX[$"N{i + 1}(0): "] / SuportStore.Instance.GetUserData()[i].Model.Width), 3));
-                    viewModel.DX.Add($"D{i + 1}(L): ", Math.Round((viewModel.NX[$"N{i + 1}(L): "] / SuportStore.Instance.GetUserData()[i].Model.Width), 3));
+                    viewModel.DX.Add($"D{i + 1}(0): ", Math.Round((viewModel.NX[$"N{i + 1}(0): "] / SuportStore.Instance.GetUserData()[i].Model.Height), 3));
+                    viewModel.DX.Add($"D{i + 1}(L): ", Math.Round((viewModel.NX[$"N{i + 1}(L): "] / SuportStore.Instance.GetUserData()[i].Model.Height), 3));
                 }
                 else
-                    viewModel.DX.Add($"D{i + 1}(X): ", Math.Round((viewModel.NX[$"N{i + 1}(X): "] / SuportStore.Instance.GetUserData()[i].Model.Width), 3));
+                    viewModel.DX.Add($"D{i + 1}(X): ", Math.Round((viewModel.NX[$"N{i + 1}(X): "] / SuportStore.Instance.GetUserData()[i].Model.Height), 3));
             }
             foreach (var item in viewModel.DX)
                 viewModel.MyTextDX += " | " + item + Environment.NewLine;
@@ -79,18 +79,18 @@ namespace sapr.Command
         {
             for (int i = 0; i < SuportStore.Instance.GetUserData().Count(); i++)
             {
-                double X = SuportStore.Instance.GetUserData()[i].Model.Width;
+                double X = SuportStore.Instance.GetUserData()[i].Model.Width ;
 
                 if (SuportStore.Instance.GetUserData()[i].PrPower != 0)
                 {
                     viewModel.UX.Add($"U{i + 1}(0): ", Math.Round((viewModel.VactorQ[i])));
-                    viewModel.UX.Add($"U{i + 1}(L): ", Math.Round(((viewModel.VactorQ[i] + X / SuportStore.Instance.GetUserData()[i].Model.Width * (viewModel.VactorQ[i + 1] - viewModel.VactorQ[i]) +
-                                                        SuportStore.Instance.GetUserData()[i].PrPower * SuportStore.Instance.GetUserData()[i].Model.Width * SuportStore.Instance.GetUserData()[i].Model.Width / 2 * EPowerStore.Instance.GetUserData() *
-                                                         SuportStore.Instance.GetUserData()[i].Model.Height * X / SuportStore.Instance.GetUserData()[i].Model.Width *
-                                                         (1 - X / SuportStore.Instance.GetUserData()[i].Model.Width))), 3));
+                    viewModel.UX.Add($"U{i + 1}(L): ", Math.Round(((viewModel.VactorQ[i] + X / SuportStore.Instance.GetUserData()[i].Model.Width  * (viewModel.VactorQ[i + 1] - viewModel.VactorQ[i]) +
+                                                        SuportStore.Instance.GetUserData()[i].PrPower * SuportStore.Instance.GetUserData()[i].Model.Width  * SuportStore.Instance.GetUserData()[i].Model.Width  / 2 * EPowerStore.Instance.GetUserData() *
+                                                         SuportStore.Instance.GetUserData()[i].Model.Height * X / SuportStore.Instance.GetUserData()[i].Model.Width  *
+                                                         (1 - X / SuportStore.Instance.GetUserData()[i].Model.Width ))), 3));
                 }
                 else
-                    viewModel.UX.Add($"U{i + 1}(X): ", Math.Round((viewModel.VactorQ[i] + X / SuportStore.Instance.GetUserData()[i].Model.Width * (viewModel.VactorQ[i + 1] - viewModel.VactorQ[i])), 3));
+                    viewModel.UX.Add($"U{i + 1}(X): ", Math.Round((viewModel.VactorQ[i] + X / SuportStore.Instance.GetUserData()[i].Model.Width  * (viewModel.VactorQ[i + 1] - viewModel.VactorQ[i])), 3));
             }
             foreach (var item in viewModel.UX)
                 viewModel.MyTextUX += " | " + item + Environment.NewLine;
@@ -101,16 +101,21 @@ namespace sapr.Command
             for (int i = 0; i < SuportStore.Instance.GetUserData().Count(); i++)
             {
                 double X = SuportStore.Instance.GetUserData()[i].Model.Width;
+                double E = EPowerStore.Instance.GetUserData();
+                double A = SuportStore.Instance.GetUserData()[i].Model.Height;
+                double L = SuportStore.Instance.GetUserData()[i].Model.Width;
+                double Upo = viewModel.VactorQ[i];
+                double Up1 = viewModel.VactorQ[i + 1];
+                double q = SuportStore.Instance.GetUserData()[i].PrPower;
+
                 if (SuportStore.Instance.GetUserData()[i].PrPower != 0)
                 {
-                    viewModel.NX.Add($"N{i + 1}(0): ", Math.Round((EPowerStore.Instance.GetUserData() * SuportStore.Instance.GetUserData()[i].Model.Height / SuportStore.Instance.GetUserData()[i].Model.Width * (viewModel.VactorQ[i + 1] - viewModel.VactorQ[i]) +
-                                       SuportStore.Instance.GetUserData()[i].PrPower * SuportStore.Instance.GetUserData()[i].Model.Width / 2)));
-                    viewModel.NX.Add($"N{i + 1}(L): ", Math.Round((EPowerStore.Instance.GetUserData() * SuportStore.Instance.GetUserData()[i].Model.Height / SuportStore.Instance.GetUserData()[i].Model.Width * (viewModel.VactorQ[i + 1] - viewModel.VactorQ[i]) +
-                                       SuportStore.Instance.GetUserData()[i].PrPower * SuportStore.Instance.GetUserData()[i].Model.Width / 2 * (1 - 2 * X / SuportStore.Instance.GetUserData()[i].Model.Width))));
+                    viewModel.NX.Add($"N{i + 1}(0): ", (E * A / L * (Up1 - Upo) + q * L / 2 * (1 - 2 * 0 / L)));
+                    viewModel.NX.Add($"N{i + 1}(L): ", ((E * A) / L * (Up1 - Upo) + (q * L) / 2 * (1 - 2 * (X / L))));
                 }
                 else
-                    viewModel.NX.Add($"N{i + 1}(X): ", Math.Round((EPowerStore.Instance.GetUserData() * SuportStore.Instance.GetUserData()[i].Model.Height / SuportStore.Instance.GetUserData()[i].Model.Width * (viewModel.VactorQ[i + 1] - viewModel.VactorQ[i]))));
-                        }
+                    viewModel.NX.Add($"N{i + 1}(X): ", (E * A) / L * (Up1 - Upo));
+            }
             foreach (var item in viewModel.NX)
                 viewModel.MyTextNX += " | " + item + Environment.NewLine;
         }
@@ -212,11 +217,11 @@ namespace sapr.Command
 
 
                 if (i == 0)
-                    viewModel.MatrixB.Add(NodesStore.GetUserData()[i].PoPower + (SuportStore.GetUserData()[i].PrPower * SuportStore.GetUserData()[i].Model.Width / 100 / 2));
+                    viewModel.MatrixB.Add(NodesStore.GetUserData()[i].PoPower + (SuportStore.GetUserData()[i].PrPower * SuportStore.GetUserData()[i].Model.Width / 2));
                 else if (i == NodesStore.GetUserData().Count - 1)
-                    viewModel.MatrixB.Add(NodesStore.GetUserData()[i].PoPower + (SuportStore.GetUserData()[i - 1].PrPower * SuportStore.GetUserData()[i - 1].Model.Width / 100 / 2));
+                    viewModel.MatrixB.Add(NodesStore.GetUserData()[i].PoPower + (SuportStore.GetUserData()[i - 1].PrPower * SuportStore.GetUserData()[i - 1].Model.Width / 2));
                 else
-                    viewModel.MatrixB.Add(NodesStore.GetUserData()[i].PoPower + (SuportStore.GetUserData()[i].PrPower * SuportStore.GetUserData()[i].Model.Width / 100 / 2) + (SuportStore.GetUserData()[i-1].PrPower * SuportStore.GetUserData()[i-1].Model.Width / 100 / 2));
+                    viewModel.MatrixB.Add(NodesStore.GetUserData()[i].PoPower + (SuportStore.GetUserData()[i].PrPower * SuportStore.GetUserData()[i].Model.Width / 2) + (SuportStore.GetUserData()[i-1].PrPower * SuportStore.GetUserData()[i-1].Model.Width / 2));
             }
             foreach (var item in viewModel.MatrixB)
                 viewModel.MyTextB += " " + item + Environment.NewLine;
@@ -243,14 +248,14 @@ namespace sapr.Command
                         viewModel.MatrixA[i][i] = 1 ;
                         viewModel.MatrixA[i][i + 1] = 0;
                         viewModel.MatrixA[i + 1][i] = 0;
-                        viewModel.MatrixA[i + 1][i + 1] = Math.Round(((double)((SuportStore.GetUserData()[i].Model.Height * EPowerStore.GetUserData() / SuportStore.GetUserData()[i].Model.Width) + SuportStore.GetUserData()[i + 1].Model.Height * EPowerStore.GetUserData() / SuportStore.GetUserData()[i + 1].Model.Width)),3);
+                        viewModel.MatrixA[i + 1][i + 1] = Math.Round(((double)((SuportStore.GetUserData()[i].Model.Height * EPowerStore.GetUserData() / SuportStore.GetUserData()[i].Model.Width ) + SuportStore.GetUserData()[i + 1].Model.Height * EPowerStore.GetUserData() / SuportStore.GetUserData()[i + 1].Model.Width )),3);
                     }
                     else
                     {
-                        viewModel.MatrixA[i][i] = Math.Round((double)((SuportStore.GetUserData()[i].Model.Height * EPowerStore.GetUserData() / SuportStore.GetUserData()[i].Model.Width)), 3);
-                        viewModel.MatrixA[i][i + 1] = Math.Round(((double)(SuportStore.GetUserData()[i].Model.Height * EPowerStore.GetUserData() / SuportStore.GetUserData()[i].Model.Width) * -1), 3);
-                        viewModel.MatrixA[i + 1][i] = Math.Round(((double)(SuportStore.GetUserData()[i].Model.Height * EPowerStore.GetUserData() / SuportStore.GetUserData()[i].Model.Width) * -1), 3);
-                        viewModel.MatrixA[i + 1][i + 1] = Math.Round(((double)((SuportStore.GetUserData()[i].Model.Height * EPowerStore.GetUserData() / SuportStore.GetUserData()[i].Model.Width) + SuportStore.GetUserData()[i + 1].Model.Height * EPowerStore.GetUserData() / SuportStore.GetUserData()[i + 1].Model.Width)), 3);
+                        viewModel.MatrixA[i][i] = Math.Round((double)((SuportStore.GetUserData()[i].Model.Height * EPowerStore.GetUserData() / SuportStore.GetUserData()[i].Model.Width )), 3);
+                        viewModel.MatrixA[i][i + 1] = Math.Round(((double)(SuportStore.GetUserData()[i].Model.Height * EPowerStore.GetUserData() / SuportStore.GetUserData()[i].Model.Width ) * -1), 3);
+                        viewModel.MatrixA[i + 1][i] = Math.Round(((double)(SuportStore.GetUserData()[i].Model.Height * EPowerStore.GetUserData() / SuportStore.GetUserData()[i].Model.Width ) * -1), 3);
+                        viewModel.MatrixA[i + 1][i + 1] = Math.Round(((double)((SuportStore.GetUserData()[i].Model.Height * EPowerStore.GetUserData() / SuportStore.GetUserData()[i].Model.Width ) + SuportStore.GetUserData()[i + 1].Model.Height * EPowerStore.GetUserData() / SuportStore.GetUserData()[i + 1].Model.Width )), 3);
                     }
                 }
                 else if (i == SuportStore.GetUserData().Count - 1)
@@ -259,17 +264,17 @@ namespace sapr.Command
                         viewModel.MatrixA[i + 1][i + 1] = (1);
                     else
                     {
-                        viewModel.MatrixA[i + 1][i + 1] = Math.Round((double)((SuportStore.GetUserData()[i].Model.Height * EPowerStore.GetUserData() / SuportStore.GetUserData()[i].Model.Width)), 3);
-                        viewModel.MatrixA[i][i + 1] = Math.Round(((double)(SuportStore.GetUserData()[i].Model.Height * EPowerStore.GetUserData() / SuportStore.GetUserData()[i].Model.Width) * -1), 3);
-                        viewModel.MatrixA[i + 1][i] = Math.Round(((double)(SuportStore.GetUserData()[i].Model.Height * EPowerStore.GetUserData() / SuportStore.GetUserData()[i].Model.Width) * -1), 3);
+                        viewModel.MatrixA[i + 1][i + 1] = Math.Round((double)((SuportStore.GetUserData()[i].Model.Height * EPowerStore.GetUserData() / SuportStore.GetUserData()[i].Model.Width )), 3);
+                        viewModel.MatrixA[i][i + 1] = Math.Round(((double)(SuportStore.GetUserData()[i].Model.Height * EPowerStore.GetUserData() / SuportStore.GetUserData()[i].Model.Width ) * -1), 3);
+                        viewModel.MatrixA[i + 1][i] = Math.Round(((double)(SuportStore.GetUserData()[i].Model.Height * EPowerStore.GetUserData() / SuportStore.GetUserData()[i].Model.Width ) * -1), 3);
                     }
 
                 }
                 else
                 {
-                    viewModel.MatrixA[i][i + 1] = Math.Round(((double)(SuportStore.GetUserData()[i].Model.Height * EPowerStore.GetUserData() / SuportStore.GetUserData()[i].Model.Width) * -1), 3);
-                    viewModel.MatrixA[i + 1][i] = Math.Round(((double)(SuportStore.GetUserData()[i].Model.Height * EPowerStore.GetUserData() / SuportStore.GetUserData()[i].Model.Width) * -1), 3);
-                    viewModel.MatrixA[i + 1][i + 1] = Math.Round(((double)((SuportStore.GetUserData()[i].Model.Height * EPowerStore.GetUserData() / SuportStore.GetUserData()[i].Model.Width) + SuportStore.GetUserData()[i + 1].Model.Height / SuportStore.GetUserData()[i + 1].Model.Width)), 3);
+                    viewModel.MatrixA[i][i + 1] = Math.Round(((double)(SuportStore.GetUserData()[i].Model.Height * EPowerStore.GetUserData() / SuportStore.GetUserData()[i].Model.Width ) * -1), 3);
+                    viewModel.MatrixA[i + 1][i] = Math.Round(((double)(SuportStore.GetUserData()[i].Model.Height * EPowerStore.GetUserData() / SuportStore.GetUserData()[i].Model.Width ) * -1), 3);
+                    viewModel.MatrixA[i + 1][i + 1] = Math.Round(((double)((SuportStore.GetUserData()[i].Model.Height * EPowerStore.GetUserData() / SuportStore.GetUserData()[i].Model.Width ) + SuportStore.GetUserData()[i + 1].Model.Height / SuportStore.GetUserData()[i + 1].Model.Width )), 3);
                 }
 
 

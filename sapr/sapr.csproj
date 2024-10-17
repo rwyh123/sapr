@@ -98,6 +98,7 @@
     <Compile Include="Command\CommandBase.cs" />
     <Compile Include="Command\PreProcessorCommands\AddSupportCommand.cs" />
     <Compile Include="Command\PreProcessorCommands\CalculateCommand.cs" />
+    <Compile Include="Command\PreProcessorCommands\ClearCommand.cs" />
     <Compile Include="Command\PreProcessorCommands\LoadCommand.cs" />
     <Compile Include="Command\PreProcessorCommands\PreProcessorComandBase.cs" />
     <Compile Include="Command\PreProcessorCommands\RemoveSupportCommand.cs" />
@@ -110,6 +111,7 @@
     <Compile Include="Stores\NodesStore.cs" />
     <Compile Include="Stores\SmthStore.cs" />
     <Compile Include="Stores\SuportStore.cs" />
+    <Compile Include="Utilities\RectangleConverter.cs" />
     <Compile Include="Utilities\MyPoint.cs" />
     <Compile Include="ViewModels\PreProcessorViewModel.cs" />
     <Compile Include="ViewModels\ProcecssorViewModel.cs" />

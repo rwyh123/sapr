@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Shapes;
 using System.Windows;
+using System.Windows.Media;
 
 namespace sapr.Command.PreProcessorCommands
 {
@@ -33,16 +34,17 @@ namespace sapr.Command.PreProcessorCommands
                 node.PropertyChanged += _preProcessorViewModel.Draw;
                 _preProcessorViewModel.Nodes.Add(node);
 
-                var supp = new SupportModelv2(0, 0, new Rect(0, 0, int.Parse(window.Lenght), int.Parse(window.Radius)), _preProcessorViewModel.SupportCount);
-                supp.PropertyChanged += _preProcessorViewModel.Draw;
+                var supp = new SupportModelv2(0,  new Rectangle());
+                supp.Model.Height = int.Parse(window.Radius);
+                supp.Model.Width = int.Parse(window.Lenght);
+                supp.Model.Stroke = Brushes.Black;
+                supp.Model.StrokeThickness = 1;
+                supp.Model.Uid = _preProcessorViewModel.SupportCount.ToString();
                 _preProcessorViewModel.Shapes.Add(supp);
 
-                _preProcessorViewModel.OnPropertyChanged(nameof(_preProcessorViewModel.CeckBoxIsEnabled));
+                _preProcessorViewModel.OnPropertyChanged(nameof(_preProcessorViewModel.IsSupportCountNotull));
 
                 ResizeCanvas(int.Parse(window.Radius), int.Parse(window.Lenght));
-                //scrollbar.ScrollToVerticalOffset(scrollbar.ScrollableHeight / 2);
-                //scrollbar.ScrollToHorizontalOffset(scrollbar.ScrollableWidth / 2);
-
             }
         }
 

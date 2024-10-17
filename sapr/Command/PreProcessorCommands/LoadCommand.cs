@@ -1,6 +1,8 @@
 ﻿using Microsoft.Win32;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using sapr.Models;
+using sapr.Properties;
 using sapr.Utilities;
 using sapr.ViewModels;
 using System;
@@ -9,6 +11,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 using System.Windows.Shapes;
 
 namespace sapr.Command.PreProcessorCommands
@@ -20,14 +23,7 @@ namespace sapr.Command.PreProcessorCommands
         }
         public override void Execute(object parameter)
         {
-            _preProcessorViewModel.Shapes.CollectionChanged -= _preProcessorViewModel.Draw;
-            _preProcessorViewModel.Nodes.CollectionChanged -= _preProcessorViewModel.Draw;
-            _preProcessorViewModel.Nodes.Clear();
-            _preProcessorViewModel.Shapes.Clear();
-            _preProcessorViewModel.SupportCount = 0;
-            _preProcessorViewModel.Shapes.CollectionChanged += _preProcessorViewModel.Draw;
-            _preProcessorViewModel.Nodes.CollectionChanged += _preProcessorViewModel.Draw;
-
+            Clear();
             List<string> list = new List<string>();
             var dialog = new OpenFileDialog();
             dialog.Filter = "Json documents (.json)|*.json";
@@ -36,26 +32,37 @@ namespace sapr.Command.PreProcessorCommands
 
             bool? result = dialog.ShowDialog();
 
+            var settings = new JsonSerializerSettings();
+            settings.Converters.Add(new RectangleConverter());
+
             if (result == true)
             {
                 list = File.ReadAllLines(dialog.FileName).ToList();
             }
             foreach (var elm in list)
             {
-                if (TryParseClass.TryParseJson(elm, out node))
+                SupportModelv2 sp = new SupportModelv2();
+                sp = JsonConvert.DeserializeObject<SupportModelv2>(elm, settings);
+                if (JsonConvert.DeserializeObject<NodeModel>(elm).NodeNumber != 0)
                 {
-                    _preProcessorViewModel.Nodes.Add(node);
+                    _preProcessorViewModel.Nodes.CollectionChanged -= _preProcessorViewModel.Draw;
+                    _preProcessorViewModel.Nodes.Add(JsonConvert.DeserializeObject<NodeModel>(elm));
+                    _preProcessorViewModel.Nodes.CollectionChanged += _preProcessorViewModel.Draw;
                 }
-                else if (TryParseClass.TryParseJson(elm, out support))
+                else if (sp.Model != null)
                 {
-                    _preProcessorViewModel.Shapes.Add(support);
-                    ResizeCanvas((int)support.Model.Height, (int)support.Model.Width);
+                    _preProcessorViewModel.Shapes.CollectionChanged -= _preProcessorViewModel.Draw;
+                    sp.Model.Stroke = Brushes.Black;
+                    _preProcessorViewModel.Shapes.Add(sp);
+                    _preProcessorViewModel.Shapes.CollectionChanged += _preProcessorViewModel.Draw;
                     _preProcessorViewModel.SupportCount++;
+
+                    _preProcessorViewModel.OnPropertyChanged(nameof(_preProcessorViewModel.IsSupportCountNotull));
                 }
                 else
                 {
                     MyPoint myPoint = new MyPoint();
-                    myPoint = System.Text.Json.JsonSerializer.Deserialize<MyPoint>(elm);
+                    myPoint = JsonConvert.DeserializeObject<MyPoint>(elm);
                     if (myPoint.X == 1)
                         _preProcessorViewModel.LeftSmth = true;
                     else
@@ -66,10 +73,12 @@ namespace sapr.Command.PreProcessorCommands
                         _preProcessorViewModel.RightSmth = false;
                 }
             }
-            _preProcessorViewModel.OnPropertyChanged(nameof(_preProcessorViewModel.CeckBoxIsEnabled));
+            _preProcessorViewModel.OnPropertyChanged(nameof(_preProcessorViewModel.IsSupportCountNotull));
             _preProcessorViewModel.OnPropertyChanged(nameof(_preProcessorViewModel.LeftSmth));
             _preProcessorViewModel.OnPropertyChanged(nameof(_preProcessorViewModel.RightSmth));
 
         }
+
+       
     }
 }

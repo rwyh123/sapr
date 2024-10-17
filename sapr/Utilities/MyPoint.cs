@@ -8,17 +8,17 @@ namespace sapr.Utilities
 {
     public class MyPoint
     {
-		private int x;
+		private Nullable<int> x;
 
-		public int X
+		public Nullable<int> X
 		{
 			get { return x; }
 			set { x = value; }
 		}
 
-		private int y;
+		private Nullable<int> y;
 
-		public int Y
+		public Nullable<int> Y
 		{
 			get { return y; }
 			set { y = value; }

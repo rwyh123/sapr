@@ -11,6 +11,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Shapes;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace sapr.Command.PreProcessorCommands
 {
@@ -30,11 +31,11 @@ namespace sapr.Command.PreProcessorCommands
             };
             foreach (var node in _preProcessorViewModel.Nodes)
             {
-                JsonNodes.Add(System.Text.Json.JsonSerializer.Serialize<NodeModel>(node));
+                JsonNodes.Add(JsonConvert.SerializeObject(node));
             }
             foreach (var shape in _preProcessorViewModel.Shapes)
             {
-                JsonShapes.Add(System.Text.Json.JsonSerializer.Serialize(shape, options));
+                JsonShapes.Add(JsonConvert.SerializeObject(shape));
             }
             int X = 0;
             int Y = 0;
@@ -43,7 +44,7 @@ namespace sapr.Command.PreProcessorCommands
             if (_preProcessorViewModel.RightSmth)
                 Y = 1;
             MyPoint sth = new MyPoint(X, Y);
-            JsonSupport.Add(System.Text.Json.JsonSerializer.Serialize(sth, options));
+            JsonSupport.Add(JsonConvert.SerializeObject(sth));
 
             var dialog = new SaveFileDialog();
             dialog.FileName = "Shapes";

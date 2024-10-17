@@ -19,17 +19,17 @@ namespace sapr.Command.PreProcessorCommands
         {
             SupportModelv2 supportModel = new SupportModelv2();
             supportModel = _preProcessorViewModel.SelectedShape;
-            _preProcessorViewModel.Shapes.Remove(_preProcessorViewModel.Shapes.Where(x => x.UID == supportModel.UID).FirstOrDefault());
+            _preProcessorViewModel.Shapes.Remove(_preProcessorViewModel.Shapes.Where(x => x.Model.Uid == supportModel.Model.Uid).FirstOrDefault());
             _preProcessorViewModel.SupportCount--;
-            _preProcessorViewModel.OnPropertyChanged(nameof(_preProcessorViewModel.CeckBoxIsEnabled));
-            ReFillNodesTable(supportModel.UID);
+            _preProcessorViewModel.OnPropertyChanged(nameof(_preProcessorViewModel.IsSupportCountNotull));
+            ReFillNodesTable(supportModel.Model.Uid);
             ReFillShapesUID();
             {
                 int i = 1;
                 //МБ РАБОТАТ Не ПРАВИОЬНО """!!!!!
                 foreach (SupportModelv2 supportModelv2 in _preProcessorViewModel.Shapes)
                 {
-                    supportModelv2.UID = i++;
+                    supportModelv2.Model.Uid = i++.ToString();
                 }
 
             }
@@ -40,17 +40,19 @@ namespace sapr.Command.PreProcessorCommands
                 _preProcessorViewModel.Nodes.Clear();
                 _preProcessorViewModel.LeftSmth = false;
                 _preProcessorViewModel.RightSmth = false;
+                _preProcessorViewModel.CanvasLenhgt -= supportModel.Model.Height;
+                _preProcessorViewModel.CanvasHenght -= supportModel.Model.Width;
 
             }
             else if (_preProcessorViewModel.SupportCount == 1)
             {
                 _preProcessorViewModel.CanvasLenhgt -= supportModel.Model.Height - 120;
-                _preProcessorViewModel.CanvasHenght -= supportModel.Model.Width - 100;
+                _preProcessorViewModel.CanvasHenght -= supportModel.Model.Width  - 100;
             }
             else
             {
                 _preProcessorViewModel.CanvasLenhgt -= supportModel.Model.Height;
-                _preProcessorViewModel.CanvasHenght -= supportModel.Model.Width;
+                _preProcessorViewModel.CanvasHenght -= supportModel.Model.Width ;
             }
         }
     }
