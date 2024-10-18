@@ -41,6 +41,7 @@ namespace sapr.Command.PreProcessorCommands
                 supp.Model.StrokeThickness = 1;
                 supp.Model.Uid = _preProcessorViewModel.SupportCount.ToString();
                 _preProcessorViewModel.Shapes.Add(supp);
+                _preProcessorViewModel.IsProcessorCalculated = false;
 
                 _preProcessorViewModel.OnPropertyChanged(nameof(_preProcessorViewModel.IsSupportCountNotull));
 

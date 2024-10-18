@@ -97,8 +97,8 @@
             </Grid>
         </Border>
         <Border BorderBrush="Black" BorderThickness="1" Margin="5,5">
-            <ScrollViewer x:Name="scrollbar" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Auto">
-                <Canvas DockPanel.Dock="Left" Height="{Binding CanvasHenght, Mode=TwoWay}" Width="{Binding CanvasLenhgt,Mode=TwoWay}" x:Name="WorkSpase" SizeChanged="Canvas_SizeChanged" Loaded="Canvas_Loaded">
+            <ScrollViewer x:Name="scrollbar" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <Canvas DockPanel.Dock="Left" Height="{Binding CanvasHenght}" Width="{Binding CanvasLenhgt}" x:Name="WorkSpase" SizeChanged="Canvas_SizeChanged" Loaded="Canvas_Loaded">
                     <ItemsControl ItemsSource="{Binding CanvasChildrens}">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>

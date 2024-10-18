@@ -34,25 +34,26 @@ namespace sapr.Command.PreProcessorCommands
 
             }
             //ЭТО КОСТЫЛЬ НАДО РАЗОБРАТСЬЯ ВРОДЕ В ФУНКЦИИ РЕВИЛ НОДЕС
+            _preProcessorViewModel.IsProcessorCalculated = false;
 
             if (_preProcessorViewModel.SupportCount == 0)
             {
                 _preProcessorViewModel.Nodes.Clear();
                 _preProcessorViewModel.LeftSmth = false;
                 _preProcessorViewModel.RightSmth = false;
-                _preProcessorViewModel.CanvasLenhgt -= supportModel.Model.Height;
-                _preProcessorViewModel.CanvasHenght -= supportModel.Model.Width;
+                _preProcessorViewModel.CanvasLenhgt -= supportModel.Model.Height * 100;
+                _preProcessorViewModel.CanvasHenght -= supportModel.Model.Width * 100;
 
             }
             else if (_preProcessorViewModel.SupportCount == 1)
             {
-                _preProcessorViewModel.CanvasLenhgt -= supportModel.Model.Height - 120;
-                _preProcessorViewModel.CanvasHenght -= supportModel.Model.Width  - 100;
+                _preProcessorViewModel.CanvasLenhgt -= supportModel.Model.Height * 100 - 120;
+                _preProcessorViewModel.CanvasHenght -= supportModel.Model.Width * 100 - 100;
             }
             else
             {
-                _preProcessorViewModel.CanvasLenhgt -= supportModel.Model.Height;
-                _preProcessorViewModel.CanvasHenght -= supportModel.Model.Width ;
+                _preProcessorViewModel.CanvasLenhgt -= supportModel.Model.Height * 100;
+                _preProcessorViewModel.CanvasHenght -= supportModel.Model.Width * 100;
             }
         }
     }

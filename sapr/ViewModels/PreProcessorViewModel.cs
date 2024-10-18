@@ -41,6 +41,7 @@ namespace sapr.ViewModels
         private double scrollBarHorizontalOfset;
         private bool isSupportCountNotull;
         private static bool isProcessorCalculated;
+        public int MaxHeight;
 
         //props
         private ObservableCollection<SupportModelv2> shapes = new ObservableCollection<SupportModelv2>();
@@ -97,7 +98,8 @@ namespace sapr.ViewModels
             {
                 canvasLenght = value;
                 OnPropertyChanged(nameof(CanvasLenhgt));
-                RequestScrollBarUpdate?.Invoke();
+                if(supportCount > 0)
+                    RequestScrollBarUpdate?.Invoke();
                 
             }
         }
@@ -108,7 +110,8 @@ namespace sapr.ViewModels
             {
                 canvasHeight = value;
                 OnPropertyChanged(nameof(CanvasHenght));
-                RequestScrollBarUpdate?.Invoke();
+                if (supportCount > 0)
+                    RequestScrollBarUpdate?.Invoke();
             }
         }
         public ObservableCollection<UIElement> CanvasChildrens
@@ -213,7 +216,7 @@ namespace sapr.ViewModels
             }
         }
 
-        //cinstruct
+        //Methods
         private Path GenerateBorder(Rectangle rect)
         {
             //  !!1.Переделать создание опоры, не ноая фунция а переоворот получившейся первой 
@@ -296,33 +299,107 @@ namespace sapr.ViewModels
             path.MaxHeight = ParticulWigth * 2;
             return path;
         }
-
-
-        public ICommand AddSupport {  get; set; }
-        public ICommand RemoveSupport { get; set; } // ТУТ ЧТО ТО ВЫЧИТАТСЯ ИЗ АКТУАЛ ХИГХТ МБ НАДО ВЫЧИТАЬ ИЗ ХАЙГТ
-        public ICommand Calculate {  get; set; }
-        public ICommand Load { get; set; }
-        public ICommand Save { get; set; }
-        public ICommand Clear { get; set; }
-
-        public PreProcessorViewModel()
+        private Path GenereteCoordinatePlane()
         {
-            EPowerStore.Instance.SetUserData(E);
-            NodesStore.Instance.SetUserData(Nodes);
-            SuportStore.Instance.SetUserData(Shapes);
-            SmthStore.Instance.SetUserData(LeftSmth, RightSmth);
-            CanvasChildrens = new ObservableCollection<UIElement>();
-            Shapes.CollectionChanged += Draw;
-            Nodes.CollectionChanged += Draw;
-            E = 1;
-            AddSupport = new AddSupportCommand(this);
-            RemoveSupport = new RemoveSupportCommand(this);
-            Calculate = new CalculateCommand(this);
-            Load = new LoadCommand(this);
-            Save = new SaveCommand(this);
-            Clear = new ClearCommand(this);
+            Path path = new Path();
+            path.Stroke = Brushes.Black;
+            path.StrokeThickness = 1;
+
+            GeometryGroup group = new GeometryGroup();
+
+            int NplussesWA = 0;
+            int NplussesWC = 0;
+            int minus = 0;
+            for (int j = 0; j <= shapes.Count(); j++)
+            {
+                if (j != shapes.Count())
+                { NplussesWC = (int)shapes[j].Model.Width * 100; }
+                else
+                    minus++;
+                LineGeometry LVline = new LineGeometry();
+                LVline.StartPoint = new Point(NplussesWA, shapes[j - minus].Model.Height / 2 * 100);
+                LVline.EndPoint = new Point(NplussesWA, MaxHeight / 2 + 200 + 50);
+                group.Children.Add(LVline);
+                NplussesWA += NplussesWC;
+            }
+            LineGeometry HHline = new LineGeometry();
+            HHline.StartPoint = new Point(0, MaxHeight / 2 + 100);
+            HHline.EndPoint = new Point(PlussesWihth, MaxHeight / 2 + 100);
+            group.Children.Add(HHline);
+            LineGeometry HLline = new LineGeometry();
+            HLline.StartPoint = new Point(0, MaxHeight / 2 + 200);
+            HLline.EndPoint = new Point(PlussesWihth, MaxHeight / 2 + 200);
+            group.Children.Add(HLline);
+
+            int plussesWA = 0;
+            int plussesWC;
+
+            double Multiplaier = 50;
+            Multiplaier = CalculateMultiNXV1(Multiplaier);
+
+
+            for (int i = 0; i < shapes.Count(); i++)
+            {
+                plussesWC = (int)shapes[i].Model.Width * 100;
+                if (shapes[i].PrPower == 0)
+                {
+
+                    LineGeometry nxline = new LineGeometry();
+                    nxline.StartPoint = new Point(plussesWA, -NXStore.Instance.GetUserData()[$"N{i + 1}(X): "] * Multiplaier + MaxHeight / 2 + 100);
+                    nxline.EndPoint = new Point(plussesWC + plussesWA, -NXStore.Instance.GetUserData()[$"N{i + 1}(X): "] * Multiplaier + MaxHeight / 2 + 100);
+                    group.Children.Add(nxline);
+                    plussesWA += plussesWC;
+                }
+                else
+                {
+
+
+                    LineGeometry nxline = new LineGeometry();
+                    nxline.StartPoint = new Point(plussesWA, -NXStore.Instance.GetUserData()[$"N{i + 1}(0): "] * Multiplaier + MaxHeight / 2 + 100);
+                    nxline.EndPoint = new Point(plussesWC + plussesWA, -NXStore.Instance.GetUserData()[$"N{i + 1}(L): "] * Multiplaier + MaxHeight / 2 + 100);
+                    group.Children.Add(nxline);
+                    plussesWA += plussesWC;
+                }
+            }
+
+            PreProcessorComandBase.ResizeCanvas(3 + (int)CanvasHenght / 100, 0);
+            path.Data = group;
+            return path;
         }
 
+        private double CalculateMultiNXV1(double Multiplaier)
+        {
+            for (int i = 0; i < shapes.Count(); i++)
+            {
+
+                if (shapes[i].PrPower == 0)
+                {
+                    if ((NXStore.Instance.GetUserData()[$"N{i + 1}(X): "] / 10 >= 0.2 || -NXStore.Instance.GetUserData()[$"N{i + 1}(X): "] / 10 >= 0.2) && Multiplaier != 2)
+                        Multiplaier = 10;
+                    if ((NXStore.Instance.GetUserData()[$"N{i + 1}(X): "] / 10 >= 1 || -NXStore.Instance.GetUserData()[$"N{i + 1}(X): "] / 10 >= 1) && Multiplaier != 0.1)
+                        Multiplaier = 2;
+                    if ((NXStore.Instance.GetUserData()[$"N{i + 1}(X): "] / 10 >= 10 || -NXStore.Instance.GetUserData()[$"N{i + 1}(X): "] / 10 >= 10))
+                        Multiplaier = 0.1;
+                }
+                else
+                {
+                    if ((NXStore.Instance.GetUserData()[$"N{i + 1}(0): "] / 10 >= 0.2 || -NXStore.Instance.GetUserData()[$"N{i + 1}(0): "] / 10 >= 0.2) && Multiplaier != 2)
+                        Multiplaier = 10;
+                    if ((NXStore.Instance.GetUserData()[$"N{i + 1}(0): "] / 10 >= 1 || -NXStore.Instance.GetUserData()[$"N{i + 1}(0): "] / 10 >= 1) && Multiplaier != 0.1)
+                        Multiplaier = 2;
+                    if ((NXStore.Instance.GetUserData()[$"N{i + 1}(0): "] / 10 >= 10 || -NXStore.Instance.GetUserData()[$"N{i + 1}(0): "] / 10 >= 10))
+                        Multiplaier = 0.1;
+                    if ((NXStore.Instance.GetUserData()[$"N{i + 1}(L): "] / 10 >= 0.2 || -NXStore.Instance.GetUserData()[$"N{i + 1}(L): "] / 10 >= 0.2) && Multiplaier != 2)
+                        Multiplaier = 10;
+                    if ((NXStore.Instance.GetUserData()[$"N{i + 1}(L): "] / 10 >= 1 || -NXStore.Instance.GetUserData()[$"N{i + 1}(L): "] / 10 >= 1) && Multiplaier != 0.1)
+                        Multiplaier = 2;
+                    if ((NXStore.Instance.GetUserData()[$"N{i + 1}(L): "] / 10 >= 10 || -NXStore.Instance.GetUserData()[$"N{i + 1}(L): "] / 10 >= 10))
+                        Multiplaier = 0.1;
+                }
+            }
+
+            return Multiplaier;
+        }
 
         public void RemoveElement(string RemoveUID)
         {
@@ -353,7 +430,7 @@ namespace sapr.ViewModels
 
             //!!Сделать квадратики и кружочки на макс хигхт
             int Index = 1;
-            int MaxHeight = 0;
+            MaxHeight = 0;
             PlussesWihth = 0;
             CanvasChildrens.Clear();
 
@@ -392,8 +469,8 @@ namespace sapr.ViewModels
                     CanvasChildrens.Add(Arrow);
                 }
 
-                Nrect.Width= 20;
-                Nrect.Height= 20;
+                Nrect.Width = 20;
+                Nrect.Height = 20;
                 Nrect.Uid = "Nrect" + Index;
                 Nrect.Stroke = Brushes.Black;
                 Nrect.StrokeThickness = 1;
@@ -421,16 +498,16 @@ namespace sapr.ViewModels
 
                 Snumb.Text = (Index).ToString();
                 Canvas.SetTop(Nrect, CanvasActualHenght / 2 - MaxHeight / 2 - 40);
-                Canvas.SetLeft(Nrect, CanvasActualLenhgt / 2 + PlussesWihth - Nrect.Width / 2 + sp.Model.Width * 100  / 2);
+                Canvas.SetLeft(Nrect, CanvasActualLenhgt / 2 + PlussesWihth - Nrect.Width / 2 + sp.Model.Width * 100 / 2);
                 CanvasChildrens.Add(Nrect);
 
                 Canvas.SetTop(Snumb, CanvasActualHenght / 2 - MaxHeight / 2 - 40 + Snumb.FontSize / 16);
-                Canvas.SetLeft(Snumb, CanvasActualLenhgt / 2 + PlussesWihth + sp.Model.Width * 100  / 2 - Snumb.FontSize / 4);
+                Canvas.SetLeft(Snumb, CanvasActualLenhgt / 2 + PlussesWihth + sp.Model.Width * 100 / 2 - Snumb.FontSize / 4);
                 CanvasChildrens.Add(Snumb);
 
                 var newRect = new Rectangle();
-                newRect.Height= sp.Model.Height * 100;
-                newRect.Width= sp.Model.Width * 100;
+                newRect.Height = sp.Model.Height * 100;
+                newRect.Width = sp.Model.Width * 100;
                 newRect.Stroke = Brushes.Black;
                 newRect.StrokeThickness = 1;
                 Canvas.SetTop(newRect, CanvasActualHenght / 2 - sp.Model.Height * 100 / 2);
@@ -467,7 +544,7 @@ namespace sapr.ViewModels
 
                             ShortArrow1.Stroke = Brushes.Red;
                             Canvas.SetTop(ShortArrow1, CanvasActualHenght / 2 - ShortArrow1.MaxHeight / 2);
-                            Canvas.SetLeft(ShortArrow1, CanvasActualLenhgt / 2 + sp.Model.Width * 100  - sp.Model.Width * 100  / 4);
+                            Canvas.SetLeft(ShortArrow1, CanvasActualLenhgt / 2 + sp.Model.Width * 100 - sp.Model.Width * 100 / 4);
                             CanvasChildrens.Add(ShortArrow1);
                         }
                         else if (Nodes[Index].PoPower < 0)
@@ -475,7 +552,7 @@ namespace sapr.ViewModels
                             ShortArrow1.LayoutTransform = new ScaleTransform(-1, 1);
                             ShortArrow1.Stroke = Brushes.Blue;
                             Canvas.SetTop(ShortArrow1, CanvasActualHenght / 2 - ShortArrow1.MaxHeight / 2);
-                            Canvas.SetLeft(ShortArrow1, CanvasActualLenhgt / 2 + sp.Model.Width * 100  - sp.Model.Width * 100  / 4);
+                            Canvas.SetLeft(ShortArrow1, CanvasActualLenhgt / 2 + sp.Model.Width * 100 - sp.Model.Width * 100 / 4);
                             CanvasChildrens.Add(ShortArrow1);
                         }
                     }
@@ -546,7 +623,7 @@ namespace sapr.ViewModels
 
                         ShortArrow1.Stroke = Brushes.Red;
                         Canvas.SetTop(ShortArrow1, CanvasActualHenght / 2 - ShortArrow1.MaxHeight / 2);
-                        Canvas.SetLeft(ShortArrow1, CanvasActualLenhgt / 2 + PlussesWihth + sp.Model.Width * 100  - sp.Model.Width * 100  / 4);
+                        Canvas.SetLeft(ShortArrow1, CanvasActualLenhgt / 2 + PlussesWihth + sp.Model.Width * 100 - sp.Model.Width * 100 / 4);
                         CanvasChildrens.Add(ShortArrow1);
                     }
                     else if (Nodes[Index].PoPower < 0)
@@ -554,7 +631,7 @@ namespace sapr.ViewModels
                         ShortArrow1.LayoutTransform = new ScaleTransform(-1, 1);
                         ShortArrow1.Stroke = Brushes.Blue;
                         Canvas.SetTop(ShortArrow1, CanvasActualHenght / 2 - ShortArrow1.MaxHeight / 2);
-                        Canvas.SetLeft(ShortArrow1, CanvasActualLenhgt / 2 + PlussesWihth + sp.Model.Width * 100  - sp.Model.Width * 100  / 4);
+                        Canvas.SetLeft(ShortArrow1, CanvasActualLenhgt / 2 + PlussesWihth + sp.Model.Width * 100 - sp.Model.Width * 100 / 4);
                         CanvasChildrens.Add(ShortArrow1);
                     }
                 }
@@ -578,7 +655,7 @@ namespace sapr.ViewModels
 
 
             }
-            
+
             foreach (UIElement uIElement in CanvasChildrens)
             {
                 Canvas.SetLeft(uIElement, Canvas.GetLeft(uIElement) - PlussesWihth / 2);
@@ -602,6 +679,55 @@ namespace sapr.ViewModels
                 myShape.Uid = "Right";
                 CanvasChildrens.Add(myShape);
             }
+            if (IsProcessorCalculated)
+            {
+                Path path = new Path();
+                path = GenereteCoordinatePlane();
+                path.Stroke = Brushes.Black;
+                Canvas.SetTop(path, CanvasActualHenght / 2);
+                Canvas.SetLeft(path, CanvasActualLenhgt / 2 - PlussesWihth / 2);
+                CanvasChildrens.Add(path);
+                foreach (UIElement uIElement in CanvasChildrens)
+                {
+                    Canvas.SetTop(uIElement, Canvas.GetTop(uIElement) - MaxHeight / 2 - 30);
+                }
+            }
+            
         }
+        public static void CnangeState(bool state)
+        {
+            isProcessorCalculated = state;
+        }
+
+
+
+        public ICommand AddSupport {  get; set; }
+        public ICommand RemoveSupport { get; set; } // ТУТ ЧТО ТО ВЫЧИТАТСЯ ИЗ АКТУАЛ ХИГХТ МБ НАДО ВЫЧИТАЬ ИЗ ХАЙГТ
+        public ICommand Calculate {  get; set; }
+        public ICommand Load { get; set; }
+        public ICommand Save { get; set; }
+        public ICommand Clear { get; set; }
+
+        //cinstruct
+        public PreProcessorViewModel()
+        {
+            EPowerStore.Instance.SetUserData(E);
+            NodesStore.Instance.SetUserData(Nodes);
+            SuportStore.Instance.SetUserData(Shapes);
+            SmthStore.Instance.SetUserData(LeftSmth, RightSmth);
+            CanvasChildrens = new ObservableCollection<UIElement>();
+            Shapes.CollectionChanged += Draw;
+            Nodes.CollectionChanged += Draw;
+            E = 1;
+            AddSupport = new AddSupportCommand(this);
+            RemoveSupport = new RemoveSupportCommand(this);
+            Calculate = new CalculateCommand(this);
+            Load = new LoadCommand(this);
+            Save = new SaveCommand(this);
+            Clear = new ClearCommand(this);
+        }
+
+
+        
     }
 }

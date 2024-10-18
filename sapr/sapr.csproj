@@ -109,6 +109,7 @@
     <Compile Include="Models\SupportModelv2.cs" />
     <Compile Include="Stores\EPowerStore.cs" />
     <Compile Include="Stores\NodesStore.cs" />
+    <Compile Include="Stores\NXStore.cs" />
     <Compile Include="Stores\SmthStore.cs" />
     <Compile Include="Stores\SuportStore.cs" />
     <Compile Include="Utilities\RectangleConverter.cs" />

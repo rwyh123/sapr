@@ -3,6 +3,7 @@ using sapr.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,7 +23,7 @@ namespace sapr.Command.PreProcessorCommands
             _preProcessorViewModel = preProcessorViewModel;
             
         }
-        protected static void ResizeCanvas(int radius, int lenght)
+        public static void ResizeCanvas(int radius, int lenght)
         {
             if (radius * 100 + plussesH > _preProcessorViewModel.CanvasActualHenght)
             {
@@ -33,7 +34,6 @@ namespace sapr.Command.PreProcessorCommands
                 }
                 else
                     _preProcessorViewModel.CanvasHenght = radius * 100 + plussesH;
-                //RiseEvent();
             }
             if (_preProcessorViewModel.PlussesWihth + plussesW > _preProcessorViewModel.CanvasActualLenhgt)
             {
@@ -74,6 +74,7 @@ namespace sapr.Command.PreProcessorCommands
             _preProcessorViewModel.Nodes.Clear();
             _preProcessorViewModel.Shapes.Clear();
             _preProcessorViewModel.SupportCount = 0;
+
             _preProcessorViewModel.Shapes.CollectionChanged += _preProcessorViewModel.Draw;
             _preProcessorViewModel.Nodes.CollectionChanged += _preProcessorViewModel.Draw;
         }

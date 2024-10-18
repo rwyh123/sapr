@@ -56,6 +56,8 @@ namespace sapr.Command
             CalculateNX();
             CalculateDX();
             CalculateUX();
+            PreProcessorViewModel.CnangeState(true);
+            NXStore.Instance.SetUserData(viewModel.NX);
         }
 
         private void CalculateDX()

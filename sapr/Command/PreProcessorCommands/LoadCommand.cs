@@ -34,6 +34,8 @@ namespace sapr.Command.PreProcessorCommands
 
             var settings = new JsonSerializerSettings();
             settings.Converters.Add(new RectangleConverter());
+            _preProcessorViewModel.IsProcessorCalculated = false;
+
 
             if (result == true)
             {
@@ -54,6 +56,8 @@ namespace sapr.Command.PreProcessorCommands
                     _preProcessorViewModel.Shapes.CollectionChanged -= _preProcessorViewModel.Draw;
                     sp.Model.Stroke = Brushes.Black;
                     _preProcessorViewModel.Shapes.Add(sp);
+                    _preProcessorViewModel.Draw(this,new EventArgs());
+                    ResizeCanvas((int)sp.Model.Height,(int)sp.Model.Width);
                     _preProcessorViewModel.Shapes.CollectionChanged += _preProcessorViewModel.Draw;
                     _preProcessorViewModel.SupportCount++;
 

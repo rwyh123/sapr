@@ -17,6 +17,7 @@ namespace sapr.Command.PreProcessorCommands
         {
             Clear();
             _preProcessorViewModel.Draw(this, new EventArgs());
+            _preProcessorViewModel.IsProcessorCalculated = false;
         }
 
     }
