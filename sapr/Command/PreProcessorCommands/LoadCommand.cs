@@ -47,21 +47,16 @@ namespace sapr.Command.PreProcessorCommands
                 sp = JsonConvert.DeserializeObject<SupportModelv2>(elm, settings);
                 if (JsonConvert.DeserializeObject<NodeModel>(elm).NodeNumber != 0)
                 {
-                    _preProcessorViewModel.Nodes.CollectionChanged -= _preProcessorViewModel.Draw;
                     _preProcessorViewModel.Nodes.Add(JsonConvert.DeserializeObject<NodeModel>(elm));
-                    _preProcessorViewModel.Nodes.CollectionChanged += _preProcessorViewModel.Draw;
                 }
                 else if (sp.Model != null)
                 {
                     _preProcessorViewModel.Shapes.CollectionChanged -= _preProcessorViewModel.Draw;
-                    sp.Model.Stroke = Brushes.Black;
+                    sp.Model.SizeChanged += PreProcessorViewModel.CnangeState;
                     _preProcessorViewModel.Shapes.Add(sp);
-                    _preProcessorViewModel.Draw(this,new EventArgs());
-                    ResizeCanvas((int)sp.Model.Height,(int)sp.Model.Width);
                     _preProcessorViewModel.Shapes.CollectionChanged += _preProcessorViewModel.Draw;
+                    ResizeCanvas((int)sp.Model.Height, (int)sp.Model.Width);
                     _preProcessorViewModel.SupportCount++;
-
-                    _preProcessorViewModel.OnPropertyChanged(nameof(_preProcessorViewModel.IsSupportCountNotull));
                 }
                 else
                 {
@@ -78,9 +73,6 @@ namespace sapr.Command.PreProcessorCommands
                 }
             }
             _preProcessorViewModel.OnPropertyChanged(nameof(_preProcessorViewModel.IsSupportCountNotull));
-            _preProcessorViewModel.OnPropertyChanged(nameof(_preProcessorViewModel.LeftSmth));
-            _preProcessorViewModel.OnPropertyChanged(nameof(_preProcessorViewModel.RightSmth));
-
         }
 
        

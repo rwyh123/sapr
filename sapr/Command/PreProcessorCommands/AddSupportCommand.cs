@@ -22,32 +22,37 @@ namespace sapr.Command.PreProcessorCommands
             Window1 window = new Window1();
             if (window.ShowDialog() == true)
             {
+                //vars
+                var node0 = new NodeModel(0, _preProcessorViewModel.SupportCount + 1);
+                var node = new NodeModel(0, _preProcessorViewModel.SupportCount + 2);
+                var supp = new SupportModelv2(0, new Rectangle());
+
+                //create node
                 if (_preProcessorViewModel.SupportCount == 0)
                 { 
-                    var node0 = new NodeModel(0, _preProcessorViewModel.SupportCount + 1);
-                    node0.PropertyChanged += _preProcessorViewModel.Draw;
                     _preProcessorViewModel.Nodes.Add(node0);
                 }
-                _preProcessorViewModel.SupportCount++;
-
-                var node = new NodeModel(0, _preProcessorViewModel.SupportCount + 1);
-                node.PropertyChanged += _preProcessorViewModel.Draw;
                 _preProcessorViewModel.Nodes.Add(node);
 
-                var supp = new SupportModelv2(0,  new Rectangle());
+                //create shape
+
                 supp.Model.Height = int.Parse(window.Radius);
                 supp.Model.Width = int.Parse(window.Lenght);
                 supp.Model.Stroke = Brushes.Black;
                 supp.Model.StrokeThickness = 1;
                 supp.Model.Uid = _preProcessorViewModel.SupportCount.ToString();
-                _preProcessorViewModel.Shapes.Add(supp);
+                supp.Model.SizeChanged += PreProcessorViewModel.CnangeState;
                 _preProcessorViewModel.IsProcessorCalculated = false;
+                _preProcessorViewModel.SupportCount++;
 
-                _preProcessorViewModel.OnPropertyChanged(nameof(_preProcessorViewModel.IsSupportCountNotull));
+                _preProcessorViewModel.Shapes.Add(supp);
+                node0.PropertyChanged += _preProcessorViewModel.Draw;
+                node.PropertyChanged += _preProcessorViewModel.Draw;
+
 
                 ResizeCanvas(int.Parse(window.Radius), int.Parse(window.Lenght));
+
             }
         }
-
     }
 }

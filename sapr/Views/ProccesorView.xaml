@@ -4,12 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:sapr.Views"
-             xmlns:viewModels="clr-namespace:sapr.ViewModels"
+             xmlns:viewmodel="clr-namespace:sapr.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
     <UserControl.DataContext>
-        <viewModels:ProcecssorViewModel/>
+        <viewmodel:ProcecssorViewModel/>
     </UserControl.DataContext>
 
     <Grid>
@@ -18,18 +18,36 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         
-        <StackPanel Orientation="Vertical">
-            <Border BorderBrush="Black" BorderThickness="1">
-                <TextBlock Text="{Binding MyTextNX}" Width="100"/>
-            </Border>
-            <Border BorderBrush="Black" BorderThickness="1">
-                <TextBlock Text="{Binding MyTextDX}" Width="100"/>
-            </Border>
-            <Border BorderBrush="Black" BorderThickness="1">
-                <TextBlock Text="{Binding MyTextUX}" Width="100"/>
-            </Border>
-            <Button Grid.Row="1" Content="123" Command="{Binding setText}" Height="20"/>
-        </StackPanel>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <ScrollViewer Grid.Row="0">
+                <StackPanel Orientation="Vertical">
+                    <Border BorderBrush="Black" BorderThickness="1">
+                        <TextBlock Text="{Binding MyTextNX}" Width="100"/>
+                    </Border>
+                    <Border BorderBrush="Black" BorderThickness="1">
+                        <TextBlock Text="{Binding MyTextDX}" Width="100"/>
+                    </Border>
+                    <Border BorderBrush="Black" BorderThickness="1">
+                        <TextBlock Text="{Binding MyTextUX}" Width="100"/>
+                    </Border>
+                </StackPanel>
+            </ScrollViewer>
+            <StackPanel Orientation="Vertical" Grid.Row="1">
+                <Label Content="Step" HorizontalAlignment="Center"/>
+                <TextBox Text="{Binding Step,Mode=TwoWay}"/>
+            </StackPanel>
+            <Button  Grid.Row="2" Content="Calculate" VerticalAlignment="Bottom" Command="{Binding PreProcessorCalculations}" Height="20"/>
+        </Grid>
 
+        <TabControl Grid.Column="1">
+            <TabItem Header="Tables">
+                <local:UserControl1/>
+            </TabItem>
+        </TabControl>
     </Grid>
 </UserControl>

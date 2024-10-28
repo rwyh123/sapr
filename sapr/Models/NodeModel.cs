@@ -1,4 +1,5 @@
-﻿using System;
+﻿using sapr.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace sapr.Models
 			{
 				_poPower = value;
 				OnPropertyChanged(nameof(PoPower));
-
+                PreProcessorViewModel.CnangeState(false);
             }
 		}
 

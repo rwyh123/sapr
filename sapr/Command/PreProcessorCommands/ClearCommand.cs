@@ -16,7 +16,7 @@ namespace sapr.Command.PreProcessorCommands
         public override void Execute(object parameter)
         {
             Clear();
-            _preProcessorViewModel.Draw(this, new EventArgs());
+            plussesW = 0;
             _preProcessorViewModel.IsProcessorCalculated = false;
         }
 

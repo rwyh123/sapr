@@ -10,6 +10,7 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Media3D;
 
@@ -30,8 +31,22 @@ namespace sapr.ViewModels
         private string myTextNX;
         private string myTextDX;
         private string myTextUX;
-       
-        private SuportStore myStore = SuportStore.Instance;
+        private int step;
+        
+
+        public int Step
+        {
+            get { return step; }
+            set
+            {
+                step = value;
+                OnPropertyChanged(nameof(Step));
+            }
+        }
+
+
+        
+
 
         public string MyTextNX
         {
@@ -97,7 +112,7 @@ namespace sapr.ViewModels
             }
         }
 
-        public ICommand setText { get; }
+        public ICommand PreProcessorCalculations { get; }
         public List<List<double>> MatrixA
         {
             get => matrixA; 
@@ -112,7 +127,7 @@ namespace sapr.ViewModels
             NX = new Dictionary<string, double>();
             DX = new Dictionary<string, double>();
             UX = new Dictionary<string, double>();
-            setText = new SetTextCommand(this);
+            PreProcessorCalculations = new PreProcessorCalculationsCommand(this);
         }
 
 

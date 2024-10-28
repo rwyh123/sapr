@@ -10,7 +10,6 @@ namespace sapr.Command
     public class CommandBase : ICommand
     {
         public virtual event EventHandler CanExecuteChanged;
-
         public virtual bool CanExecute(object parameter)
         {
             return true;

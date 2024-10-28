@@ -1,4 +1,5 @@
 ﻿using sapr.Utilities;
+using sapr.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,13 +17,24 @@ namespace sapr.Models
         private double prPower;
         [JsonConverter(typeof(RectangleConverter))]
         private Rectangle model;
+        private double admissibleStress;
 
+        public double AdmissibleStress
+        {
+            get { return admissibleStress; }
+            set
+            {
+                admissibleStress = value;
+                OnPropertyChanged(nameof(AdmissibleStress));
+            }
+        }
         public double PrPower
         {
             get => prPower;
             set
             {
                 prPower = value;
+                PreProcessorViewModel.CnangeState(false);
             }
         }
 

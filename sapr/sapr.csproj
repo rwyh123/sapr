@@ -103,15 +103,20 @@
     <Compile Include="Command\PreProcessorCommands\PreProcessorComandBase.cs" />
     <Compile Include="Command\PreProcessorCommands\RemoveSupportCommand.cs" />
     <Compile Include="Command\PreProcessorCommands\SaveCommand.cs" />
-    <Compile Include="Command\SetTextCommand.cs" />
+    <Compile Include="Command\PreProcessorCalculationsCommand.cs" />
     <Compile Include="Models\ModelBase.cs" />
     <Compile Include="Models\NodeModel.cs" />
     <Compile Include="Models\SupportModelv2.cs" />
-    <Compile Include="Stores\EPowerStore.cs" />
-    <Compile Include="Stores\NodesStore.cs" />
-    <Compile Include="Stores\NXStore.cs" />
-    <Compile Include="Stores\SmthStore.cs" />
-    <Compile Include="Stores\SuportStore.cs" />
+    <Compile Include="Stores\preProcesorStores\EPowerStore.cs" />
+    <Compile Include="Stores\preProcesorStores\NodesStore.cs" />
+    <Compile Include="Stores\ProcessorStores\NXStore.cs" />
+    <Compile Include="Stores\preProcesorStores\SmthStore.cs" />
+    <Compile Include="Stores\preProcesorStores\SuportStore.cs" />
+    <Compile Include="Stores\ProcessorStores\QStore.cs" />
+    <Compile Include="Stores\ProcessorStores\StepStore.cs" />
+    <Compile Include="Stores\ProcessorStores\UXstore.cs" />
+    <Compile Include="Utilities\FindHihest.cs" />
+    <Compile Include="Utilities\ProcrssorTables.cs" />
     <Compile Include="Utilities\RectangleConverter.cs" />
     <Compile Include="Utilities\MyPoint.cs" />
     <Compile Include="ViewModels\PreProcessorViewModel.cs" />
@@ -120,12 +125,16 @@
     <Compile Include="Utilities\Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\TablesViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\PreProcessorView.xaml.cs">
       <DependentUpon>PreProcessorView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ProccesorView.xaml.cs">
       <DependentUpon>ProccesorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TablesXU.xaml.cs">
+      <DependentUpon>TablesXU.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -148,6 +157,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ProccesorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TablesXU.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -178,6 +191,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Utilities\ToDoList.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ToDoList.txt</LastGenOutput>
+    </Content>
+    <Resource Include="Utilities\ToDoList.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ToDoList.tt</DependentUpon>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

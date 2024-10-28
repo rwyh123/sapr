@@ -1,4 +1,5 @@
 ﻿using sapr.Models;
+using sapr.Utilities;
 using sapr.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -39,22 +40,28 @@ namespace sapr.Command.PreProcessorCommands
             if (_preProcessorViewModel.SupportCount == 0)
             {
                 _preProcessorViewModel.Nodes.Clear();
+                plussesW = 0;
                 _preProcessorViewModel.LeftSmth = false;
                 _preProcessorViewModel.RightSmth = false;
-                _preProcessorViewModel.CanvasLenhgt -= supportModel.Model.Height * 100;
-                _preProcessorViewModel.CanvasHenght -= supportModel.Model.Width * 100;
+                _preProcessorViewModel.CanvasLenhgt -= supportModel.Model.Width  * 100 - 100;
+                _preProcessorViewModel.CanvasHenght -= supportModel.Model.Height * 100 - 120;
+                plussesW = 0;
 
-            }
-            else if (_preProcessorViewModel.SupportCount == 1)
+            }else
             {
-                _preProcessorViewModel.CanvasLenhgt -= supportModel.Model.Height * 100 - 120;
-                _preProcessorViewModel.CanvasHenght -= supportModel.Model.Width * 100 - 100;
+                _preProcessorViewModel.CanvasLenhgt -= supportModel.Model.Width * 100;
+                _preProcessorViewModel.CanvasHenght = FindHihest.FindHeight() * 100 + 120;
+                if (_preProcessorViewModel.CanvasHenght < _preProcessorViewModel.CanvasActualHenght)
+                {
+                    _preProcessorViewModel.VscrolVisible = System.Windows.Controls.ScrollBarVisibility.Hidden;
+                }
+                if (_preProcessorViewModel.CanvasLenhgt < _preProcessorViewModel.CanvasActualLenhgt)
+                {
+                    _preProcessorViewModel.HscrolVisible = System.Windows.Controls.ScrollBarVisibility.Hidden;
+                }
             }
-            else
-            {
-                _preProcessorViewModel.CanvasLenhgt -= supportModel.Model.Height * 100;
-                _preProcessorViewModel.CanvasHenght -= supportModel.Model.Width * 100;
-            }
+
         }
+        
     }
 }
