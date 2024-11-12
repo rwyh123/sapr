@@ -18,7 +18,10 @@
                 <MenuItem Header="file" Width="25">
                     <MenuItem Header="Load from file" Command="{Binding Load}"/>
                     <MenuItem Header="Save file" Command="{Binding Save}" IsEnabled="{Binding IsSupportCountNotull}"/>
+                    <Separator/>
                     <MenuItem Header="Clear" Command="{Binding Clear}" IsEnabled="{Binding IsSupportCountNotull}"/>
+                    <Separator/>
+                    <MenuItem Header="Create report" Click="MenuItem_Click"  IsEnabled="{Binding IsSupportCountNotull}"/>
                 </MenuItem>
             </Menu>
         </StackPanel>
@@ -55,8 +58,12 @@
                                               SelectedItem="{Binding SelectedShape}">
                                         <DataGrid.Columns>
                                             <DataGridTextColumn Header="Numb" Binding="{Binding Path=Model.Uid, Mode=TwoWay}" IsReadOnly="True"/>
-                                            <DataGridTextColumn Header="Lenght" Binding="{Binding Path=Model.Width, Mode=TwoWay}"/>
-                                            <DataGridTextColumn Header="Radius" Binding="{Binding Path=Model.Height, Mode=TwoWay}"/>
+                                            <DataGridTextColumn Header="Lenght" Binding="{Binding Path=Model.Width, Mode=TwoWay}">
+            
+                                            </DataGridTextColumn>
+                                            <DataGridTextColumn Header="Radius" Binding="{Binding Path=Model.Height, Mode=TwoWay}">
+
+                                            </DataGridTextColumn>
                                             <DataGridTextColumn Header="PrPower" Binding="{Binding Path=PrPower, Mode=TwoWay}"/>
                                             <DataGridTextColumn Header="AdmStress" Binding="{Binding Path=AdmissibleStress, Mode=TwoWay}"/>
                                         </DataGrid.Columns>
@@ -99,16 +106,26 @@
                                     <RowDefinition Height="auto"/>
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
-                                <Label Content="EP"/>
-                                <TextBox Grid.Row="1" Text="{Binding E,Mode=TwoWay}" FontSize="20" />
-                                <Label Content="CS" Grid.Column="1"/>
-                                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding CurentSup}" FontSize="20" IsReadOnly="True"/>
-                                <Label Content="NX        |" Grid.Column="2"/>
-                                <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding NX}" FontSize="20" IsReadOnly="True" />
-                                <Label Content="UX        |" Grid.Column="3"/>
-                                <TextBox Grid.Row="1" Grid.Column="3" Text="{Binding UX}" FontSize="20" IsReadOnly="True" />
+                                <Label Content="CS" Grid.Column="0" Visibility="{Binding PositionLableVisability}"/>
+                                <TextBox Grid.Row="1" Grid.Column="0" Text="{Binding CurentSup}" FontSize="20" IsReadOnly="True" Visibility="{Binding PositionLableVisability}"/>
+                                <Label Content="NX           |" Grid.Column="1" Visibility="{Binding PositionLableVisability}"/>
+                                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding NX}" FontSize="20" IsReadOnly="True" Visibility="{Binding PositionLableVisability}"/>
+                                <Label Content="UX           |" Grid.Column="2" Visibility="{Binding PositionLableVisability}"/>
+                                <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding UX}" FontSize="20" IsReadOnly="True" Visibility="{Binding PositionLableVisability}"/>
+                                <Label Content="DX           |" Grid.Column="3" Visibility="{Binding PositionLableVisability}"/>
+                                <TextBox Grid.Row="1" Grid.Column="3" Text="{Binding DX}" FontSize="20" IsReadOnly="True" Visibility="{Binding PositionLableVisability}"/>
                             </Grid>
-                            <Button Grid.Row="1" Content="Save result" Command="{Binding Calculate}"/>
+                            <Grid Grid.Row="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                    <Label Content="modulus of elasticity"/>
+                                    <TextBox  Text="{Binding E,Mode=TwoWay}" FontSize="20" IsEnabled="{Binding IsSupportCountNotull}"/>
+                                </StackPanel>
+                                <Button Grid.Row="1" Content="Save result" Command="{Binding Calculate}" IsEnabled="{Binding CanBeCalculateed}"/>
+                            </Grid>
                         </Grid>
                     </Border>
                 </Grid>

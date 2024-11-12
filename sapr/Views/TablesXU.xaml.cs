@@ -5,6 +5,7 @@ using sapr.Utilities;
 using sapr.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,16 +25,16 @@ namespace sapr.Views
     /// Логика взаимодействия для UserControl1.xaml
     /// </summary>
     
-    public partial class UserControl1 : UserControl
+    public partial class TablesXU : UserControl 
     {
-        private static ProcecssorViewModel viewModel = new ProcecssorViewModel();
-        public UserControl1()
+        private static TablesViewModel viewModel = new TablesViewModel();
+        public TablesXU()
         {
             InitializeComponent();
-            viewModel = new ProcecssorViewModel();
+            viewModel = new TablesViewModel();
             this.DataContext = viewModel ;
-            viewModel = this.DataContext as ProcecssorViewModel;
-            PreProcessorCalculationsCommand.calculated += () =>
+            viewModel = this.DataContext as TablesViewModel;
+            ProcessorCalculationsCommand.calculated += () =>
             {
                 CreateTables();
             };
@@ -41,22 +42,26 @@ namespace sapr.Views
 
         private void CreateTables()
         {
-
-
+            List<DataGrid> tables = new List<DataGrid>();
+            viewModel.DataGrids.Clear();
             for (int i = 0; i < SuportStore.Instance.GetUserData().Count; i++)
             {
                 List<ProcrssorTables> list = new List<ProcrssorTables>();
 
-                for (int j = 0; j <= SuportStore.Instance.GetUserData()[i].Model.Width * 100; j += StepStore.Instance.GetUserData())
+                for (double j = 0; j <= SuportStore.Instance.GetUserData()[i].Model.Width * 100; j += StepStore.Instance.GetUserData())
                 {
-                    ProcrssorTables table = new ProcrssorTables(i, j, PreProcessorCalculationsCommand.CalculateNX(i, j),
-                                            PreProcessorCalculationsCommand.CalculateUX(i, j), SuportStore.Instance.GetUserData()[i].AdmissibleStress);
+                    ProcrssorTables table = new ProcrssorTables(i+1, j, ProcessorCalculationsCommand.CalculateNX(i, j / 100),
+                                            ProcessorCalculationsCommand.CalculateUX(i, j / 100), ProcessorCalculationsCommand.CalculateDX(i, ProcessorCalculationsCommand.CalculateNX(i, j / 100)), SuportStore.Instance.GetUserData()[i].AdmissibleStress);
                     list.Add(table);
                 }
-                DataGrid dataGrid = new DataGrid();
-                dataGrid.CanUserAddRows = false;
-                dataGrid.ItemsSource = list;
-                dataGrid.IsReadOnly = true;
+
+                DataGrid dataGrid = new DataGrid
+                {
+                    CanUserAddRows = false,
+                    ItemsSource = list,
+                    IsReadOnly = true,
+                    AutoGenerateColumns = false
+                };
                 dataGrid.Columns.Add(new DataGridTextColumn()
                 {
                     Header = "Support",
@@ -77,13 +82,43 @@ namespace sapr.Views
                     Header = "Ux",
                     Binding = new Binding("Ux")
                 });
+
+                DataGridTextColumn dxColumn = new DataGridTextColumn()
+                {
+                    Header = "Dx",
+                    Binding = new Binding("Dx")
+                };
+
+                Style cellStyle = new Style(typeof(DataGridCell));
+                DataTrigger trigger = new DataTrigger
+                {
+                    Binding = new Binding("Dx")
+                    {
+                        Converter = new ComparisonConverter(),
+                        ConverterParameter = list[i].Stress 
+                    },
+                    Value = true
+                };
+
+                trigger.Setters.Add(new Setter(DataGridCell.ForegroundProperty, Brushes.Red));
+                cellStyle.Triggers.Add(trigger);
+
+                dxColumn.CellStyle = cellStyle;
+
+                dataGrid.Columns.Add(dxColumn);
+
                 dataGrid.Columns.Add(new DataGridTextColumn()
                 {
                     Header = "Stress",
-                    Binding = new Binding("Stress")
+                    Binding = new Binding("Stress"),
                 });
+
+
                 viewModel.DataGrids.Add(dataGrid);
+                tables.Add(dataGrid);
             }
+            ReportTableStore.Instance.SetUserData(tables);
+            
         }
     }
 }

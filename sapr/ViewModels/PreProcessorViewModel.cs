@@ -4,13 +4,16 @@ using sapr.Command;
 using sapr.Command.PreProcessorCommands;
 using sapr.Models;
 using sapr.Stores;
+using sapr.Stores.ProcessorStores;
 using sapr.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.Linq;
+using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -48,18 +51,19 @@ namespace sapr.ViewModels
         private ScrollBarVisibility hscrolVisible = ScrollBarVisibility.Hidden;
         private double nX;
         private double uX;
+        private double dX;
         private double curentSup;
-        //private double maxWidth = 680;
+        private static Visibility positionLableVisability = Visibility.Hidden;
+        private static bool canBeCalculateed;
 
-        //public double MaxWidth
-        //{
-        //    get { return maxWidth + 320; }
-        //    set
-        //    {
-        //        maxWidth = value;
-        //        OnPropertyChanged(nameof(MaxWidth));
-        //    }
-        //}
+        
+
+
+
+
+
+
+
 
 
         //props
@@ -72,8 +76,18 @@ namespace sapr.ViewModels
 
         //events
         public event Action RequestScrollBarUpdate;
+        public static event EventHandler RediToCalculate;
 
         //prop enit
+        public Visibility PositionLableVisability
+        {
+            get { return positionLableVisability; }
+            set
+            {
+                positionLableVisability = value;
+                OnPropertyChanged(nameof(PositionLableVisability));
+            }
+        }
         public double CurentSup
         {
             get { return curentSup; }
@@ -81,6 +95,15 @@ namespace sapr.ViewModels
             {
                 curentSup = value;
                 OnPropertyChanged(nameof(CurentSup));
+            }
+        }
+        public double DX
+        {
+            get { return dX; }
+            set 
+            {
+                dX = Math.Round(value, 3);
+                OnPropertyChanged(nameof(DX));
             }
         }
         public double UX
@@ -186,6 +209,7 @@ namespace sapr.ViewModels
             {
                 leftSmth = value;
                 OnPropertyChanged(nameof(LeftSmth));
+                OnPropertyChanged(nameof(CanBeCalculateed));
                 if(supportCount > 0)
                     Draw(this, new EventArgs());
             }
@@ -197,6 +221,7 @@ namespace sapr.ViewModels
             {
                 rightSmth = value;
                 OnPropertyChanged(nameof(RightSmth));
+                OnPropertyChanged(nameof(CanBeCalculateed));
                 if (supportCount > 0)
                     Draw(this, new EventArgs());
             }
@@ -246,14 +271,34 @@ namespace sapr.ViewModels
             get { return isProcessorCalculated; }
             set
             {
+                if (value)
+                    PositionLableVisability = Visibility.Visible;
+                else PositionLableVisability = Visibility.Hidden;
                 if (!value && isProcessorCalculated)
                 {
-                    CanvasHenght -= 300 + FindHihest.FindHeight();
+                    CanvasHenght = 120 + FindHihest.FindHeight();
                     Draw(this, new EventArgs());
                 }
                 isProcessorCalculated = value;
                 OnPropertyChanged(nameof(IsProcessorCalculated));
             }
+        }
+        public bool CanBeCalculateed
+        {
+            get
+            {
+                if (!LeftSmth && !RightSmth)
+                {
+                    RediToCalculate.Invoke(false, EventArgs.Empty);
+                    return false;
+                }
+                else 
+                {
+                    RediToCalculate.Invoke(true, EventArgs.Empty);
+                    return true;
+                }
+            }
+            set { canBeCalculateed = value; }
         }
         public ObservableCollection<SupportModelv2> Shapes
         {
@@ -300,16 +345,27 @@ namespace sapr.ViewModels
         {
             //  !!1.Переделать создание опоры, не ноая фунция а переоворот получившейся первой 
             //сдесь, карочче разобратсья чтобы длиина и высота штучек завичсела там от размеров ректайнгла.
+            double modelHeight;
+            double modelWidth;
+            if (rect.Height > 10)
+                modelHeight = 1000;
+            else
+                modelHeight = rect.Width * 100;
+            if (rect.Width > 10)
+                modelWidth = 1000;
+            else
+                modelWidth = rect.Width * 100;
+
             int ParticulWigth = 10;
             Path path = new Path();
             path.Stroke = Brushes.Black;
             path.StrokeThickness = 1;
             LineGeometry line = new LineGeometry();
             line.StartPoint = new Point(ParticulWigth, 0);
-            line.EndPoint = new Point(ParticulWigth, rect.Height * 100);
+            line.EndPoint = new Point(ParticulWigth, modelHeight);
             GeometryGroup group = new GeometryGroup();
             group.Children.Add(line);
-            for (int i = 0; i < rect.Height * 100;)
+            for (int i = 0; i < modelHeight;)
             {
                 line = new LineGeometry();
                 line.StartPoint = new Point(0, i);
@@ -318,22 +374,34 @@ namespace sapr.ViewModels
                 i += ParticulWigth;
             }
             path.Data = group;
-            path.MaxHeight = rect.Height * 100;
+            path.MaxHeight = modelHeight;
             path.MaxWidth = ParticulWigth;
             return path;
         }
         private Path GenerateArrow(Rectangle rect)
         {
+
+            double modelHeight;
+            double modelWidth;
+            if (rect.Height > 10)
+                modelHeight = 1000;
+            else
+                modelHeight = rect.Width * 100;
+            if (rect.Width > 10)
+                modelWidth = 1000;
+            else
+                modelWidth = rect.Width * 100;
+
             int ParticulWigth = 10;
             Path path = new Path();
             path.Stroke = Brushes.Black;
             path.StrokeThickness = 1;
             LineGeometry line = new LineGeometry();
             line.StartPoint = new Point(0, ParticulWigth);
-            line.EndPoint = new Point(rect.Width * 100, ParticulWigth);
+            line.EndPoint = new Point(modelWidth, ParticulWigth);
             GeometryGroup group = new GeometryGroup();
             group.Children.Add(line);
-            for (int i = 0; i < rect.Width * 100;)
+            for (int i = 0; i < modelWidth;)
             {
                 line = new LineGeometry();
                 line.StartPoint = new Point(i, ParticulWigth);
@@ -346,12 +414,23 @@ namespace sapr.ViewModels
                 i += ParticulWigth;
             }
             path.Data = group;
-            path.MaxWidth = rect.Width * 100;
+            path.MaxWidth = modelWidth;
             path.MaxHeight = ParticulWigth * 2;
             return path;
         }
         private Path GenereteShortArrow(Rectangle rect)
         {
+            double modelHeight;
+            double modelWidth;
+            if (rect.Height > 10)
+                modelHeight = 1000;
+            else
+                modelHeight = rect.Width * 100;
+            if (rect.Width > 10)
+                modelWidth = 1000;
+            else
+                modelWidth = rect.Width * 100;
+
             int ParticulWigth = 10;
             Path path = new Path();
             path.StrokeThickness = 2;
@@ -359,22 +438,22 @@ namespace sapr.ViewModels
             recta.Rect = new Rect();
             LineGeometry line = new LineGeometry();
             line.StartPoint = new Point(0, ParticulWigth);
-            line.EndPoint = new Point(rect.Width * 100 / 4, ParticulWigth);
+            line.EndPoint = new Point(modelWidth / 4, ParticulWigth);
             GeometryGroup group = new GeometryGroup();
             group.Children.Add(line);
 
             line = new LineGeometry();
-            line.StartPoint = new Point(rect.Width * 100 / 4, ParticulWigth);
-            line.EndPoint = new Point(rect.Width * 100 / 4 - ParticulWigth, 0);
+            line.StartPoint = new Point(modelWidth / 4, ParticulWigth);
+            line.EndPoint = new Point(modelWidth / 4 - ParticulWigth, 0);
             group.Children.Add(line);
 
             line = new LineGeometry();
-            line.StartPoint = new Point(rect.Width * 100 / 4, ParticulWigth);
-            line.EndPoint = new Point(rect.Width * 100 / 4 - ParticulWigth, ParticulWigth * 2);
+            line.StartPoint = new Point(modelWidth / 4, ParticulWigth);
+            line.EndPoint = new Point(modelWidth / 4 - ParticulWigth, ParticulWigth * 2);
             group.Children.Add(line);
 
             path.Data = group;
-            path.MaxWidth = rect.Width * 100;
+            path.MaxWidth = modelWidth;
             path.MaxHeight = ParticulWigth * 2;
             return path;
         }
@@ -385,6 +464,8 @@ namespace sapr.ViewModels
             path.StrokeThickness = 1;
 
             GeometryGroup group = new GeometryGroup();
+
+
 
             int NplussesWA = 0;
             int NplussesWC = 0;
@@ -397,7 +478,7 @@ namespace sapr.ViewModels
                     minus++;
                 LineGeometry LVline = new LineGeometry();
                 LVline.StartPoint = new Point(NplussesWA, shapes[j - minus].Model.Height / 2 * 100);
-                LVline.EndPoint = new Point(NplussesWA, MaxHeight / 2 + 200 + 50);
+                LVline.EndPoint = new Point(NplussesWA, MaxHeight / 2 + 500 + 50);
                 group.Children.Add(LVline);
                 NplussesWA += NplussesWC;
             }
@@ -406,9 +487,14 @@ namespace sapr.ViewModels
             HHline.EndPoint = new Point(PlussesWihth, MaxHeight / 2 + 100);
             group.Children.Add(HHline);
             LineGeometry HLline = new LineGeometry();
-            HLline.StartPoint = new Point(0, MaxHeight / 2 + 200);
-            HLline.EndPoint = new Point(PlussesWihth, MaxHeight / 2 + 200);
+            HLline.StartPoint = new Point(0, MaxHeight / 2 + 300);
+            HLline.EndPoint = new Point(PlussesWihth, MaxHeight / 2 + 300);
             group.Children.Add(HLline);
+            LineGeometry HDline = new LineGeometry();
+            HDline.StartPoint = new Point(0, MaxHeight / 2 + 500);
+            HDline.EndPoint = new Point(PlussesWihth, MaxHeight / 2 + 500);
+            group.Children.Add(HDline);
+
             //nx epure
             int plussesWA = 0;
             int plussesWC;
@@ -421,24 +507,146 @@ namespace sapr.ViewModels
                 MultiplaierUX = MultiplaierNX;
             for (int i = 0; i < shapes.Count(); i++)
             {
-                plussesWC = (int)shapes[i].Model.Width * 100;
-                if (shapes[i].PrPower == 0)
-                {
 
-                    LineGeometry nxline = new LineGeometry();
-                    nxline.StartPoint = new Point(plussesWA, -NXStore.Instance.GetUserData()[$"N{i + 1}(X): "] * MultiplaierNX + MaxHeight / 2 + 100);
-                    nxline.EndPoint = new Point(plussesWC + plussesWA, -NXStore.Instance.GetUserData()[$"N{i + 1}(X): "] * MultiplaierNX + MaxHeight / 2 + 100);
-                    group.Children.Add(nxline);
-                    plussesWA += plussesWC;
+
+                    plussesWC = (int)shapes[i].Model.Width * 100;
+
+
+                    if (shapes[i].PrPower == 0)
+                    {
+
+                        double PointX1 = plussesWA;
+                        double PointX2 = plussesWC + plussesWA;
+                        double PointY1 = -NXStore.Instance.GetUserData()[$"N{i + 1}(X): "] * MultiplaierNX + MaxHeight / 2 + 100;
+                        double PointY2 = -NXStore.Instance.GetUserData()[$"N{i + 1}(X): "] * MultiplaierNX + MaxHeight / 2 + 100;
+
+                        LineGeometry nxline = new LineGeometry();
+                        nxline.StartPoint = new Point(PointX1, PointY1);
+                        nxline.EndPoint = new Point(PointX2, PointY2);
+                        group.Children.Add(nxline);
+
+                        TextBlock textBlock = new TextBlock();
+                    textBlock.Text = Math.Round(NXStore.Instance.GetUserData()[$"N{i + 1}(X): "],3).ToString();
+                    if (NXStore.Instance.GetUserData()[$"N{i + 1}(X): "] >= 0)
+                    {
+                        Canvas.SetTop(textBlock, PointY1 - 20 + CanvasActualHenght / 2);
+                        textBlock.Foreground = Brushes.Red;
+                    }
+                    else
+                    {
+                        Canvas.SetTop(textBlock, PointY1 + CanvasActualHenght / 2);
+                        textBlock.Foreground = Brushes.Blue;
+                    }
+                    Canvas.SetLeft(textBlock, plussesWA + 10);
+                    CanvasChildrens.Add(textBlock);
+
+                    TextBlock textBlock2 = new TextBlock();
+                    textBlock2.Text = Math.Round(NXStore.Instance.GetUserData()[$"N{i + 1}(X): "], 3).ToString();
+                    int minusW = 10 + textBlock2.Text.ToArray().Count() * 5;
+                    if (NXStore.Instance.GetUserData()[$"N{i + 1}(X): "] >= 0)
+                    {
+                        Canvas.SetTop(textBlock2, PointY2 - 20 + CanvasActualHenght / 2);
+                        textBlock2.Foreground = Brushes.Red;
+                    }
+                    else
+                    {
+                        Canvas.SetTop(textBlock2, PointY2 + CanvasActualHenght / 2);
+                        textBlock2.Foreground = Brushes.Blue;
+                         
+                    }
+                    Canvas.SetLeft(textBlock2, plussesWC + plussesWA - minusW);
+                    CanvasChildrens.Add(textBlock2);
+
+                    int step = 5;
+
+                        for (double x = PointX1; x <= PointX2; x += step)
+                        {
+                            var t = (x - PointX1) / (PointX2 - PointX1);
+                            var yLine = (PointY1 * (1 - t) + PointY2 * t);
+                            var yOx = MaxHeight / 2 + 100;
+
+                            LineGeometry VLine = new LineGeometry();
+                            VLine.StartPoint = new Point(x, yOx);
+                            VLine.EndPoint = new Point(x, yLine);
+                            group.Children.Add(VLine);
+
+                        }
+                        plussesWA += plussesWC;
                 }
                 else
                 {
-
+                    double PointX1 = plussesWA;
+                    double PointX2 =  plussesWC + plussesWA;
+                    double PointY1 = -NXStore.Instance.GetUserData()[$"N{i + 1}(0): "] * MultiplaierNX + MaxHeight / 2 + 100;
+                    double PointY2 = -NXStore.Instance.GetUserData()[$"N{i + 1}(L): "] * MultiplaierNX + MaxHeight / 2 + 100;
 
                     LineGeometry nxline = new LineGeometry();
-                    nxline.StartPoint = new Point(plussesWA, -NXStore.Instance.GetUserData()[$"N{i + 1}(0): "] * MultiplaierNX + MaxHeight / 2 + 100);
-                    nxline.EndPoint = new Point(plussesWC + plussesWA, -NXStore.Instance.GetUserData()[$"N{i + 1}(L): "] * MultiplaierNX + MaxHeight / 2 + 100);
+                    nxline.StartPoint = new Point(PointX1, PointY1);
+                    nxline.EndPoint = new Point(PointX2, PointY2);
                     group.Children.Add(nxline);
+
+                    double plussehR = 0;
+                    double plussehL = 0;
+                    if (NXStore.Instance.GetUserData()[$"N{i + 1}(0): "] > 0 && NXStore.Instance.GetUserData()[$"N{i + 1}(L): "] > 0)
+                    {
+                        if (NXStore.Instance.GetUserData()[$"N{i + 1}(0): "] > NXStore.Instance.GetUserData()[$"N{i + 1}(L): "])
+                        plussehR = -NXStore.Instance.GetUserData()[$"N{i + 1}(0): "] * MultiplaierNX / 4;
+                    else
+                        plussehL = -NXStore.Instance.GetUserData()[$"N{i + 1}(L): "] * MultiplaierNX / 4;
+                    }else if (NXStore.Instance.GetUserData()[$"N{i + 1}(0): "] < 0 && NXStore.Instance.GetUserData()[$"N{i + 1}(L): "] < 0)
+                    {
+                        if (NXStore.Instance.GetUserData()[$"N{i + 1}(0): "] > NXStore.Instance.GetUserData()[$"N{i + 1}(L): "])
+                            plussehL = NXStore.Instance.GetUserData()[$"N{i + 1}(0): "] * MultiplaierNX / 4;
+                        else
+                            plussehR = NXStore.Instance.GetUserData()[$"N{i + 1}(L): "] * MultiplaierNX / 4;
+                    }
+                    TextBlock textBlock = new TextBlock();
+                    textBlock.Text = Math.Round(NXStore.Instance.GetUserData()[$"N{i + 1}(0): "], 3).ToString();
+                    if (NXStore.Instance.GetUserData()[$"N{i + 1}(0): "] >= 0)
+                    {
+                        Canvas.SetTop(textBlock, PointY1 - 20 + CanvasActualHenght / 2 + plussehL);
+                        textBlock.Foreground = Brushes.Red;
+                    }
+                    else
+                    {
+                        Canvas.SetTop(textBlock, PointY1 + CanvasActualHenght / 2 + plussehL);
+                        textBlock.Foreground = Brushes.Blue;
+                    }
+                    Canvas.SetLeft(textBlock, plussesWA + 10);
+                    CanvasChildrens.Add(textBlock);
+
+                    TextBlock textBlock2 = new TextBlock();
+                    textBlock2.Text = Math.Round(NXStore.Instance.GetUserData()[$"N{i + 1}(L): "], 3).ToString();
+                    int minusW = 10 + textBlock2.Text.ToArray().Count() * 5;
+                    if (NXStore.Instance.GetUserData()[$"N{i + 1}(L): "] >= 0)
+                    {
+                        Canvas.SetTop(textBlock2, PointY2 - 20 + CanvasActualHenght / 2 + plussehR);
+                        textBlock2.Foreground = Brushes.Red;
+                    }
+                    else
+                    {
+                        Canvas.SetTop(textBlock2, PointY2 + CanvasActualHenght / 2 + plussehR);
+                        textBlock2.Foreground = Brushes.Blue;
+                         
+                    }
+                    Canvas.SetLeft(textBlock2, plussesWC + plussesWA - minusW);
+                    CanvasChildrens.Add(textBlock2);
+
+                    int step = 5;
+
+                    for (double x = PointX1; x <= PointX2; x += step)
+                    {
+                        var t = (x - PointX1) / (PointX2 - PointX1);
+                        var yLine = (PointY1 * (1 - t) + PointY2 * t);
+                        var yOx = MaxHeight / 2 + 100;
+
+                            LineGeometry VLine = new LineGeometry();
+                            VLine.StartPoint = new Point(x, yOx);
+                            VLine.EndPoint = new Point(x, yLine);
+                            group.Children.Add(VLine);
+                        
+                    }
+
                     plussesWA += plussesWC;
                 }
             }
@@ -455,48 +663,363 @@ namespace sapr.ViewModels
                 if (shapes[i].PrPower == 0)
                 {
 
+                    double PointX1 = plussesWA;
+                    double PointX2 = plussesWC + plussesWA;
+                    double PointY1 = -UXStore.Instance.GetUserData()[$"U{i + 1}(0): "] * MultiplaierNX + MaxHeight / 2 + 300;
+                    double PointY2 = -UXStore.Instance.GetUserData()[$"U{i + 1}(L): "] * MultiplaierNX + MaxHeight / 2 + 300;
+
                     LineGeometry nxline = new LineGeometry();
-                    nxline.StartPoint = new Point(plussesWA, -UXStore.Instance.GetUserData()[$"U{i + 1}(0): "] * MultiplaierNX + MaxHeight / 2 + 200);
-                    nxline.EndPoint = new Point(plussesWC + plussesWA, -UXStore.Instance.GetUserData()[$"U{i + 1}(L): "] * MultiplaierNX + MaxHeight / 2 + 200);
+                    nxline.StartPoint = new Point(plussesWA, -UXStore.Instance.GetUserData()[$"U{i + 1}(0): "] * MultiplaierNX + MaxHeight / 2 + 300);
+                    nxline.EndPoint = new Point(plussesWC + plussesWA, -UXStore.Instance.GetUserData()[$"U{i + 1}(L): "] * MultiplaierNX + MaxHeight / 2 + 300);
                     group.Children.Add(nxline);
+
+                    double plussehR = 0;
+                    double plussehL = 0;
+                    if (UXStore.Instance.GetUserData()[$"U{i + 1}(0): "] > 0 && UXStore.Instance.GetUserData()[$"U{i + 1}(L): "] > 0)
+                    {
+                        if (UXStore.Instance.GetUserData()[$"U{i + 1}(0): "] > UXStore.Instance.GetUserData()[$"U{i + 1}(L): "])
+                            plussehR = -UXStore.Instance.GetUserData()[$"U{i + 1}(0): "] * MultiplaierUX / 4;
+                        else
+                            plussehL = -UXStore.Instance.GetUserData()[$"U{i + 1}(L): "] * MultiplaierUX / 4;
+                    }
+                    else if (UXStore.Instance.GetUserData()[$"U{i + 1}(0): "] < 0 && UXStore.Instance.GetUserData()[$"U{i + 1}(L): "] < 0)
+                    {
+                        if (UXStore.Instance.GetUserData()[$"U{i + 1}(0): "] > UXStore.Instance.GetUserData()[$"U{i + 1}(L): "])
+                            plussehL = UXStore.Instance.GetUserData()[$"U{i + 1}(0): "] * MultiplaierUX / 4;
+                        else
+                            plussehR = UXStore.Instance.GetUserData()[$"U{i + 1}(L): "] * MultiplaierUX / 4;
+                    }
+
+                    TextBlock textBlock = new TextBlock();
+                    textBlock.Text = Math.Round(UXStore.Instance.GetUserData()[$"U{i + 1}(0): "], 3).ToString();
+                    if (UXStore.Instance.GetUserData()[$"U{i + 1}(0): "] >= 0)
+                    {
+                        Canvas.SetTop(textBlock, PointY1 - 20 + CanvasActualHenght / 2 + plussehL);
+                        textBlock.Foreground = Brushes.Red;
+                    }
+                    else
+                    {
+                        Canvas.SetTop(textBlock, PointY1 + CanvasActualHenght / 2 + plussehL);
+                        textBlock.Foreground = Brushes.Blue;
+                    }
+                    Canvas.SetLeft(textBlock, plussesWA + 10);
+                    CanvasChildrens.Add(textBlock);
+
+                    TextBlock textBlock2 = new TextBlock();
+                    textBlock2.Text = Math.Round(UXStore.Instance.GetUserData()[$"U{i + 1}(L): "], 3).ToString();
+                    int minusW = 7 + textBlock2.Text.ToArray().Count() * 5;
+                    if (UXStore.Instance.GetUserData()[$"U{i + 1}(L): "] >= 0)
+                    {
+                        Canvas.SetTop(textBlock2, PointY2 - 20 + CanvasActualHenght / 2 + plussehR);
+                        textBlock2.Foreground = Brushes.Red;
+                    }
+                    else
+                    {
+                        Canvas.SetTop(textBlock2, PointY2 + CanvasActualHenght / 2 + plussehR);
+                        textBlock2.Foreground = Brushes.Blue;
+                         
+                    }
+                    Canvas.SetLeft(textBlock2, plussesWC + plussesWA - minusW);
+                    CanvasChildrens.Add(textBlock2);
+
+                    int step = 5;
+
+                    for (double x = PointX1; x <= PointX2; x += step)
+                    {
+                        var t = (x - PointX1) / (PointX2 - PointX1);
+                        var yLine = (PointY1 * (1 - t) + PointY2 * t);
+                        var yOx = MaxHeight / 2 + 300;
+
+                        LineGeometry VLine = new LineGeometry();
+                        VLine.StartPoint = new Point(x, yOx);
+                        VLine.EndPoint = new Point(x, yLine);
+                        group.Children.Add(VLine);
+
+                    }
+
                     plussesWA += plussesWC;
                 }
                 else
                 {
-                    kcoof = (Math.Abs(NXStore.Instance.GetUserData()[$"N{i + 1}(L): "] - NXStore.Instance.GetUserData()[$"N{i + 1}(0): "])) / shapes[i].Model.Width;
+                    ///вот это все полно говно переделать
+                    double NiL = NXStore.Instance.GetUserData()[$"N{i + 1}(L): "];
+                    double Ni0 = NXStore.Instance.GetUserData()[$"N{i + 1}(0): "];
+                    double UiL = UXStore.Instance.GetUserData()[$"U{i + 1}(L): "];
+                    double Ui0 = UXStore.Instance.GetUserData()[$"U{i + 1}(0): "];
 
-                    if (!(NXStore.Instance.GetUserData()[$"N{i + 1}(0): "] / kcoof <= shapes[i].Model.Width || NXStore.Instance.GetUserData()[$"N{i + 1}(0): "] / kcoof >= shapes[i].Model.Width))
+                    double PointX1 = plussesWA;
+                    double PointX2 = plussesWC + plussesWA;
+                    double PointY1 = -UXStore.Instance.GetUserData()[$"U{i + 1}(0): "] * MultiplaierNX + MaxHeight / 2 + 300;
+                    double PointY2 = -UXStore.Instance.GetUserData()[$"U{i + 1}(L): "] * MultiplaierNX + MaxHeight / 2 + 300;
+
+
+                    //Определение возрастания или убывания функции
+                    int cubm = 0;
+                    if (Ni0 > NiL)
+                        cubm = -1;
+                    else
+                        cubm = 1;
+
+                    if ((Ni0 >= 0 && NiL >= 0) || (Ni0 <= 0 && NiL <= 0))
                     {
-                        crosX = Math.Abs(NXStore.Instance.GetUserData()[$"N{i + 1}(0): "] / kcoof);
-                        assW = crosX * crosX / 2 * MultiplaierNX;
+                        crosX = shapes[i].Model.Width / 2;
+                        //здесь не скадывать а брать большее
+                        if(Ni0 < NiL)
+                            assW = (UXStore.Instance.GetUserData()[$"U{i + 1}(0): "]) * cubm;
+                        else
+                            assW = (UXStore.Instance.GetUserData()[$"U{i + 1}(L): "]) * cubm;
                     }
                     else
                     {
-                        crosX = shapes[i].Model.Width / 2;
-                        assW = E * shapes[i].Model.Height;
+                        kcoof = (NiL - Ni0) / shapes[i].Model.Width;
+
+                        crosX = Math.Abs(NXStore.Instance.GetUserData()[$"N{i + 1}(0): "] / kcoof);
+
+                        assW = Math.Abs(-UXStore.Instance.GetUserData()[$"U{i + 1}(L): "]
+                                + ((-NXStore.Instance.GetUserData()[$"N{i + 1}(0): "] * crosX / 2) / EPowerStore.Instance.GetUserData() * shapes[i].Model.Height)) * cubm;
+                      
                     }
 
                     QuadraticBezierSegment uxline1 = new QuadraticBezierSegment();
-                    if(NXStore.Instance.GetUserData()[$"N{i + 1}(0): "] > 0)
-                        uxline1.Point1 = new Point(plussesWA + crosX * 100,((-UXStore.Instance.GetUserData()[$"U{i + 1}(L): "] - -UXStore.Instance.GetUserData()[$"U{i + 1}(0): "])) * MultiplaierUX * (assW / (E * shapes[i].Model.Height)) + 200 + MaxHeight / 2);
-                    else
-                        uxline1.Point1 = new Point(plussesWA + crosX * 100,((UXStore.Instance.GetUserData()[$"U{i + 1}(L): "] - -UXStore.Instance.GetUserData()[$"U{i + 1}(0): "])) * MultiplaierUX * (assW / (E * shapes[i].Model.Height)) + 200 + MaxHeight / 2);
+                    uxline1.Point1 = new Point(plussesWA + crosX * 100, assW * MultiplaierNX + MaxHeight / 2 + 300);// убывает
+                    //Вот аж досюла
 
-                    uxline1.Point2 = new Point(plussesWC + plussesWA, -UXStore.Instance.GetUserData()[$"U{i + 1}(L): "] * MultiplaierNX + MaxHeight / 2 + 200);
+
+                    uxline1.Point2 = new Point(plussesWC + plussesWA, -UXStore.Instance.GetUserData()[$"U{i + 1}(L): "] * MultiplaierNX + MaxHeight / 2 + 300);
                     PathFigure uxLine = new PathFigure();
                     uxLine.Segments.Add(uxline1);
                     uxLine.IsClosed = false;
-                    uxLine.StartPoint = new Point(plussesWA, -UXStore.Instance.GetUserData()[$"U{i + 1}(0): "] * MultiplaierNX + MaxHeight / 2 + 200);
+                    uxLine.StartPoint = new Point(plussesWA, -UXStore.Instance.GetUserData()[$"U{i + 1}(0): "] * MultiplaierNX + MaxHeight / 2 + 300);
                     PathGeometry pathGeometry1 = new PathGeometry();
                     pathGeometry1.Figures.Add(uxLine);
                     group.Children.Add(pathGeometry1);
+
+                    //вот здесь удалять елс чт
+                    double controlX = plussesWA + crosX * 100; // x координата контрольной точки
+                    double controlY = assW * MultiplaierNX + MaxHeight / 2 + 300; // y координата контрольной точки
+
+                    double plussehR = 0;
+                    double plussehL = 0;
+                    if (UXStore.Instance.GetUserData()[$"U{i + 1}(0): "] > 0 && UXStore.Instance.GetUserData()[$"U{i + 1}(L): "] > 0)
+                    {
+                        if (UXStore.Instance.GetUserData()[$"U{i + 1}(0): "] > UXStore.Instance.GetUserData()[$"U{i + 1}(L): "])
+                            plussehR = -UXStore.Instance.GetUserData()[$"U{i + 1}(0): "] * MultiplaierUX / 4;
+                        else
+                            plussehL = -UXStore.Instance.GetUserData()[$"U{i + 1}(L): "] * MultiplaierUX / 4;
+                    }
+                    else if (UXStore.Instance.GetUserData()[$"U{i + 1}(0): "] < 0 && UXStore.Instance.GetUserData()[$"U{i + 1}(L): "] < 0)
+                    {
+                        if (UXStore.Instance.GetUserData()[$"U{i + 1}(0): "] > UXStore.Instance.GetUserData()[$"U{i + 1}(L): "])
+                            plussehL = UXStore.Instance.GetUserData()[$"U{i + 1}(0): "] * MultiplaierUX / 4;
+                        else
+                            plussehR = UXStore.Instance.GetUserData()[$"U{i + 1}(L): "] * MultiplaierUX / 4;
+                    }
+
+                    TextBlock textBlock = new TextBlock();
+                    textBlock.Text = Math.Round(UXStore.Instance.GetUserData()[$"U{i + 1}(0): "], 3).ToString();
+                    if (UXStore.Instance.GetUserData()[$"U{i + 1}(0): "] >= 0)
+                    {
+                        Canvas.SetTop(textBlock, PointY1 - 20 + CanvasActualHenght / 2 + plussehL);
+                        textBlock.Foreground = Brushes.Red;
+                    }
+                    else
+                    {
+                        Canvas.SetTop(textBlock, PointY1 + CanvasActualHenght / 2 + plussehL);
+                        textBlock.Foreground = Brushes.Blue;
+                    }
+                    Canvas.SetLeft(textBlock, plussesWA + 10);
+                    CanvasChildrens.Add(textBlock);
+
+                    TextBlock textBlock2 = new TextBlock();
+                    textBlock2.Text = Math.Round(UXStore.Instance.GetUserData()[$"U{i + 1}(L): "], 3).ToString();
+                    int minusW = 10 + textBlock2.Text.ToArray().Count() * 5;
+                    if (UXStore.Instance.GetUserData()[$"U{i + 1}(L): "] >= 0)
+                    {
+                        Canvas.SetTop(textBlock2, PointY2 - 20 + CanvasActualHenght / 2 + plussehR);
+                        textBlock2.Foreground = Brushes.Red;
+                    }
+                    else
+                    {
+                        Canvas.SetTop(textBlock2, PointY2 + CanvasActualHenght / 2 + plussehR);
+                        textBlock2.Foreground = Brushes.Blue;
+                         
+                    }
+                    Canvas.SetLeft(textBlock2, plussesWC + plussesWA - minusW);
+                    CanvasChildrens.Add(textBlock2);
+
+                    int step = 5; // Шаг штриховки
+                    for (double t = 0; t <= 1; t += step / (PointX2 - PointX1))
+                    {
+                        // Вычисляем координаты точки на кривой с использованием параметра t для кривой Безье
+                        double xCurve = (1 - t) * (1 - t) * PointX1 + 2 * (1 - t) * t * controlX + t * t * PointX2;
+                        double yCurve = (1 - t) * (1 - t) * PointY1 + 2 * (1 - t) * t * controlY + t * t * PointY2;
+
+                        // Опорная линия (например, ось X или фиксированное значение)
+                        double yOx = MaxHeight / 2 + 300;
+
+                        // Рисуем вертикальную линию от опорной линии до кривой
+                        LineGeometry VLine = new LineGeometry
+                        {
+                            StartPoint = new Point(xCurve, yOx),
+                            EndPoint = new Point(xCurve, yCurve)
+                        };
+                        group.Children.Add(VLine);
+                    }
+                    plussesWA += plussesWC;
+                }
+            }
+            // delta epure
+
+            plussesWA = 0;
+            plussesWC = 0;
+
+            for (int i = 0; i < shapes.Count(); i++)
+            {
+
+                plussesWC = (int)shapes[i].Model.Width * 100;
+
+
+                if (shapes[i].PrPower == 0)
+                {
+
+                    double PointX1 = plussesWA;
+                    double PointX2 = plussesWC + plussesWA;
+                    double PointY1 = -DXStore.Instance.GetUserData()[$"D{i + 1}(X): "] * MultiplaierNX + MaxHeight / 2 + 500;
+                    double PointY2 = -DXStore.Instance.GetUserData()[$"D{i + 1}(X): "] * MultiplaierNX + MaxHeight / 2 + 500;
+
+                    LineGeometry nxline = new LineGeometry();
+                    nxline.StartPoint = new Point(PointX1, PointY1);
+                    nxline.EndPoint = new Point(PointX2, PointY2);
+                    group.Children.Add(nxline);
+
+                    TextBlock textBlock = new TextBlock();
+                    textBlock.Text = Math.Round(DXStore.Instance.GetUserData()[$"D{i + 1}(X): "], 3).ToString();
+                    if (DXStore.Instance.GetUserData()[$"D{i + 1}(X): "] >= 0)
+                    {
+                        Canvas.SetTop(textBlock, PointY1 - 20 + CanvasActualHenght / 2);
+                        textBlock.Foreground = Brushes.Red;
+                    }
+                    else
+                    {
+                        Canvas.SetTop(textBlock, PointY1 + CanvasActualHenght / 2);
+                        textBlock.Foreground = Brushes.Blue;
+                    }
+                    Canvas.SetLeft(textBlock, plussesWA + 10);
+                    CanvasChildrens.Add(textBlock);
+
+                    TextBlock textBlock2 = new TextBlock();
+                    textBlock2.Text = Math.Round(DXStore.Instance.GetUserData()[$"D{i + 1}(X): "], 3).ToString();
+                    int minusW = 10 + textBlock2.Text.ToArray().Count() * 5;
+                    if (DXStore.Instance.GetUserData()[$"D{i + 1}(X): "] >= 0)
+                    {
+                        Canvas.SetTop(textBlock2, PointY2 - 20 + CanvasActualHenght / 2);
+                        textBlock2.Foreground = Brushes.Red;
+                    }
+                    else
+                    {
+                        Canvas.SetTop(textBlock2, PointY2 + CanvasActualHenght / 2);
+                        textBlock2.Foreground = Brushes.Blue;
+                         
+                    }
+                    Canvas.SetLeft(textBlock2, plussesWC + plussesWA - minusW);
+                    CanvasChildrens.Add(textBlock2);
+
+                    int step = 5;
+
+                    for (double x = PointX1; x <= PointX2; x += step)
+                    {
+                        var t = (x - PointX1) / (PointX2 - PointX1);
+                        var yLine = (PointY1 * (1 - t) + PointY2 * t);
+                        var yOx = MaxHeight / 2 + 500;
+
+                        LineGeometry VLine = new LineGeometry();
+                        VLine.StartPoint = new Point(x, yOx);
+                        VLine.EndPoint = new Point(x, yLine);
+                        group.Children.Add(VLine);
+
+                    }
+                    plussesWA += plussesWC;
+                }
+                else
+                {
+                    double PointX1 = plussesWA;
+                    double PointX2 = plussesWC + plussesWA;
+                    double PointY1 = -DXStore.Instance.GetUserData()[$"D{i + 1}(0): "] * MultiplaierNX + MaxHeight / 2 + 500;
+                    double PointY2 = -DXStore.Instance.GetUserData()[$"D{i + 1}(L): "] * MultiplaierNX + MaxHeight / 2 + 500;
+
+                    LineGeometry nxline = new LineGeometry();
+                    nxline.StartPoint = new Point(PointX1, PointY1);
+                    nxline.EndPoint = new Point(PointX2, PointY2);
+                    group.Children.Add(nxline);
+
+                    double plussehR = 0;
+                    double plussehL = 0;
+                    if (DXStore.Instance.GetUserData()[$"D{i + 1}(0): "] > 0 && DXStore.Instance.GetUserData()[$"D{i + 1}(L): "] > 0)
+                    {
+                        if (DXStore.Instance.GetUserData()[$"D{i + 1}(0): "] > DXStore.Instance.GetUserData()[$"D{i + 1}(L): "])
+                            plussehR = -DXStore.Instance.GetUserData()[$"D{i + 1}(0): "] * MultiplaierNX / 4;
+                        else
+                            plussehL = -DXStore.Instance.GetUserData()[$"D{i + 1}(L): "] * MultiplaierNX / 4;
+                    }
+                    else if (DXStore.Instance.GetUserData()[$"D{i + 1}(0): "] < 0 && DXStore.Instance.GetUserData()[$"D{i + 1}(L): "] < 0)
+                    {
+                        if (DXStore.Instance.GetUserData()[$"D{i + 1}(0): "] > DXStore.Instance.GetUserData()[$"D{i + 1}(L): "])
+                            plussehL = DXStore.Instance.GetUserData()[$"D{i + 1}(0): "] * MultiplaierNX / 4;
+                        else
+                            plussehR = DXStore.Instance.GetUserData()[$"D{i + 1}(L): "] * MultiplaierNX / 4;
+                    }
+
+                    TextBlock textBlock = new TextBlock();
+                    textBlock.Text = Math.Round(DXStore.Instance.GetUserData()[$"D{i + 1}(0): "], 3).ToString();
+                    if (DXStore.Instance.GetUserData()[$"D{i + 1}(0): "] >= 0)
+                    {
+                        Canvas.SetTop(textBlock, PointY1 - 20 + CanvasActualHenght / 2 + plussehL);
+                        textBlock.Foreground = Brushes.Red;
+                    }
+                    else
+                    {
+                        Canvas.SetTop(textBlock, PointY1 + CanvasActualHenght / 2 + plussehL);
+                        textBlock.Foreground = Brushes.Blue;
+                    }
+                    Canvas.SetLeft(textBlock, plussesWA + 10);
+                    CanvasChildrens.Add(textBlock);
+
+                    TextBlock textBlock2 = new TextBlock();
+                    textBlock2.Text = Math.Round(DXStore.Instance.GetUserData()[$"D{i + 1}(L): "], 3).ToString();
+                    int minusW = 10 + textBlock2.Text.ToArray().Count() * 5;
+                    if (DXStore.Instance.GetUserData()[$"D{i + 1}(L): "] >= 0)
+                    {
+                        Canvas.SetTop(textBlock2, PointY2 - 20 + CanvasActualHenght / 2 + plussehR);
+                        textBlock2.Foreground = Brushes.Red;
+                    }
+                    else
+                    {
+                        Canvas.SetTop(textBlock2, PointY2 + CanvasActualHenght / 2 + plussehR);
+                        textBlock2.Foreground = Brushes.Blue;
+                        minusW += 10;
+                    }
+                    Canvas.SetLeft(textBlock2, plussesWC + plussesWA - minusW);
+                    CanvasChildrens.Add(textBlock2);
+
+                    int step = 5;
+
+                    for (double x = PointX1; x <= PointX2; x += step)
+                    {
+                        var t = (x - PointX1) / (PointX2 - PointX1);
+                        var yLine = (PointY1 * (1 - t) + PointY2 * t);
+                        var yOx = MaxHeight / 2 + 500;
+
+                        LineGeometry VLine = new LineGeometry();
+                        VLine.StartPoint = new Point(x, yOx);
+                        VLine.EndPoint = new Point(x, yLine);
+                        group.Children.Add(VLine);
+
+                    }
+
                     plussesWA += plussesWC;
                 }
             }
 
-
-
-            
             path.Data = group;
             return path;
         }
@@ -622,14 +1145,25 @@ namespace sapr.ViewModels
 
                     ShortArrow = GenereteShortArrow(sp.Model);
 
+                    double modelHeight;
+                    double modelWidth;
+                    if (sp.Model.Height > 10)
+                        modelHeight = 1000;
+                    else
+                        modelHeight = sp.Model.Width * 100;
+                    if (sp.Model.Width  > 10)
+                        modelWidth = 1000;
+                    else
+                        modelWidth = sp.Model.Width * 100;
+
                     var newRect = new Rectangle();
-                    newRect.Height = sp.Model.Height * 100;
-                    newRect.Width = sp.Model.Width * 100;
+                    newRect.Height = modelHeight;
+                    newRect.Width = modelWidth;
                     newRect.Stroke = Brushes.Black;
                     newRect.StrokeThickness = 1;
                     newRect.Fill = Brushes.White;
                     newRect.Uid = sp.Model.Uid;
-                    Canvas.SetTop(newRect, CanvasActualHenght / 2 - sp.Model.Height * 100 / 2);
+                    Canvas.SetTop(newRect, CanvasActualHenght / 2 - modelHeight / 2);
                     Canvas.SetLeft(newRect, CanvasActualLenhgt / 2 + PlussesWihth);
                     CanvasChildrens.Add(newRect);
 
@@ -677,11 +1211,11 @@ namespace sapr.ViewModels
 
                     Snumb.Text = (Index).ToString();
                     Canvas.SetTop(Nrect, CanvasActualHenght / 2 - MaxHeight / 2 - 40);
-                    Canvas.SetLeft(Nrect, CanvasActualLenhgt / 2 + PlussesWihth - Nrect.Width / 2 + sp.Model.Width * 100 / 2);
+                    Canvas.SetLeft(Nrect, CanvasActualLenhgt / 2 + PlussesWihth - Nrect.Width / 2 + modelWidth / 2);
                     CanvasChildrens.Add(Nrect);
 
                     Canvas.SetTop(Snumb, CanvasActualHenght / 2 - MaxHeight / 2 - 40 + Snumb.FontSize / 16);
-                    Canvas.SetLeft(Snumb, CanvasActualLenhgt / 2 + PlussesWihth + sp.Model.Width * 100 / 2 - Snumb.FontSize / 4);
+                    Canvas.SetLeft(Snumb, CanvasActualLenhgt / 2 + PlussesWihth + modelWidth / 2 - Snumb.FontSize / 4);
                     CanvasChildrens.Add(Snumb);
 
                     
@@ -716,7 +1250,7 @@ namespace sapr.ViewModels
 
                                 ShortArrow1.Stroke = Brushes.Red;
                                 Canvas.SetTop(ShortArrow1, CanvasActualHenght / 2 - ShortArrow1.MaxHeight / 2);
-                                Canvas.SetLeft(ShortArrow1, CanvasActualLenhgt / 2 + sp.Model.Width * 100 - sp.Model.Width * 100 / 4);
+                                Canvas.SetLeft(ShortArrow1, CanvasActualLenhgt / 2 + modelWidth - modelWidth / 4);
                                 CanvasChildrens.Add(ShortArrow1);
                             }
                             else if (Nodes[Index].PoPower < 0)
@@ -724,7 +1258,7 @@ namespace sapr.ViewModels
                                 ShortArrow1.LayoutTransform = new ScaleTransform(-1, 1);
                                 ShortArrow1.Stroke = Brushes.Blue;
                                 Canvas.SetTop(ShortArrow1, CanvasActualHenght / 2 - ShortArrow1.MaxHeight / 2);
-                                Canvas.SetLeft(ShortArrow1, CanvasActualLenhgt / 2 + sp.Model.Width * 100 - sp.Model.Width * 100 / 4);
+                                Canvas.SetLeft(ShortArrow1, CanvasActualLenhgt / 2 + modelWidth - modelWidth / 4);
                                 CanvasChildrens.Add(ShortArrow1);
                             }
                         }
@@ -795,7 +1329,7 @@ namespace sapr.ViewModels
 
                             ShortArrow1.Stroke = Brushes.Red;
                             Canvas.SetTop(ShortArrow1, CanvasActualHenght / 2 - ShortArrow1.MaxHeight / 2);
-                            Canvas.SetLeft(ShortArrow1, CanvasActualLenhgt / 2 + PlussesWihth + sp.Model.Width * 100 - sp.Model.Width * 100 / 4);
+                            Canvas.SetLeft(ShortArrow1, CanvasActualLenhgt / 2 + PlussesWihth + modelWidth - modelWidth / 4);
                             CanvasChildrens.Add(ShortArrow1);
                         }
                         else if (Nodes[Index].PoPower < 0)
@@ -803,12 +1337,12 @@ namespace sapr.ViewModels
                             ShortArrow1.LayoutTransform = new ScaleTransform(-1, 1);
                             ShortArrow1.Stroke = Brushes.Blue;
                             Canvas.SetTop(ShortArrow1, CanvasActualHenght / 2 - ShortArrow1.MaxHeight / 2);
-                            Canvas.SetLeft(ShortArrow1, CanvasActualLenhgt / 2 + PlussesWihth + sp.Model.Width * 100 - sp.Model.Width * 100 / 4);
+                            Canvas.SetLeft(ShortArrow1, CanvasActualLenhgt / 2 + PlussesWihth + modelWidth - modelWidth / 4);
                             CanvasChildrens.Add(ShortArrow1);
                         }
                     }
 
-                    PlussesWihth += (int)sp.Model.Width * 100; ///////////////////////////////////////!!!11!!11
+                    PlussesWihth += (int)modelWidth; ///////////////////////////////////////!!!11!!11
 
                     if (Index == SupportCount)
                     {
@@ -874,6 +1408,11 @@ namespace sapr.ViewModels
             isProcessorCalculated = state;
         }
 
+        public void CnangeState(object sender, EventArgs e)
+        {
+            IsProcessorCalculated = (bool)sender;
+
+        }
         public static void CnangeState(object sender, SizeChangedEventArgs e)
         {
             isProcessorCalculated = false;
@@ -888,16 +1427,12 @@ namespace sapr.ViewModels
             }
             return AllWidth;
         }
-        //private void GetMousePosition(object sender, MouseEventArgs e)
-        //{
-        //    Point pos = new Point(sender as Canvas); 
-        //    e.GetPosition(pos);
-        //}
+
 
 
 
         public ICommand AddSupport {  get; set; }
-        public ICommand RemoveSupport { get; set; } // ТУТ ЧТО ТО ВЫЧИТАТСЯ ИЗ АКТУАЛ ХИГХТ МБ НАДО ВЫЧИТАЬ ИЗ ХАЙГТ
+        public ICommand RemoveSupport { get; set; }
         public ICommand Calculate {  get; set; }
         public ICommand Load { get; set; }
         public ICommand Save { get; set; }
@@ -919,9 +1454,12 @@ namespace sapr.ViewModels
             Load = new LoadCommand(this);
             Save = new SaveCommand(this);
             Clear = new ClearCommand(this);
+            ProcessorCalculationsCommand.ChangeState += CnangeState;
+            CanvasHenght = 0;
+            CanvasLenhgt = 0;
         }
 
 
-        
+
     }
 }

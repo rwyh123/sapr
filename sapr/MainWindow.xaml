@@ -4,21 +4,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:v="clr-namespace:sapr.Views"
+        xmlns:viewmodel="clr-namespace:sapr.ViewModels"
         xmlns:local="clr-namespace:sapr"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" >
+        Title="rwyh's Sapr" WindowState="Maximized" >
 
+    <Window.DataContext>
+        <viewmodel:MainWindowViewModel/>
+    </Window.DataContext>
     
 
     <TabControl>
         <TabItem Header="PreProcessor">
             <v:PreProcessorView/>
         </TabItem>
-        <TabItem Header="Processor">
+        <TabItem Header="PostProcessor" IsEnabled="{Binding PostProcessorEnabled}">
             <v:ProccesorView/>
-        </TabItem>
-        <TabItem Header="PostProcessor">
-    
         </TabItem>
     </TabControl>
 </Window>

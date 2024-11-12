@@ -20,6 +20,7 @@ namespace sapr.Command.PreProcessorCommands
             _preProcessorViewModel.nodesStore.SetUserData(_preProcessorViewModel.Nodes);
             _preProcessorViewModel.smthStore.SetUserData(_preProcessorViewModel.LeftSmth, _preProcessorViewModel.RightSmth);
             _preProcessorViewModel.ePowerStore.SetUserData(_preProcessorViewModel.E);
+            _preProcessorViewModel.IsProcessorCalculated = false;
         }
     }
 }

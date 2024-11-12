@@ -74,7 +74,7 @@ namespace sapr.Command.PreProcessorCommands
             _preProcessorViewModel.LeftSmth = false;
             _preProcessorViewModel.RightSmth = false;
             _preProcessorViewModel.CanvasLenhgt = 0;
-            _preProcessorViewModel.CanvasLenhgt = 0;
+            _preProcessorViewModel.CanvasHenght = 0;
             _preProcessorViewModel.CanvasChildrens.Clear();
             _preProcessorViewModel.Shapes.CollectionChanged += _preProcessorViewModel.Draw;
             _preProcessorViewModel.IsProcessorCalculated = false;

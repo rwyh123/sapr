@@ -22,7 +22,7 @@ namespace sapr.Command.PreProcessorCommands
             supportModel = _preProcessorViewModel.SelectedShape;
             _preProcessorViewModel.Shapes.Remove(_preProcessorViewModel.Shapes.Where(x => x.Model.Uid == supportModel.Model.Uid).FirstOrDefault());
             _preProcessorViewModel.SupportCount--;
-            _preProcessorViewModel.OnPropertyChanged(nameof(_preProcessorViewModel.IsSupportCountNotull));
+            _preProcessorViewModel.IsProcessorCalculated = false;
             ReFillNodesTable(supportModel.Model.Uid);
             ReFillShapesUID();
             {

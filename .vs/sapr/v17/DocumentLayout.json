@@ -3,92 +3,118 @@
   "WorkspaceRootPath": "C:\\Users\\synok\\source\\repos\\sapr\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\views\\proccesorview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\views\\proccesorview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\views\\preprocessorview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\views\\preprocessorview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\views\\preprocessorview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\views\\preprocessorview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\viewmodels\\procecssorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\viewmodels\\procecssorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|c:\\users\\synok\\source\\repos\\sapr\\sapr\\views\\proccesorview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\views\\proccesorview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\views\\tablesxu.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\views\\tablesxu.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|c:\\users\\synok\\source\\repos\\sapr\\sapr\\views\\preprocessorview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\views\\preprocessorview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\views\\tablesxu.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\views\\tablesxu.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\viewmodels\\tablesviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\viewmodels\\tablesviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\viewmodels\\preprocessorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|c:\\users\\synok\\source\\repos\\sapr\\sapr\\viewmodels\\preprocessorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\viewmodels\\preprocessorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|c:\\users\\synok\\source\\repos\\sapr\\sapr\\viewmodels\\mainwindowviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\viewmodels\\mainwindowviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\viewmodels\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\viewmodels\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\stores\\processorstores\\stepstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\stores\\processorstores\\stepstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\command\\preprocessorcalculationscommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\command\\preprocessorcalculationscommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\stores\\processorstores\\nxstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\stores\\processorstores\\nxstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\utilities\\procrssortables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\utilities\\procrssortables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\views\\proccesorview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\views\\proccesorview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\viewmodels\\procecssorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\viewmodels\\procecssorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\models\\supportmodelv2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\models\\supportmodelv2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\command\\commandbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\command\\commandbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|c:\\users\\synok\\source\\repos\\sapr\\sapr\\utilities\\window1.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\utilities\\window1.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\command\\processorcalculationscommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\command\\processorcalculationscommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\utilities\\tryparseclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\utilities\\tryparseclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\views\\tablesxu.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\views\\tablesxu.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\stores\\processorstores\\reporttablestore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\stores\\processorstores\\reporttablestore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\stores\\processorstores\\dxstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\stores\\processorstores\\dxstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\command\\preprocessorcommands\\savecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\command\\preprocessorcommands\\savecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|sapr||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\utilities\\comparisonconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\utilities\\comparisonconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\synok\\AppData\\Local\\Temp\\.vsdbgsrc\\4b934ec77c3b59135ce68dbf05647b3a025d09a72fec1c0f34dd0c824d55c5c6\\Setter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\utilities\\procrssortables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\utilities\\procrssortables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\command\\preprocessorcommands\\preprocessorcomandbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\command\\preprocessorcommands\\preprocessorcomandbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\utilities\\findhihest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\utilities\\findhihest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\command\\preprocessorcommands\\clearcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\command\\preprocessorcommands\\clearcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\command\\commandbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\command\\commandbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\stores\\preprocesorstores\\suportstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\stores\\preprocesorstores\\suportstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\stores\\processorstores\\nxstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\stores\\processorstores\\nxstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\stores\\processorstores\\stepstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\stores\\processorstores\\stepstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\viewmodels\\tablesviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\viewmodels\\tablesviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\views\\proccesorview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\views\\proccesorview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\utilities\\todolist.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
@@ -99,20 +125,12 @@
       "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\utilities\\todolist.tt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\command\\preprocessorcommands\\removesupportcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\command\\preprocessorcommands\\removesupportcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\command\\preprocessorcommands\\clearcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\command\\preprocessorcommands\\clearcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\command\\preprocessorcommands\\addsupportcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\command\\preprocessorcommands\\addsupportcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\models\\nodemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\models\\nodemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\command\\preprocessorcommands\\removesupportcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\command\\preprocessorcommands\\removesupportcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\command\\preprocessorcommands\\loadcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -123,8 +141,28 @@
       "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\command\\preprocessorcommands\\calculatecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\command\\preprocessorcommands\\savecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\command\\preprocessorcommands\\savecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\models\\nodemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\models\\nodemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\views\\tablesxu.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\views\\tablesxu.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\viewmodels\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\viewmodels\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\utilities\\findhihest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\utilities\\findhihest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\synok\\Desktop\\Test4.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
@@ -134,10 +172,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\synok\\Desktop\\123.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{358C5A9E-A797-471C-9753-31C6A8F6E5CC}|sapr\\sapr.csproj|solutionrelative:sapr\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Stores\\NodesStore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -167,31 +201,70 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "ProccesorView.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Views\\ProccesorView.xaml.cs",
-              "RelativeDocumentMoniker": "sapr\\Views\\ProccesorView.xaml.cs",
-              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Views\\ProccesorView.xaml.cs",
-              "RelativeToolTip": "sapr\\Views\\ProccesorView.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "MainWindowViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\ViewModels\\MainWindowViewModel.cs",
+              "RelativeDocumentMoniker": "sapr\\ViewModels\\MainWindowViewModel.cs",
+              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\ViewModels\\MainWindowViewModel.cs",
+              "RelativeToolTip": "sapr\\ViewModels\\MainWindowViewModel.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBsAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T12:06:31.061Z",
+              "WhenOpened": "2024-11-12T12:38:28.321Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PreProcessorView.xaml",
+              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Views\\PreProcessorView.xaml",
+              "RelativeDocumentMoniker": "sapr\\Views\\PreProcessorView.xaml",
+              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Views\\PreProcessorView.xaml*",
+              "RelativeToolTip": "sapr\\Views\\PreProcessorView.xaml*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-17T12:27:54.057Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "SupportModelv2.cs",
+              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Models\\SupportModelv2.cs",
+              "RelativeDocumentMoniker": "sapr\\Models\\SupportModelv2.cs",
+              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Models\\SupportModelv2.cs",
+              "RelativeToolTip": "sapr\\Models\\SupportModelv2.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAIA0wA8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-17T12:43:37.995Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "sapr\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\MainWindow.xaml.cs",
+              "RelativeToolTip": "sapr\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAB8AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T19:48:03.596Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "PreProcessorView.xaml",
-              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Views\\PreProcessorView.xaml",
-              "RelativeDocumentMoniker": "sapr\\Views\\PreProcessorView.xaml",
-              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Views\\PreProcessorView.xaml",
-              "RelativeToolTip": "sapr\\Views\\PreProcessorView.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-17T12:27:54.057Z",
+              "Title": "ProccesorView.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Views\\ProccesorView.xaml.cs",
+              "RelativeDocumentMoniker": "sapr\\Views\\ProccesorView.xaml.cs",
+              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Views\\ProccesorView.xaml.cs",
+              "RelativeToolTip": "sapr\\Views\\ProccesorView.xaml.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAD4vxoAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-28T12:06:31.061Z",
               "EditorCaption": ""
             },
             {
@@ -200,83 +273,47 @@
               "Title": "PreProcessorView.xaml.cs",
               "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Views\\PreProcessorView.xaml.cs",
               "RelativeDocumentMoniker": "sapr\\Views\\PreProcessorView.xaml.cs",
-              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Views\\PreProcessorView.xaml.cs",
-              "RelativeToolTip": "sapr\\Views\\PreProcessorView.xaml.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAACEAAAA1AAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Views\\PreProcessorView.xaml.cs*",
+              "RelativeToolTip": "sapr\\Views\\PreProcessorView.xaml.cs*",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAewGAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-17T12:39:59.42Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ProccesorView.xaml",
-              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Views\\ProccesorView.xaml",
-              "RelativeDocumentMoniker": "sapr\\Views\\ProccesorView.xaml",
-              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Views\\ProccesorView.xaml",
-              "RelativeToolTip": "sapr\\Views\\ProccesorView.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-17T11:46:32.061Z",
+              "DocumentIndex": 2,
+              "Title": "PreProcessorViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\ViewModels\\PreProcessorViewModel.cs",
+              "RelativeDocumentMoniker": "sapr\\ViewModels\\PreProcessorViewModel.cs",
+              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\ViewModels\\PreProcessorViewModel.cs",
+              "RelativeToolTip": "sapr\\ViewModels\\PreProcessorViewModel.cs",
+              "ViewState": "AgIAAOoDAAAAAAAAAADwv6YBAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-17T11:58:10.307Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "ViewModelBase.cs",
-              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\ViewModels\\ViewModelBase.cs",
-              "RelativeDocumentMoniker": "sapr\\ViewModels\\ViewModelBase.cs",
-              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\ViewModels\\ViewModelBase.cs",
-              "RelativeToolTip": "sapr\\ViewModels\\ViewModelBase.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T18:31:33.417Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "TablesViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\ViewModels\\TablesViewModel.cs",
-              "RelativeDocumentMoniker": "sapr\\ViewModels\\TablesViewModel.cs",
-              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\ViewModels\\TablesViewModel.cs",
-              "RelativeToolTip": "sapr\\ViewModels\\TablesViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T11:48:30.254Z",
+              "DocumentIndex": 6,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "sapr\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\MainWindow.xaml",
+              "RelativeToolTip": "sapr\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-26T20:11:08.072Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "App.xaml",
-              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\App.xaml",
-              "RelativeDocumentMoniker": "sapr\\App.xaml",
-              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\App.xaml",
-              "RelativeToolTip": "sapr\\App.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-28T11:41:06.997Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "TablesXU.xaml",
-              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Views\\TablesXU.xaml",
-              "RelativeDocumentMoniker": "sapr\\Views\\TablesXU.xaml",
-              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Views\\TablesXU.xaml",
-              "RelativeToolTip": "sapr\\Views\\TablesXU.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-26T20:16:00.15Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "ProcecssorViewModel.cs",
               "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\ViewModels\\ProcecssorViewModel.cs",
               "RelativeDocumentMoniker": "sapr\\ViewModels\\ProcecssorViewModel.cs",
               "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\ViewModels\\ProcecssorViewModel.cs",
               "RelativeToolTip": "sapr\\ViewModels\\ProcecssorViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAwCEAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-17T14:21:09.022Z",
               "EditorCaption": ""
@@ -284,318 +321,101 @@
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "PreProcessorViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\ViewModels\\PreProcessorViewModel.cs",
-              "RelativeDocumentMoniker": "sapr\\ViewModels\\PreProcessorViewModel.cs",
-              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\ViewModels\\PreProcessorViewModel.cs",
-              "RelativeToolTip": "sapr\\ViewModels\\PreProcessorViewModel.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAAAiwNMBAACqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T11:58:10.307Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "TablesXU.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Views\\TablesXU.xaml.cs",
-              "RelativeDocumentMoniker": "sapr\\Views\\TablesXU.xaml.cs",
-              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Views\\TablesXU.xaml.cs",
-              "RelativeToolTip": "sapr\\Views\\TablesXU.xaml.cs",
-              "ViewState": "AgIAAEEAAAAAAAAAAAArwFQAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T18:49:48.833Z",
+              "Title": "Window1.xaml",
+              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Utilities\\Window1.xaml",
+              "RelativeDocumentMoniker": "sapr\\Utilities\\Window1.xaml",
+              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Utilities\\Window1.xaml",
+              "RelativeToolTip": "sapr\\Utilities\\Window1.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-12T12:10:10.883Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "App.config",
-              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\App.config",
-              "RelativeDocumentMoniker": "sapr\\App.config",
-              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\App.config",
-              "RelativeToolTip": "sapr\\App.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2024-10-28T11:55:21.546Z"
+              "DocumentIndex": 13,
+              "Title": "ReportTableStore.cs",
+              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Stores\\ProcessorStores\\ReportTableStore.cs",
+              "RelativeDocumentMoniker": "sapr\\Stores\\ProcessorStores\\ReportTableStore.cs",
+              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Stores\\ProcessorStores\\ReportTableStore.cs",
+              "RelativeToolTip": "sapr\\Stores\\ProcessorStores\\ReportTableStore.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwCoAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T15:29:30.581Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "PreProcessorCalculationsCommand.cs",
-              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Command\\PreProcessorCalculationsCommand.cs",
-              "RelativeDocumentMoniker": "sapr\\Command\\PreProcessorCalculationsCommand.cs",
-              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Command\\PreProcessorCalculationsCommand.cs",
-              "RelativeToolTip": "sapr\\Command\\PreProcessorCalculationsCommand.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAvwEQAAAA7AAAAAAAAAA==",
+              "DocumentIndex": 10,
+              "Title": "ProcessorCalculationsCommand.cs",
+              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Command\\ProcessorCalculationsCommand.cs",
+              "RelativeDocumentMoniker": "sapr\\Command\\ProcessorCalculationsCommand.cs",
+              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Command\\ProcessorCalculationsCommand.cs",
+              "RelativeToolTip": "sapr\\Command\\ProcessorCalculationsCommand.cs",
+              "ViewState": "AgIAAIkAAAAAAAAAAAD4v5cAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-17T12:25:38.483Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "StepStore.cs",
-              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Stores\\ProcessorStores\\StepStore.cs",
-              "RelativeDocumentMoniker": "sapr\\Stores\\ProcessorStores\\StepStore.cs",
-              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Stores\\ProcessorStores\\StepStore.cs",
-              "RelativeToolTip": "sapr\\Stores\\ProcessorStores\\StepStore.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAxwA0AAAASAAAAAAAAAA==",
+              "DocumentIndex": 11,
+              "Title": "TryParseClass.cs",
+              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Utilities\\TryParseClass.cs",
+              "RelativeDocumentMoniker": "sapr\\Utilities\\TryParseClass.cs",
+              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Utilities\\TryParseClass.cs",
+              "RelativeToolTip": "sapr\\Utilities\\TryParseClass.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAArwDkAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T11:30:38.915Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "NXStore.cs",
-              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Stores\\ProcessorStores\\NXStore.cs",
-              "RelativeDocumentMoniker": "sapr\\Stores\\ProcessorStores\\NXStore.cs",
-              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Stores\\ProcessorStores\\NXStore.cs",
-              "RelativeToolTip": "sapr\\Stores\\ProcessorStores\\NXStore.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAAAAsAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T11:30:44.956Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "sapr\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\MainWindow.xaml",
-              "RelativeToolTip": "sapr\\MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-26T20:11:08.072Z"
+              "WhenOpened": "2024-11-11T15:50:11.932Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 15,
-              "Title": "ProcrssorTables.cs",
-              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Utilities\\ProcrssorTables.cs",
-              "RelativeDocumentMoniker": "sapr\\Utilities\\ProcrssorTables.cs",
-              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Utilities\\ProcrssorTables.cs",
-              "RelativeToolTip": "sapr\\Utilities\\ProcrssorTables.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T19:08:59.53Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "SupportModelv2.cs",
-              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Models\\SupportModelv2.cs",
-              "RelativeDocumentMoniker": "sapr\\Models\\SupportModelv2.cs",
-              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Models\\SupportModelv2.cs",
-              "RelativeToolTip": "sapr\\Models\\SupportModelv2.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAgwBUAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T12:43:37.995Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "CommandBase.cs",
-              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Command\\CommandBase.cs",
-              "RelativeDocumentMoniker": "sapr\\Command\\CommandBase.cs",
-              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Command\\CommandBase.cs",
-              "RelativeToolTip": "sapr\\Command\\CommandBase.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-18T20:17:47.029Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "PreProcessorComandBase.cs",
-              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Command\\PreProcessorCommands\\PreProcessorComandBase.cs",
-              "RelativeDocumentMoniker": "sapr\\Command\\PreProcessorCommands\\PreProcessorComandBase.cs",
-              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Command\\PreProcessorCommands\\PreProcessorComandBase.cs",
-              "RelativeToolTip": "sapr\\Command\\PreProcessorCommands\\PreProcessorComandBase.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAjwEoAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T12:13:27.856Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "FindHihest.cs",
-              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Utilities\\FindHihest.cs",
-              "RelativeDocumentMoniker": "sapr\\Utilities\\FindHihest.cs",
-              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Utilities\\FindHihest.cs",
-              "RelativeToolTip": "sapr\\Utilities\\FindHihest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T23:13:32.374Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "sapr\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\MainWindow.xaml.cs",
-              "RelativeToolTip": "sapr\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABwAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-18T19:48:03.596Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "ToDoList.tt",
-              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Utilities\\ToDoList.tt",
-              "RelativeDocumentMoniker": "sapr\\Utilities\\ToDoList.tt",
-              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Utilities\\ToDoList.tt",
-              "RelativeToolTip": "sapr\\Utilities\\ToDoList.tt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-10-26T20:51:08.792Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "ToDoList.txt",
-              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Utilities\\ToDoList.txt",
-              "RelativeDocumentMoniker": "sapr\\Utilities\\ToDoList.txt",
-              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Utilities\\ToDoList.txt",
-              "RelativeToolTip": "sapr\\Utilities\\ToDoList.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-10-26T20:51:17.317Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "RemoveSupportCommand.cs",
-              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Command\\PreProcessorCommands\\RemoveSupportCommand.cs",
-              "RelativeDocumentMoniker": "sapr\\Command\\PreProcessorCommands\\RemoveSupportCommand.cs",
-              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Command\\PreProcessorCommands\\RemoveSupportCommand.cs",
-              "RelativeToolTip": "sapr\\Command\\PreProcessorCommands\\RemoveSupportCommand.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAD4vzQAAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T12:37:29.495Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "AddSupportCommand.cs",
-              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Command\\PreProcessorCommands\\AddSupportCommand.cs",
-              "RelativeDocumentMoniker": "sapr\\Command\\PreProcessorCommands\\AddSupportCommand.cs",
-              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Command\\PreProcessorCommands\\AddSupportCommand.cs",
-              "RelativeToolTip": "sapr\\Command\\PreProcessorCommands\\AddSupportCommand.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAIwCwAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T12:44:27.994Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "LoadCommand.cs",
-              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Command\\PreProcessorCommands\\LoadCommand.cs",
-              "RelativeDocumentMoniker": "sapr\\Command\\PreProcessorCommands\\LoadCommand.cs",
-              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Command\\PreProcessorCommands\\LoadCommand.cs",
-              "RelativeToolTip": "sapr\\Command\\PreProcessorCommands\\LoadCommand.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAiwDcAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T12:40:50.677Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "CalculateCommand.cs",
-              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Command\\PreProcessorCommands\\CalculateCommand.cs",
-              "RelativeDocumentMoniker": "sapr\\Command\\PreProcessorCommands\\CalculateCommand.cs",
-              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Command\\PreProcessorCommands\\CalculateCommand.cs",
-              "RelativeToolTip": "sapr\\Command\\PreProcessorCommands\\CalculateCommand.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-18T18:54:57.412Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
               "Title": "SaveCommand.cs",
               "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Command\\PreProcessorCommands\\SaveCommand.cs",
               "RelativeDocumentMoniker": "sapr\\Command\\PreProcessorCommands\\SaveCommand.cs",
               "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Command\\PreProcessorCommands\\SaveCommand.cs",
               "RelativeToolTip": "sapr\\Command\\PreProcessorCommands\\SaveCommand.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACUAAAAAAAAAAAAQwDAAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-18T22:47:21.505Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "ClearCommand.cs",
-              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Command\\PreProcessorCommands\\ClearCommand.cs",
-              "RelativeDocumentMoniker": "sapr\\Command\\PreProcessorCommands\\ClearCommand.cs",
-              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Command\\PreProcessorCommands\\ClearCommand.cs",
-              "RelativeToolTip": "sapr\\Command\\PreProcessorCommands\\ClearCommand.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAZAAAAAAAAAA==",
+              "DocumentIndex": 12,
+              "Title": "TablesXU.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Views\\TablesXU.xaml.cs",
+              "RelativeDocumentMoniker": "sapr\\Views\\TablesXU.xaml.cs",
+              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Views\\TablesXU.xaml.cs",
+              "RelativeToolTip": "sapr\\Views\\TablesXU.xaml.cs",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAswHcAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T13:01:34.17Z"
+              "WhenOpened": "2024-10-27T18:49:48.833Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "NodeModel.cs",
-              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Models\\NodeModel.cs",
-              "RelativeDocumentMoniker": "sapr\\Models\\NodeModel.cs",
-              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Models\\NodeModel.cs",
-              "RelativeToolTip": "sapr\\Models\\NodeModel.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAqwC8AAAAAAAAAAAAAAA==",
+              "DocumentIndex": 14,
+              "Title": "DXStore.cs",
+              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Stores\\ProcessorStores\\DXStore.cs",
+              "RelativeDocumentMoniker": "sapr\\Stores\\ProcessorStores\\DXStore.cs",
+              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Stores\\ProcessorStores\\DXStore.cs",
+              "RelativeToolTip": "sapr\\Stores\\ProcessorStores\\DXStore.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAwAgAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-18T18:48:12.078Z"
+              "WhenOpened": "2024-11-07T21:24:14.382Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "NodesStore.cs",
-              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Stores\\NodesStore.cs",
-              "RelativeDocumentMoniker": "sapr\\Stores\\NodesStore.cs",
-              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Stores\\NodesStore.cs",
-              "RelativeToolTip": "sapr\\Stores\\NodesStore.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-17T21:45:59.062Z"
+              "DocumentIndex": 16,
+              "Title": "sapr",
+              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\sapr.csproj",
+              "RelativeDocumentMoniker": "sapr\\sapr.csproj",
+              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\sapr.csproj",
+              "RelativeToolTip": "sapr\\sapr.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-10-29T23:47:33.058Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "Test6.1.json",
-              "DocumentMoniker": "C:\\Users\\synok\\Desktop\\Test6.1.json",
-              "RelativeDocumentMoniker": "..\\..\\..\\Desktop\\Test6.1.json",
-              "ToolTip": "C:\\Users\\synok\\Desktop\\Test6.1.json",
-              "RelativeToolTip": "..\\..\\..\\Desktop\\Test6.1.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-10-18T16:18:20.994Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "123.json",
-              "DocumentMoniker": "C:\\Users\\synok\\Desktop\\123.json",
-              "RelativeDocumentMoniker": "..\\..\\..\\Desktop\\123.json",
-              "ToolTip": "C:\\Users\\synok\\Desktop\\123.json",
-              "RelativeToolTip": "..\\..\\..\\Desktop\\123.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-10-18T16:18:30.197Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "Test4.json",
-              "DocumentMoniker": "C:\\Users\\synok\\Desktop\\Test4.json",
-              "RelativeDocumentMoniker": "..\\..\\..\\Desktop\\Test4.json",
-              "ToolTip": "C:\\Users\\synok\\Desktop\\Test4.json",
-              "RelativeToolTip": "..\\..\\..\\Desktop\\Test4.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-10-18T16:18:57.08Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 17,
               "Title": "packages.config",
               "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\packages.config",
               "RelativeDocumentMoniker": "sapr\\packages.config",
@@ -607,49 +427,366 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ComparisonConverter.cs",
+              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Utilities\\ComparisonConverter.cs",
+              "RelativeDocumentMoniker": "sapr\\Utilities\\ComparisonConverter.cs",
+              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Utilities\\ComparisonConverter.cs",
+              "RelativeToolTip": "sapr\\Utilities\\ComparisonConverter.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAnwBQAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-10T21:28:16.445Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Setter.cs",
+              "DocumentMoniker": "C:\\Users\\synok\\AppData\\Local\\Temp\\.vsdbgsrc\\4b934ec77c3b59135ce68dbf05647b3a025d09a72fec1c0f34dd0c824d55c5c6\\Setter.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\4b934ec77c3b59135ce68dbf05647b3a025d09a72fec1c0f34dd0c824d55c5c6\\Setter.cs",
+              "ToolTip": "C:\\Users\\synok\\AppData\\Local\\Temp\\.vsdbgsrc\\4b934ec77c3b59135ce68dbf05647b3a025d09a72fec1c0f34dd0c824d55c5c6\\Setter.cs",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\4b934ec77c3b59135ce68dbf05647b3a025d09a72fec1c0f34dd0c824d55c5c6\\Setter.cs",
+              "ViewState": "AgIAAMgAAAAAAAAAAAD4v9wAAAAEAAAAAQAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-10T21:48:01.153Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "PreProcessorComandBase.cs",
+              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Command\\PreProcessorCommands\\PreProcessorComandBase.cs",
+              "RelativeDocumentMoniker": "sapr\\Command\\PreProcessorCommands\\PreProcessorComandBase.cs",
+              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Command\\PreProcessorCommands\\PreProcessorComandBase.cs",
+              "RelativeToolTip": "sapr\\Command\\PreProcessorCommands\\PreProcessorComandBase.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAIA5wEwAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-17T12:13:27.856Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "ClearCommand.cs",
+              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Command\\PreProcessorCommands\\ClearCommand.cs",
+              "RelativeDocumentMoniker": "sapr\\Command\\PreProcessorCommands\\ClearCommand.cs",
+              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Command\\PreProcessorCommands\\ClearCommand.cs",
+              "RelativeToolTip": "sapr\\Command\\PreProcessorCommands\\ClearCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-17T13:01:34.17Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "ProcrssorTables.cs",
+              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Utilities\\ProcrssorTables.cs",
+              "RelativeDocumentMoniker": "sapr\\Utilities\\ProcrssorTables.cs",
+              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Utilities\\ProcrssorTables.cs",
+              "RelativeToolTip": "sapr\\Utilities\\ProcrssorTables.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAA5wBIAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-27T19:08:59.53Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "NXStore.cs",
+              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Stores\\ProcessorStores\\NXStore.cs",
+              "RelativeDocumentMoniker": "sapr\\Stores\\ProcessorStores\\NXStore.cs",
+              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Stores\\ProcessorStores\\NXStore.cs",
+              "RelativeToolTip": "sapr\\Stores\\ProcessorStores\\NXStore.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-28T11:30:44.956Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "StepStore.cs",
+              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Stores\\ProcessorStores\\StepStore.cs",
+              "RelativeDocumentMoniker": "sapr\\Stores\\ProcessorStores\\StepStore.cs",
+              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Stores\\ProcessorStores\\StepStore.cs",
+              "RelativeToolTip": "sapr\\Stores\\ProcessorStores\\StepStore.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAzwCMAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-28T11:30:38.915Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "SuportStore.cs",
+              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Stores\\preProcesorStores\\SuportStore.cs",
+              "RelativeDocumentMoniker": "sapr\\Stores\\preProcesorStores\\SuportStore.cs",
+              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Stores\\preProcesorStores\\SuportStore.cs",
+              "RelativeToolTip": "sapr\\Stores\\preProcesorStores\\SuportStore.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAD4vzAAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-28T13:38:05.831Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "CommandBase.cs",
+              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Command\\CommandBase.cs",
+              "RelativeDocumentMoniker": "sapr\\Command\\CommandBase.cs",
+              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Command\\CommandBase.cs",
+              "RelativeToolTip": "sapr\\Command\\CommandBase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T20:17:47.029Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "ProccesorView.xaml",
+              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Views\\ProccesorView.xaml",
+              "RelativeDocumentMoniker": "sapr\\Views\\ProccesorView.xaml",
+              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Views\\ProccesorView.xaml",
+              "RelativeToolTip": "sapr\\Views\\ProccesorView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-17T11:46:32.061Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "TablesViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\ViewModels\\TablesViewModel.cs",
+              "RelativeDocumentMoniker": "sapr\\ViewModels\\TablesViewModel.cs",
+              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\ViewModels\\TablesViewModel.cs",
+              "RelativeToolTip": "sapr\\ViewModels\\TablesViewModel.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA4AAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-28T11:48:30.254Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "ToDoList.txt",
+              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Utilities\\ToDoList.txt",
+              "RelativeDocumentMoniker": "sapr\\Utilities\\ToDoList.txt",
+              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Utilities\\ToDoList.txt",
+              "RelativeToolTip": "sapr\\Utilities\\ToDoList.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-10-26T20:51:17.317Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "ToDoList.tt",
+              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Utilities\\ToDoList.tt",
+              "RelativeDocumentMoniker": "sapr\\Utilities\\ToDoList.tt",
+              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Utilities\\ToDoList.tt",
+              "RelativeToolTip": "sapr\\Utilities\\ToDoList.tt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-10-26T20:51:08.792Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "NodeModel.cs",
+              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Models\\NodeModel.cs",
+              "RelativeDocumentMoniker": "sapr\\Models\\NodeModel.cs",
+              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Models\\NodeModel.cs",
+              "RelativeToolTip": "sapr\\Models\\NodeModel.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAArwBgAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T18:48:12.078Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 36,
+              "Title": "TablesXU.xaml",
+              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Views\\TablesXU.xaml",
+              "RelativeDocumentMoniker": "sapr\\Views\\TablesXU.xaml",
+              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Views\\TablesXU.xaml",
+              "RelativeToolTip": "sapr\\Views\\TablesXU.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-26T20:16:00.15Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\App.xaml",
+              "RelativeDocumentMoniker": "sapr\\App.xaml",
+              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\App.xaml",
+              "RelativeToolTip": "sapr\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-28T11:41:06.997Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "App.config",
+              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\App.config",
+              "RelativeDocumentMoniker": "sapr\\App.config",
+              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\App.config",
+              "RelativeToolTip": "sapr\\App.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-10-28T11:55:21.546Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "ViewModelBase.cs",
+              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\ViewModels\\ViewModelBase.cs",
+              "RelativeDocumentMoniker": "sapr\\ViewModels\\ViewModelBase.cs",
+              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\ViewModels\\ViewModelBase.cs",
+              "RelativeToolTip": "sapr\\ViewModels\\ViewModelBase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-25T18:31:33.417Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "AddSupportCommand.cs",
+              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Command\\PreProcessorCommands\\AddSupportCommand.cs",
+              "RelativeDocumentMoniker": "sapr\\Command\\PreProcessorCommands\\AddSupportCommand.cs",
+              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Command\\PreProcessorCommands\\AddSupportCommand.cs",
+              "RelativeToolTip": "sapr\\Command\\PreProcessorCommands\\AddSupportCommand.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAgwCsAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-17T12:44:27.994Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "RemoveSupportCommand.cs",
+              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Command\\PreProcessorCommands\\RemoveSupportCommand.cs",
+              "RelativeDocumentMoniker": "sapr\\Command\\PreProcessorCommands\\RemoveSupportCommand.cs",
+              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Command\\PreProcessorCommands\\RemoveSupportCommand.cs",
+              "RelativeToolTip": "sapr\\Command\\PreProcessorCommands\\RemoveSupportCommand.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABgAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-17T12:37:29.495Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "LoadCommand.cs",
+              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Command\\PreProcessorCommands\\LoadCommand.cs",
+              "RelativeDocumentMoniker": "sapr\\Command\\PreProcessorCommands\\LoadCommand.cs",
+              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Command\\PreProcessorCommands\\LoadCommand.cs",
+              "RelativeToolTip": "sapr\\Command\\PreProcessorCommands\\LoadCommand.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAArwBQAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-17T12:40:50.677Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "CalculateCommand.cs",
+              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Command\\PreProcessorCommands\\CalculateCommand.cs",
+              "RelativeDocumentMoniker": "sapr\\Command\\PreProcessorCommands\\CalculateCommand.cs",
+              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Command\\PreProcessorCommands\\CalculateCommand.cs",
+              "RelativeToolTip": "sapr\\Command\\PreProcessorCommands\\CalculateCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T18:54:57.412Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "FindHihest.cs",
+              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Utilities\\FindHihest.cs",
+              "RelativeDocumentMoniker": "sapr\\Utilities\\FindHihest.cs",
+              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Utilities\\FindHihest.cs",
+              "RelativeToolTip": "sapr\\Utilities\\FindHihest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T23:13:32.374Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "NodesStore.cs",
+              "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Stores\\NodesStore.cs",
+              "RelativeDocumentMoniker": "sapr\\Stores\\NodesStore.cs",
+              "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Stores\\NodesStore.cs",
+              "RelativeToolTip": "sapr\\Stores\\NodesStore.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-17T21:45:59.062Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "Test6.1.json",
+              "DocumentMoniker": "C:\\Users\\synok\\Desktop\\Test6.1.json",
+              "RelativeDocumentMoniker": "..\\..\\..\\Desktop\\Test6.1.json",
+              "ToolTip": "C:\\Users\\synok\\Desktop\\Test6.1.json",
+              "RelativeToolTip": "..\\..\\..\\Desktop\\Test6.1.json",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-10-18T16:18:20.994Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "123.json",
+              "DocumentMoniker": "C:\\Users\\synok\\Desktop\\123.json",
+              "RelativeDocumentMoniker": "..\\..\\..\\Desktop\\123.json",
+              "ToolTip": "C:\\Users\\synok\\Desktop\\123.json",
+              "RelativeToolTip": "..\\..\\..\\Desktop\\123.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-10-18T16:18:30.197Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "Test4.json",
+              "DocumentMoniker": "C:\\Users\\synok\\Desktop\\Test4.json",
+              "RelativeDocumentMoniker": "..\\..\\..\\Desktop\\Test4.json",
+              "ToolTip": "C:\\Users\\synok\\Desktop\\Test4.json",
+              "RelativeToolTip": "..\\..\\..\\Desktop\\Test4.json",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-10-18T16:18:57.08Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
               "Title": "NXStore.cs",
               "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Stores\\NXStore.cs",
               "RelativeDocumentMoniker": "sapr\\Stores\\NXStore.cs",
               "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Stores\\NXStore.cs",
               "RelativeToolTip": "sapr\\Stores\\NXStore.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAawC0AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-17T21:45:29.003Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 46,
               "Title": "EPowerStore.cs",
               "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Stores\\EPowerStore.cs",
               "RelativeDocumentMoniker": "sapr\\Stores\\EPowerStore.cs",
               "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Stores\\EPowerStore.cs",
               "RelativeToolTip": "sapr\\Stores\\EPowerStore.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-17T21:45:36.532Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 47,
               "Title": "SmthStore.cs",
               "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Stores\\SmthStore.cs",
               "RelativeDocumentMoniker": "sapr\\Stores\\SmthStore.cs",
               "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Stores\\SmthStore.cs",
               "RelativeToolTip": "sapr\\Stores\\SmthStore.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAYwDYAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-17T21:45:39.61Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 48,
               "Title": "UXstore.cs",
               "DocumentMoniker": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Stores\\UXstore.cs",
               "RelativeDocumentMoniker": "sapr\\Stores\\UXstore.cs",
               "ToolTip": "C:\\Users\\synok\\source\\repos\\sapr\\sapr\\Stores\\UXstore.cs",
               "RelativeToolTip": "sapr\\Stores\\UXstore.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAAwCUAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-18T08:44:11.688Z"
             }

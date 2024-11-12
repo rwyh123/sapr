@@ -11,7 +11,7 @@ namespace sapr.Stores.ProcessorStores
         private static StepStore instance;
 
         // Приватное поле для хранения пользовательских данных
-        public int Step;
+        public double Step;
 
         // Приватный конструктор
         private StepStore()
@@ -33,13 +33,13 @@ namespace sapr.Stores.ProcessorStores
         }
 
         // Метод для установки пользовательских данных
-        public void SetUserData(int step)
+        public void SetUserData(double step)
         {
             Step = step;
         }
 
         // Метод для получения пользовательских данных
-        public int GetUserData()
+        public double GetUserData()
         {
             return Step;
         }

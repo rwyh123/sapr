@@ -14,6 +14,7 @@ namespace sapr.Command.PreProcessorCommands
 {
     public class AddSupportCommand : PreProcessorComandBase
     {
+        public event EventHandler ChangeState;
         public AddSupportCommand(PreProcessorViewModel preProcessorViewModel) : base(preProcessorViewModel)
         {
         }
@@ -41,7 +42,7 @@ namespace sapr.Command.PreProcessorCommands
                 supp.Model.Stroke = Brushes.Black;
                 supp.Model.StrokeThickness = 1;
                 supp.Model.Uid = _preProcessorViewModel.SupportCount.ToString();
-                supp.Model.SizeChanged += PreProcessorViewModel.CnangeState;
+                ChangeState?.Invoke(false, EventArgs.Empty);
                 _preProcessorViewModel.IsProcessorCalculated = false;
                 _preProcessorViewModel.SupportCount++;
 

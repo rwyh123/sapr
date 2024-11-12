@@ -46,7 +46,7 @@
 
         <TabControl Grid.Column="1">
             <TabItem Header="Tables">
-                <local:UserControl1/>
+                <local:TablesXU/>
             </TabItem>
         </TabControl>
     </Grid>

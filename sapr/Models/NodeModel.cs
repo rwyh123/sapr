@@ -12,15 +12,17 @@ namespace sapr.Models
     public class NodeModel : ModelBase
     {
         private double _poPower;
+        public event EventHandler ChangeState;
 
-		public double PoPower
+
+        public double PoPower
 		{
 			get { return _poPower; }
 			set
 			{
 				_poPower = value;
 				OnPropertyChanged(nameof(PoPower));
-                PreProcessorViewModel.CnangeState(false);
+				ChangeState?.Invoke(false, EventArgs.Empty);
             }
 		}
 

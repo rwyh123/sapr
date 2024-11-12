@@ -52,7 +52,7 @@ namespace sapr.Command.PreProcessorCommands
                 else if (sp.Model != null)
                 {
                     _preProcessorViewModel.Shapes.CollectionChanged -= _preProcessorViewModel.Draw;
-                    sp.Model.SizeChanged += PreProcessorViewModel.CnangeState;
+                    _preProcessorViewModel.IsProcessorCalculated = false;
                     _preProcessorViewModel.Shapes.Add(sp);
                     _preProcessorViewModel.Shapes.CollectionChanged += _preProcessorViewModel.Draw;
                     ResizeCanvas((int)sp.Model.Height, (int)sp.Model.Width);

@@ -14,6 +14,7 @@ namespace sapr.Models
 {
     public class SupportModelv2 : ModelBase
     {
+        public event EventHandler ChangeState;
         private double prPower;
         [JsonConverter(typeof(RectangleConverter))]
         private Rectangle model;
@@ -34,7 +35,7 @@ namespace sapr.Models
             set
             {
                 prPower = value;
-                PreProcessorViewModel.CnangeState(false);
+                ChangeState?.Invoke(false, EventArgs.Empty);
             }
         }
 

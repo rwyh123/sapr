@@ -10,6 +10,7 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Media3D;
@@ -31,22 +32,23 @@ namespace sapr.ViewModels
         private string myTextNX;
         private string myTextDX;
         private string myTextUX;
-        private int step;
+        private double step = 25;
         
-
-        public int Step
+        public double Step
         {
             get { return step; }
             set
             {
-                step = value;
-                OnPropertyChanged(nameof(Step));
+                if (value > 0)
+                {step = value;
+                    OnPropertyChanged(nameof(Step));
+                }else
+                {
+                    MessageBox.Show("Step must be positive itager", "Warning");
+                    step = Step;
+                }
             }
         }
-
-
-        
-
 
         public string MyTextNX
         {
@@ -127,7 +129,7 @@ namespace sapr.ViewModels
             NX = new Dictionary<string, double>();
             DX = new Dictionary<string, double>();
             UX = new Dictionary<string, double>();
-            PreProcessorCalculations = new PreProcessorCalculationsCommand(this);
+            PreProcessorCalculations = new ProcessorCalculationsCommand(this);
         }
 
 
