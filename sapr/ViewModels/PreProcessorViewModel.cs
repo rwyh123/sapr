@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using Newtonsoft.Json.Linq;
+using PdfSharp.Drawing;
 using sapr.Command;
 using sapr.Command.PreProcessorCommands;
 using sapr.Models;
@@ -35,7 +36,6 @@ namespace sapr.ViewModels
         public SuportStore store = SuportStore.Instance;
         public SmthStore smthStore = SmthStore.Instance;
         public NodesStore nodesStore = NodesStore.Instance;
-        public EPowerStore ePowerStore = EPowerStore.Instance;
         private static double canvasActualHeight;
         private static double canvasActualLenght;
         private double canvasHeight = double.NaN; 
@@ -341,7 +341,7 @@ namespace sapr.ViewModels
 
         //Methods
 
-        private Path GenerateBorder(Rectangle rect)
+        private Path GenerateBorder(Rectangle rect,bool inv)
         {
             //  !!1.Переделать создание опоры, не ноая фунция а переоворот получившейся первой 
             //сдесь, карочче разобратсья чтобы длиина и высота штучек завичсела там от размеров ректайнгла.
@@ -350,7 +350,7 @@ namespace sapr.ViewModels
             if (rect.Height > 10)
                 modelHeight = 1000;
             else
-                modelHeight = rect.Width * 100;
+                modelHeight = rect.Height * 100;
             if (rect.Width > 10)
                 modelWidth = 1000;
             else
@@ -367,11 +367,20 @@ namespace sapr.ViewModels
             group.Children.Add(line);
             for (int i = 0; i < modelHeight;)
             {
-                line = new LineGeometry();
-                line.StartPoint = new Point(0, i);
-                line.EndPoint = new Point(ParticulWigth, i + ParticulWigth);
+                if(inv)
+                {line = new LineGeometry();
+                line.StartPoint = new Point(0, i + ParticulWigth);
+                line.EndPoint = new Point(ParticulWigth, i );
                 group.Children.Add(line);
-                i += ParticulWigth;
+                    i += ParticulWigth;
+                }else
+                {
+                    line = new LineGeometry();
+                    line.StartPoint = new Point(0, i );
+                    line.EndPoint = new Point(ParticulWigth, i + ParticulWigth);
+                    group.Children.Add(line);
+                    i += ParticulWigth;
+                }
             }
             path.Data = group;
             path.MaxHeight = modelHeight;
@@ -386,7 +395,7 @@ namespace sapr.ViewModels
             if (rect.Height > 10)
                 modelHeight = 1000;
             else
-                modelHeight = rect.Width * 100;
+                modelHeight = rect.Height * 100;
             if (rect.Width > 10)
                 modelWidth = 1000;
             else
@@ -425,7 +434,7 @@ namespace sapr.ViewModels
             if (rect.Height > 10)
                 modelHeight = 1000;
             else
-                modelHeight = rect.Width * 100;
+                modelHeight = rect.Height * 100;
             if (rect.Width > 10)
                 modelWidth = 1000;
             else
@@ -457,14 +466,15 @@ namespace sapr.ViewModels
             path.MaxHeight = ParticulWigth * 2;
             return path;
         }
+        //generete
         private Path GenereteCoordinatePlane()
         {
             Path path = new Path();
+            
             path.Stroke = Brushes.Black;
             path.StrokeThickness = 1;
 
             GeometryGroup group = new GeometryGroup();
-
 
 
             int NplussesWA = 0;
@@ -472,12 +482,25 @@ namespace sapr.ViewModels
             int minus = 0;
             for (int j = 0; j <= shapes.Count(); j++)
             {
+                
                 if (j != shapes.Count())
-                { NplussesWC = (int)shapes[j].Model.Width * 100; }
+                {
+                    if (shapes[j].Model.Width > 10)
+                        NplussesWC = 1000;
+                    else
+                        NplussesWC = (int)shapes[j].Model.Width * 100;
+                }
                 else
                     minus++;
                 LineGeometry LVline = new LineGeometry();
-                LVline.StartPoint = new Point(NplussesWA, shapes[j - minus].Model.Height / 2 * 100);
+
+                double modelHeight;
+                if (shapes[j - minus].Model.Height > 10)
+                    modelHeight = 10;
+                else
+                    modelHeight = shapes[j - minus].Model.Height;
+
+                LVline.StartPoint = new Point(NplussesWA, modelHeight / 2 * 100);
                 LVline.EndPoint = new Point(NplussesWA, MaxHeight / 2 + 500 + 50);
                 group.Children.Add(LVline);
                 NplussesWA += NplussesWC;
@@ -508,11 +531,14 @@ namespace sapr.ViewModels
             for (int i = 0; i < shapes.Count(); i++)
             {
 
-
+                if (shapes[i].Model.Width > 10)
+                    plussesWC = 1000;
+                else
                     plussesWC = (int)shapes[i].Model.Width * 100;
 
 
-                    if (shapes[i].PrPower == 0)
+
+                if (shapes[i].PrPower == 0)
                     {
 
                         double PointX1 = plussesWA;
@@ -659,7 +685,11 @@ namespace sapr.ViewModels
 
             for (int i = 0; i < shapes.Count(); i++)
             {
-                plussesWC = (int)shapes[i].Model.Width * 100;
+                if (shapes[i].Model.Width > 10)
+                    plussesWC = 1000;
+                else
+                    plussesWC = (int)shapes[i].Model.Width * 100;
+
                 if (shapes[i].PrPower == 0)
                 {
 
@@ -764,10 +794,11 @@ namespace sapr.ViewModels
                     {
                         crosX = shapes[i].Model.Width / 2;
                         //здесь не скадывать а брать большее
-                        if(Ni0 < NiL)
+                        if (Ui0 > UiL)
                             assW = (UXStore.Instance.GetUserData()[$"U{i + 1}(0): "]) * cubm;
                         else
                             assW = (UXStore.Instance.GetUserData()[$"U{i + 1}(L): "]) * cubm;
+
                     }
                     else
                     {
@@ -776,7 +807,7 @@ namespace sapr.ViewModels
                         crosX = Math.Abs(NXStore.Instance.GetUserData()[$"N{i + 1}(0): "] / kcoof);
 
                         assW = Math.Abs(-UXStore.Instance.GetUserData()[$"U{i + 1}(L): "]
-                                + ((-NXStore.Instance.GetUserData()[$"N{i + 1}(0): "] * crosX / 2) / EPowerStore.Instance.GetUserData() * shapes[i].Model.Height)) * cubm;
+                                + ((-NXStore.Instance.GetUserData()[$"N{i + 1}(0): "] * crosX / 2) / Shapes[i].E * shapes[i].Model.Height)) * cubm;
                       
                     }
 
@@ -876,7 +907,11 @@ namespace sapr.ViewModels
             for (int i = 0; i < shapes.Count(); i++)
             {
 
-                plussesWC = (int)shapes[i].Model.Width * 100;
+                if (shapes[i].Model.Width > 10)
+                    plussesWC = 1000;
+                else
+                    plussesWC = (int)shapes[i].Model.Width * 100;
+
 
 
                 if (shapes[i].PrPower == 0)
@@ -1109,7 +1144,11 @@ namespace sapr.ViewModels
             int height = 0;
             foreach (var elm in shapes)
                 if (elm.Model.Height > height)
+                {
+                    if(elm.Model.Height > 10)
+                        return 10;
                     height = (int)elm.Model.Height;
+                }
             return height;
         }
         //draw123
@@ -1145,13 +1184,14 @@ namespace sapr.ViewModels
 
                     ShortArrow = GenereteShortArrow(sp.Model);
 
+
                     double modelHeight;
                     double modelWidth;
                     if (sp.Model.Height > 10)
                         modelHeight = 1000;
                     else
-                        modelHeight = sp.Model.Width * 100;
-                    if (sp.Model.Width  > 10)
+                        modelHeight = sp.Model.Height * 100;
+                    if (sp.Model.Width > 10)
                         modelWidth = 1000;
                     else
                         modelWidth = sp.Model.Width * 100;
@@ -1305,6 +1345,7 @@ namespace sapr.ViewModels
                     }
                     if (Index == shapes.Count && SupportCount > 1)
                     {
+                        //КЕдси остаетсья один то проблемсв !!
                         //стрелочка слева для дефолт квадратика
                         if (Nodes[Index - 1].PoPower > 0)
                         {
@@ -1369,7 +1410,7 @@ namespace sapr.ViewModels
                 if (LeftSmth)
                 {
                     Path LeftMyShape = new Path();
-                    LeftMyShape = GenerateBorder(Shapes[0].Model);
+                    LeftMyShape = GenerateBorder(Shapes[0].Model, true);
                     Canvas.SetTop(LeftMyShape, CanvasActualHenght / 2 - LeftMyShape.MaxHeight / 2);
                     Canvas.SetLeft(LeftMyShape, CanvasActualLenhgt / 2 - 10 - PlussesWihth / 2);
                     LeftMyShape.Uid = "Left";
@@ -1378,7 +1419,7 @@ namespace sapr.ViewModels
                 if (RightSmth)
                 {
                     Path myShape = new Path();
-                    myShape = GenerateBorder(Shapes[Shapes.Count - 1].Model);
+                    myShape = GenerateBorder(Shapes[Shapes.Count - 1].Model,false);
                     myShape.LayoutTransform = new ScaleTransform(-1, 1);
                     Canvas.SetTop(myShape, CanvasActualHenght / 2 - myShape.MaxHeight / 2);
                     Canvas.SetLeft(myShape, CanvasActualLenhgt / 2 + PlussesWihth / 2);
@@ -1392,6 +1433,26 @@ namespace sapr.ViewModels
                     path.Stroke = Brushes.Black;
                     Canvas.SetTop(path, CanvasActualHenght / 2);
                     Canvas.SetLeft(path, CanvasActualLenhgt / 2 - PlussesWihth / 2);
+
+                    TextBlock blockNx = new TextBlock();
+                    TextBlock blockUx = new TextBlock();
+                    TextBlock blockDx = new TextBlock();
+                    
+                    blockNx.Text = "Nx";
+                    Canvas.SetTop(blockNx, CanvasActualHenght / 2  + MaxHeight / 2 + 90);
+                    Canvas.SetLeft(blockNx, CanvasActualLenhgt / 2 - PlussesWihth / 2 - 20);
+                    CanvasChildrens.Add(blockNx);
+
+                    blockUx.Text = "Ux";
+                    Canvas.SetTop(blockUx, CanvasActualHenght / 2 + MaxHeight / 2 + 290);
+                    Canvas.SetLeft(blockUx, CanvasActualLenhgt / 2 - PlussesWihth / 2 - 20);
+                    CanvasChildrens.Add(blockUx);
+
+                    blockDx.Text = "Dx";
+                    Canvas.SetTop(blockDx, CanvasActualHenght / 2 + MaxHeight / 2 + 490);
+                    Canvas.SetLeft(blockDx, CanvasActualLenhgt / 2 - PlussesWihth / 2 - 20);
+                    CanvasChildrens.Add(blockDx);
+
                     CanvasChildrens.Insert(0,path);
 
                     foreach (UIElement uIElement in CanvasChildrens)
@@ -1418,11 +1479,15 @@ namespace sapr.ViewModels
             isProcessorCalculated = false;
         }
 
+
         public double CalculateAllWidth()
         {
             double AllWidth = 0;
             foreach(var item in Shapes)
             {
+                if(item.Model.Width > 10)
+                    AllWidth += 10;
+                else
                 AllWidth += item.Model.Width;
             }
             return AllWidth;
@@ -1441,12 +1506,14 @@ namespace sapr.ViewModels
         //cinstruct
         public PreProcessorViewModel()
         {
-            EPowerStore.Instance.SetUserData(E);
             NodesStore.Instance.SetUserData(Nodes);
             SuportStore.Instance.SetUserData(Shapes);
             SmthStore.Instance.SetUserData(LeftSmth, RightSmth);
             CanvasChildrens = new ObservableCollection<UIElement>();
+            SupportModelv2.ChangeState += CnangeState;
+            NodeModel.ChangeState += CnangeState;
             Shapes.CollectionChanged += Draw;
+            Nodes.CollectionChanged += Draw;
             E = 1;
             AddSupport = new AddSupportCommand(this);
             RemoveSupport = new RemoveSupportCommand(this);
@@ -1457,6 +1524,7 @@ namespace sapr.ViewModels
             ProcessorCalculationsCommand.ChangeState += CnangeState;
             CanvasHenght = 0;
             CanvasLenhgt = 0;
+            CommandBase.NeedToDraw += Draw;
         }
 
 

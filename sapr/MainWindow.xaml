@@ -15,10 +15,10 @@
     
 
     <TabControl>
-        <TabItem Header="PreProcessor">
+        <TabItem Header="ПреПроцессор">
             <v:PreProcessorView/>
         </TabItem>
-        <TabItem Header="PostProcessor" IsEnabled="{Binding PostProcessorEnabled}">
+        <TabItem Header="ПостПроцессор" IsEnabled="{Binding PostProcessorEnabled}">
             <v:ProccesorView/>
         </TabItem>
     </TabControl>

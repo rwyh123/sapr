@@ -36,9 +36,13 @@ namespace sapr.Command.PreProcessorCommands
                 _preProcessorViewModel.Nodes.Add(node);
 
                 //create shape
-
                 supp.Model.Height = int.Parse(window.Radius);
                 supp.Model.Width = int.Parse(window.Lenght);
+
+                if (int.Parse(window.Lenght) < 10 && int.Parse(window.Lenght) >= 1)
+                    supp.Multiplayer = 1;
+                else
+                    supp.Multiplayer = 0;
                 supp.Model.Stroke = Brushes.Black;
                 supp.Model.StrokeThickness = 1;
                 supp.Model.Uid = _preProcessorViewModel.SupportCount.ToString();

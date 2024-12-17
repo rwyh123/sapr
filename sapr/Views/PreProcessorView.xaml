@@ -15,13 +15,13 @@
     <DockPanel LastChildFill="True">
         <StackPanel DockPanel.Dock="Top" Orientation="Vertical" Width="100" HorizontalAlignment="Left">
             <Menu VerticalAlignment="Center">
-                <MenuItem Header="file" Width="25">
-                    <MenuItem Header="Load from file" Command="{Binding Load}"/>
-                    <MenuItem Header="Save file" Command="{Binding Save}" IsEnabled="{Binding IsSupportCountNotull}"/>
+                <MenuItem Header="Файл" >
+                    <MenuItem Header="Загрузка" Command="{Binding Load}"/>
+                    <MenuItem Header="Сохранить как" Command="{Binding Save}" IsEnabled="{Binding IsSupportCountNotull}"/>
                     <Separator/>
-                    <MenuItem Header="Clear" Command="{Binding Clear}" IsEnabled="{Binding IsSupportCountNotull}"/>
+                    <MenuItem Header="Очистить" Command="{Binding Clear}" IsEnabled="{Binding IsSupportCountNotull}"/>
                     <Separator/>
-                    <MenuItem Header="Create report" Click="MenuItem_Click"  IsEnabled="{Binding IsSupportCountNotull}"/>
+                    <MenuItem Header="Сформировать отчет" Click="MenuItem_Click"  IsEnabled="{Binding IsSupportCountNotull}"/>
                 </MenuItem>
             </Menu>
         </StackPanel>
@@ -39,15 +39,15 @@
                         </Grid.RowDefinitions>
                         <StackPanel Orientation="Vertical" Grid.Row="1" HorizontalAlignment="Center">
                             <StackPanel Orientation="Horizontal" Margin="0,5">
-                                <Button Content="Add support" Margin="10,0" Command="{Binding AddSupport}">
+                                <Button Content="Добавить стержень" Margin="10,0" Command="{Binding AddSupport}">
                                 </Button>
-                                <Button Content="Remove support" Command="{Binding RemoveSupport}" IsEnabled="{Binding IsSupportCountNotull}">
+                                <Button Content="Удалить стержень" Command="{Binding RemoveSupport}" IsEnabled="{Binding IsSupportCountNotull}">
                                 </Button>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                <CheckBox Content="Smth left" Margin="10,0" IsChecked="{Binding LeftSmth,Mode=TwoWay}" IsEnabled="{Binding IsSupportCountNotull}">
+                                <CheckBox Content="Левая опора" Margin="10,0" IsChecked="{Binding LeftSmth,Mode=TwoWay}" IsEnabled="{Binding IsSupportCountNotull}">
                                 </CheckBox>
-                                <CheckBox Content="Smth right" IsChecked="{Binding RightSmth,Mode=TwoWay}" IsEnabled="{Binding IsSupportCountNotull}">
+                                <CheckBox Content="Правая опора" IsChecked="{Binding RightSmth,Mode=TwoWay}" IsEnabled="{Binding IsSupportCountNotull}">
                                 </CheckBox>
                             </StackPanel>
                         </StackPanel>
@@ -55,17 +55,14 @@
                             <ScrollViewer>
                                 <StackPanel Orientation="Vertical">
                                     <DataGrid x:Name="SupportTable" AutoGenerateColumns="False" ItemsSource="{Binding Shapes, Mode=TwoWay}" CanUserAddRows="False"
-                                              SelectedItem="{Binding SelectedShape}">
+                                              SelectedItem="{Binding SelectedShape}" CellEditEnding="DataGrid_CellEditEnding">
                                         <DataGrid.Columns>
-                                            <DataGridTextColumn Header="Numb" Binding="{Binding Path=Model.Uid, Mode=TwoWay}" IsReadOnly="True"/>
-                                            <DataGridTextColumn Header="Lenght" Binding="{Binding Path=Model.Width, Mode=TwoWay}">
-            
-                                            </DataGridTextColumn>
-                                            <DataGridTextColumn Header="Radius" Binding="{Binding Path=Model.Height, Mode=TwoWay}">
-
-                                            </DataGridTextColumn>
-                                            <DataGridTextColumn Header="PrPower" Binding="{Binding Path=PrPower, Mode=TwoWay}"/>
-                                            <DataGridTextColumn Header="AdmStress" Binding="{Binding Path=AdmissibleStress, Mode=TwoWay}"/>
+                                            <DataGridTextColumn Header="Номер" Binding="{Binding Path=Model.Uid, Mode=TwoWay}" IsReadOnly="True"/>
+                                            <DataGridTextColumn Header="Длина" Binding="{Binding Path=Model.Width, Mode=TwoWay}"/>
+                                            <DataGridTextColumn Header="Сечение" Binding="{Binding Path=Model.Height, Mode=TwoWay}"/>
+                                            <DataGridTextColumn Header="Распр.Нагрузка" Binding="{Binding Path=PrPower, Mode=TwoWay}"/>
+                                            <DataGridTextColumn Header="Допустимое напряжение" Binding="{Binding Path=AdmissibleStress, Mode=TwoWay}"/>
+                                            <DataGridTextColumn Header="Модуль упрогусти" Binding="{Binding Path=E, Mode=TwoWay}"/>
                                         </DataGrid.Columns>
                                     </DataGrid>
                                 </StackPanel>
@@ -83,8 +80,8 @@
                             <DataGrid x:Name="NodeTable" AutoGenerateColumns="False" ItemsSource="{Binding Nodes, Mode=TwoWay}" CanUserAddRows="False"
                                       SelectedItem="{Binding SelectedNode}">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Binding="{Binding Path=NodeNumber, Mode=TwoWay}" Header="Number" IsReadOnly="True"/>
-                                    <DataGridTextColumn Binding="{Binding Path=PoPower, Mode=TwoWay}" Header="PoPower"/>
+                                    <DataGridTextColumn Binding="{Binding Path=NodeNumber, Mode=TwoWay}" Header="Номер" IsReadOnly="True"/>
+                                    <DataGridTextColumn Binding="{Binding Path=PoPower, Mode=TwoWay}" Header="Сосредоточеная нагрузка"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                         </ScrollViewer>
@@ -106,7 +103,7 @@
                                     <RowDefinition Height="auto"/>
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
-                                <Label Content="CS" Grid.Column="0" Visibility="{Binding PositionLableVisability}"/>
+                                <Label Content="Глобальный X" Grid.Column="0" Visibility="{Binding PositionLableVisability}"/>
                                 <TextBox Grid.Row="1" Grid.Column="0" Text="{Binding CurentSup}" FontSize="20" IsReadOnly="True" Visibility="{Binding PositionLableVisability}"/>
                                 <Label Content="NX           |" Grid.Column="1" Visibility="{Binding PositionLableVisability}"/>
                                 <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding NX}" FontSize="20" IsReadOnly="True" Visibility="{Binding PositionLableVisability}"/>
@@ -120,11 +117,12 @@
                                     <RowDefinition/>
                                     <RowDefinition/>
                                 </Grid.RowDefinitions>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                                    <Label Content="modulus of elasticity"/>
-                                    <TextBox  Text="{Binding E,Mode=TwoWay}" FontSize="20" IsEnabled="{Binding IsSupportCountNotull}"/>
-                                </StackPanel>
-                                <Button Grid.Row="1" Content="Save result" Command="{Binding Calculate}" IsEnabled="{Binding CanBeCalculateed}"/>
+                                <!--<StackPanel Grid.Row="0" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10">
+                                    <Button Content="Дефолт" Click="ZoomDrf_Click" Width="30" Margin="10, 10" Height="30" Visibility="{Binding PositionLableVisability}"/>
+                                    <Button Content="+" Click="ZoomIn_Click" Width="30" Margin="10, 10" Height="30" Visibility="{Binding PositionLableVisability}"/>
+                                    <Button Content="-" Click="ZoomOut_Click" Width="30" Height="30" Visibility="{Binding PositionLableVisability}"/>
+                                </StackPanel>-->
+                                <Button Grid.Row="1" Content="Сохранить" Command="{Binding Calculate}" IsEnabled="{Binding CanBeCalculateed}"/>
                             </Grid>
                         </Grid>
                     </Border>
@@ -142,6 +140,9 @@
                             </ItemsPanelTemplate>
                         </ItemsControl.ItemsPanel>
                     </ItemsControl>
+                    <!--<Canvas.RenderTransform>
+                        <ScaleTransform x:Name="CanvasScaleTransform" ScaleX="1" ScaleY="1" />
+                    </Canvas.RenderTransform>-->
                 </Canvas>
             </ScrollViewer>
         </Border>

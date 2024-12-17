@@ -147,7 +147,6 @@
     <Compile Include="Models\ModelBase.cs" />
     <Compile Include="Models\NodeModel.cs" />
     <Compile Include="Models\SupportModelv2.cs" />
-    <Compile Include="Stores\preProcesorStores\EPowerStore.cs" />
     <Compile Include="Stores\preProcesorStores\NodesStore.cs" />
     <Compile Include="Stores\ProcessorStores\DXStore.cs" />
     <Compile Include="Stores\ProcessorStores\NXStore.cs" />

@@ -16,7 +16,7 @@ namespace sapr.Utilities
         {
             if (value is double dx && parameter is double stress)
             {
-                return dx > stress;
+                return Math.Abs(dx) > stress;
             }
             return false;
         }

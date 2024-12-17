@@ -41,5 +41,30 @@ namespace sapr.Utilities
         {
             this.DialogResult = true;
         }
+        private void DataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        {
+            if (e.Column.Header.ToString() == "Длина")
+            {
+                if (double.TryParse(((TextBox)e.EditingElement).Text, out double newValue))
+                {
+                    if (newValue < 0)
+                    {
+                        MessageBox.Show("Длина доложна быть не меньше нуля", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        e.Cancel = true; // Отменяет изменение
+                    }
+                }
+            }
+            else if (e.Column.Header.ToString() == "Сечение")
+            {
+                if (double.TryParse(((TextBox)e.EditingElement).Text, out double newValue))
+                {
+                    if (newValue < 0)
+                    {
+                        MessageBox.Show("Сечение доложно быть не меньше нуля", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        e.Cancel = true;
+                    }
+                }
+            }
+        }
     }
 }

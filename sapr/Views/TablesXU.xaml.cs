@@ -48,9 +48,9 @@ namespace sapr.Views
             {
                 List<ProcrssorTables> list = new List<ProcrssorTables>();
 
-                for (double j = 0; j <= SuportStore.Instance.GetUserData()[i].Model.Width * 100; j += StepStore.Instance.GetUserData())
+                for (double j = 0; j <= SuportStore.Instance.GetUserData()[i].Model.Width * 100; j += StepStore.Instance.GetUserData() * 100 )
                 {
-                    ProcrssorTables table = new ProcrssorTables(i+1, j, ProcessorCalculationsCommand.CalculateNX(i, j / 100),
+                    ProcrssorTables table = new ProcrssorTables(i+1, j / 100, ProcessorCalculationsCommand.CalculateNX(i, j / 100),
                                             ProcessorCalculationsCommand.CalculateUX(i, j / 100), ProcessorCalculationsCommand.CalculateDX(i, ProcessorCalculationsCommand.CalculateNX(i, j / 100)), SuportStore.Instance.GetUserData()[i].AdmissibleStress);
                     list.Add(table);
                 }
@@ -64,12 +64,12 @@ namespace sapr.Views
                 };
                 dataGrid.Columns.Add(new DataGridTextColumn()
                 {
-                    Header = "Support",
+                    Header = "Номер Стержня",
                     Binding = new Binding("Support")
                 });
                 dataGrid.Columns.Add(new DataGridTextColumn()
                 {
-                    Header = "Step",
+                    Header = "x",
                     Binding = new Binding("Step")
                 });
                 dataGrid.Columns.Add(new DataGridTextColumn()
@@ -109,7 +109,7 @@ namespace sapr.Views
 
                 dataGrid.Columns.Add(new DataGridTextColumn()
                 {
-                    Header = "Stress",
+                    Header = "Напряжение",
                     Binding = new Binding("Stress"),
                 });
 

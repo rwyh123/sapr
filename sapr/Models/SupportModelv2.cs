@@ -14,12 +14,29 @@ namespace sapr.Models
 {
     public class SupportModelv2 : ModelBase
     {
-        public event EventHandler ChangeState;
+        public static event EventHandler ChangeState;
         private double prPower;
         [JsonConverter(typeof(RectangleConverter))]
         private Rectangle model;
         private double admissibleStress;
+        private double e = 1;
+        private double multiplayer;
 
+        public double Multiplayer
+        {
+            get { return multiplayer; }
+            set { multiplayer = value; }
+        }
+
+        public double E
+        {
+            get { return e; }
+            set
+            {
+                e = value;
+                OnPropertyChanged(nameof(E));
+            }
+        }
         public double AdmissibleStress
         {
             get { return admissibleStress; }

@@ -12,7 +12,7 @@ namespace sapr.Models
     public class NodeModel : ModelBase
     {
         private double _poPower;
-        public event EventHandler ChangeState;
+        public static event EventHandler ChangeState;
 
 
         public double PoPower

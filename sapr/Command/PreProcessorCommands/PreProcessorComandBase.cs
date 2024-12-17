@@ -26,6 +26,13 @@ namespace sapr.Command.PreProcessorCommands
         }
         public static void ResizeCanvas(int radius, int lenght)
         {
+
+            if (lenght > 10)
+                lenght = 10;
+            if (radius > 10)
+                radius = 10;
+
+
             if (radius * 100 + plussesH > _preProcessorViewModel.CanvasActualHenght)
             {
                 _preProcessorViewModel.CanvasHenght = radius * 100 + plussesH;

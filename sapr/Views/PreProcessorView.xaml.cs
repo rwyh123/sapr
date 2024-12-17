@@ -43,6 +43,7 @@ namespace sapr.Views
                 scrollbar.UpdateLayout();
             };
             SupportTable.CurrentCellChanged += viewModel.Draw;
+            NodeTable.CurrentCellChanged += viewModel.Draw;
             WorkSpase.SizeChanged += viewModel.Draw;
 
         }
@@ -80,7 +81,10 @@ namespace sapr.Views
                 int id = 0;
                 if(int.TryParse(rect.Uid, out id) && viewModel.IsProcessorCalculated)
                 {
-                    viewModel.CurentSup = id;
+                    double globalX = 0;
+                    for (int i = 0; i < id - 1; i++)
+                        globalX += viewModel.Shapes[i].Model.Width;
+                    viewModel.CurentSup = Math.Round(globalX + pos.X / 100,3);
                     viewModel.NX = ProcessorCalculationsCommand.CalculateNX(id - 1, pos.X / 100);
                     viewModel.UX = ProcessorCalculationsCommand.CalculateUX(id - 1, pos.X / 100);
                     viewModel.DX = ProcessorCalculationsCommand.CalculateDX(id - 1, ProcessorCalculationsCommand.CalculateNX(id - 1, pos.X / 100));
@@ -88,11 +92,6 @@ namespace sapr.Views
                 }
 
             }
-            
-            
-
-
-
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
@@ -113,11 +112,11 @@ namespace sapr.Views
                 {
                     var page1 = document.AddPage();
                     var graphics1 = XGraphics.FromPdfPage(page1);
-                    var font = new XFont("Verdana", 10);
+                    var font = new XFont("Verdana", 7);
                     double yOffset = 20;
                     const double xOffset = 20;
                     const double rowHeight = 20;
-                    const double columnWidth = 100;
+                    const double columnWidth = 90;
                     const double gridSpacing = 30;
 
                     foreach (var dataGrid in Tables)
@@ -174,7 +173,7 @@ namespace sapr.Views
                     var page2 = document.AddPage();
                     var graphics2 = XGraphics.FromPdfPage(page2);
 
-                    double canvasWidth = WorkSpase.Width;
+                    double canvasWidth = WorkSpase.Width * 2;
                     double canvasHeight = WorkSpase.Height;
 
                     // Рендерим Canvas в RenderTargetBitmap с размерами страницы PDF
@@ -256,6 +255,72 @@ namespace sapr.Views
                 }
             }
         }
+        private void DataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        {
+            if (e.Column.Header.ToString() == "Длина")
+            {
+                if (double.TryParse(((TextBox)e.EditingElement).Text, out double newValue))
+                {
+                    if (newValue < 0)
+                    {
+                        MessageBox.Show("Длина доложна быть не меньше нуля", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        e.Cancel = true; // Отменяет изменение
+                    }
+                }
+            }
+            else if (e.Column.Header.ToString() == "Сечение")
+            {
+                if (double.TryParse(((TextBox)e.EditingElement).Text, out double newValue))
+                {
+                    if (newValue < 0)
+                    {
+                        MessageBox.Show("Сечение доложно быть не меньше нуля", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        e.Cancel = true;
+                    }
+                }
+            }
+        }
+
+        //private const double ZoomStep = 0.1; // Шаг изменения масштаба
+        //private const double MaxZoom = 3.0; // Максимальный масштаб
+        //private const double MinZoom = 0.2; // Минимальный масштаб
+
+        //private void ZoomIn_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if (CanvasScaleTransform.ScaleX < MaxZoom)
+        //    {
+        //        CanvasScaleTransform.ScaleX += ZoomStep;
+        //        CanvasScaleTransform.ScaleY += ZoomStep;
+        //        UpdateCanvasSizeNew();
+        //    }
+        //}
+
+        //private void ZoomOut_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if (CanvasScaleTransform.ScaleX > MinZoom)
+        //    {
+        //        CanvasScaleTransform.ScaleX -= ZoomStep;
+        //        CanvasScaleTransform.ScaleY -= ZoomStep;
+        //        UpdateCanvasSizeNew();
+        //    }
+        //}
+        //private void ZoomDrf_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if (CanvasScaleTransform.ScaleX > MinZoom)
+        //    {
+        //        CanvasScaleTransform.ScaleX = 1;
+        //        CanvasScaleTransform.ScaleY = 1;
+        //        UpdateCanvasSizeNew();
+        //    }
+        //}
+        //private void UpdateCanvasSizeNew()
+        //{
+        //    double width = WorkSpase.ActualWidth * CanvasScaleTransform.ScaleX;
+        //    double height = WorkSpase.ActualHeight * CanvasScaleTransform.ScaleY;
+
+        //    WorkSpase.Width = width;
+        //    WorkSpase.Height = height;
+        //}
     }
 
 

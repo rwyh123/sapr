@@ -38,14 +38,14 @@
                 </StackPanel>
             </ScrollViewer>
             <StackPanel Orientation="Vertical" Grid.Row="1">
-                <Label Content="Step" HorizontalAlignment="Center"/>
+                <Label Content="x" HorizontalAlignment="Center"/>
                 <TextBox Text="{Binding Step,Mode=TwoWay}"/>
             </StackPanel>
-            <Button  Grid.Row="2" Content="Calculate" VerticalAlignment="Bottom" Command="{Binding PreProcessorCalculations}" Height="20"/>
+            <Button  Grid.Row="2" Content="Расcчитать" VerticalAlignment="Bottom" Command="{Binding PreProcessorCalculations}" Height="20"/>
         </Grid>
 
         <TabControl Grid.Column="1">
-            <TabItem Header="Tables">
+            <TabItem Header="Таблицы">
                 <local:TablesXU/>
             </TabItem>
         </TabControl>

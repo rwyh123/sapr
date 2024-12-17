@@ -20,7 +20,9 @@ namespace sapr.Command.PreProcessorCommands
         {
             SupportModelv2 supportModel = new SupportModelv2();
             supportModel = _preProcessorViewModel.SelectedShape;
+            _preProcessorViewModel.Shapes.CollectionChanged -= _preProcessorViewModel.Draw;
             _preProcessorViewModel.Shapes.Remove(_preProcessorViewModel.Shapes.Where(x => x.Model.Uid == supportModel.Model.Uid).FirstOrDefault());
+            _preProcessorViewModel.Shapes.CollectionChanged += _preProcessorViewModel.Draw;
             _preProcessorViewModel.SupportCount--;
             _preProcessorViewModel.IsProcessorCalculated = false;
             ReFillNodesTable(supportModel.Model.Uid);

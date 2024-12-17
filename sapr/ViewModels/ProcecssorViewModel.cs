@@ -32,7 +32,7 @@ namespace sapr.ViewModels
         private string myTextNX;
         private string myTextDX;
         private string myTextUX;
-        private double step = 25;
+        private double step = 0.25;
         
         public double Step
         {
@@ -40,9 +40,11 @@ namespace sapr.ViewModels
             set
             {
                 if (value > 0)
-                {step = value;
+                {
+                    step = value;
                     OnPropertyChanged(nameof(Step));
-                }else
+                }
+                else
                 {
                     MessageBox.Show("Step must be positive itager", "Warning");
                     step = Step;
